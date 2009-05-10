@@ -22,25 +22,25 @@
 	[viewLayer setValue:statusbar forKey:@"status"];
 
 	//LIGHTS
-	CNLightLayer*light1 = [[CNLightLayer alloc] initWithLabel:@"CNPress"
+	CNLightLayer*light1 = [[CNLightLayer alloc] initWithLabel:@"press"
 									  observedGestureName:@"CNPress"
 												 andColor:CGColorCreateGenericCMYK(0.38, 0.03, 1.0, 0, 1)
 											  withConsole:NO];
 	light1.position = CGPointMake(100.0,25);
 	
-	CNLightLayer*light2 = [[CNLightLayer alloc] initWithLabel:@"CNTap"
+	CNLightLayer*light2 = [[CNLightLayer alloc] initWithLabel:@"update"
  									  observedGestureName:@"updateTouch"
 												 andColor:CGColorCreateGenericCMYK(0.07, 0.00, 0.91, 0, 1)
 											  withConsole:NO];
 	light2.position = CGPointMake(150.0,25);
 	
-	CNLightLayer*light3 = [[CNLightLayer alloc] initWithLabel:@"CNRelease"
+	CNLightLayer*light3 = [[CNLightLayer alloc] initWithLabel:@"release"
   									  observedGestureName:@"CNRelease"
 												 andColor:CGColorCreateGenericCMYK(0.03, 0.99, 0.37, 0, 1)
 												  withConsole:NO];
 	light3.position = CGPointMake(200.0,25);
 	
-	CNLightLayer*light4 = [[CNLightLayer alloc] initWithLabel:@"CNTap"
+	CNLightLayer*light4 = [[CNLightLayer alloc] initWithLabel:@"tap"
 									  observedGestureName:@"CNTap"
 												 andColor:CGColorCreateGenericCMYK(0.64, 0.02, 0.0, 0, 1)
 											  withConsole:NO];
@@ -52,12 +52,12 @@
 											  withConsole:NO];
 	light5.position = CGPointMake(300.0,25);
 	
-	CNLightLayer*light6 = [[CNLightLayer alloc] initWithLabel:@"CNHold"
+	CNLightLayer*light6 = [[CNLightLayer alloc] initWithLabel:@"hold"
 									  observedGestureName:@"CNHold"
 												 andColor:CGColorCreateGenericCMYK(0.86, 0.73, 0.0, 0, 1)
 											  withConsole:NO];
 	light6.position = CGPointMake(350.0,25);
-	CNLightLayer*light7 = [[CNLightLayer alloc] initWithLabel:@"Move" 
+	CNLightLayer*light7 = [[CNLightLayer alloc] initWithLabel:@"move" 
  									  observedGestureName:@"Move"
 												 andColor:CGColorCreateGenericCMYK(0.0, 1.0, 0.0, 0, 1)
 											  withConsole:YES];

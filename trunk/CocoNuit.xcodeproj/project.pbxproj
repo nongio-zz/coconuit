@@ -50,6 +50,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		B368F3810FB73B23000FE4E7 /* BBOSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B368F3800FB73B23000FE4E7 /* BBOSC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +138,7 @@
 		6963AA3B0FB70C7400B2287A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CocoNuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoNuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B368F3800FB73B23000FE4E7 /* BBOSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BBOSC.framework; path = ../../Library/Frameworks/BBOSC.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				6963AA380FB70C5E00B2287A /* QTKit.framework in Frameworks */,
 				6963AA3C0FB70C7400B2287A /* QuartzCore.framework in Frameworks */,
+				B368F3810FB73B23000FE4E7 /* BBOSC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +174,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B368F3800FB73B23000FE4E7 /* BBOSC.framework */,
 				6963AA3B0FB70C7400B2287A /* QuartzCore.framework */,
 				6963AA370FB70C5E00B2287A /* QTKit.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
@@ -499,6 +503,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -521,6 +526,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
