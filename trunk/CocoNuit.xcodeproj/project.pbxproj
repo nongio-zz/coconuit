@@ -47,6 +47,17 @@
 		6963A9DB0FB70AEF00B2287A /* CNUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963A9D70FB70AEF00B2287A /* CNUpdate.m */; };
 		6963AA380FB70C5E00B2287A /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6963AA370FB70C5E00B2287A /* QTKit.framework */; };
 		6963AA3C0FB70C7400B2287A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6963AA3B0FB70C7400B2287A /* QuartzCore.framework */; };
+		6963ADAC0FB7475500B2287A /* BBAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADA40FB7475400B2287A /* BBAppController.m */; };
+		6963ADAD0FB7475500B2287A /* BBOSCAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADA70FB7475500B2287A /* BBOSCAddress.m */; };
+		6963ADAE0FB7475500B2287A /* BBOSCArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADA90FB7475500B2287A /* BBOSCArgument.m */; };
+		6963ADAF0FB7475500B2287A /* BBOSCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADAB0FB7475500B2287A /* BBOSCBundle.m */; };
+		6963ADB60FB7476A00B2287A /* BBOSCDataUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADB10FB7476A00B2287A /* BBOSCDataUtilities.m */; };
+		6963ADB70FB7476A00B2287A /* BBOSCDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADB30FB7476A00B2287A /* BBOSCDecoder.m */; };
+		6963ADB80FB7476A00B2287A /* BBOSCDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADB50FB7476A00B2287A /* BBOSCDispatcher.m */; };
+		6963ADC10FB7477F00B2287A /* BBOSCListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADBA0FB7477F00B2287A /* BBOSCListener.m */; };
+		6963ADC20FB7477F00B2287A /* BBOSCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADBC0FB7477F00B2287A /* BBOSCMessage.m */; };
+		6963ADC30FB7477F00B2287A /* BBOSCPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADBE0FB7477F00B2287A /* BBOSCPacket.m */; };
+		6963ADC40FB7477F00B2287A /* BBOSCSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963ADC00FB7477F00B2287A /* BBOSCSender.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -135,6 +146,29 @@
 		6963A9D70FB70AEF00B2287A /* CNUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUpdate.m; sourceTree = "<group>"; };
 		6963AA370FB70C5E00B2287A /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		6963AA3B0FB70C7400B2287A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		6963ADA30FB7475400B2287A /* BBAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAppController.h; path = BBosc/src/BBAppController.h; sourceTree = "<group>"; };
+		6963ADA40FB7475400B2287A /* BBAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAppController.m; path = BBosc/src/BBAppController.m; sourceTree = "<group>"; };
+		6963ADA50FB7475500B2287A /* BBOSC_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSC_Prefix.pch; path = BBosc/src/BBOSC_Prefix.pch; sourceTree = "<group>"; };
+		6963ADA60FB7475500B2287A /* BBOSCAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSCAddress.h; path = BBosc/src/BBOSCAddress.h; sourceTree = "<group>"; };
+		6963ADA70FB7475500B2287A /* BBOSCAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBOSCAddress.m; path = BBosc/src/BBOSCAddress.m; sourceTree = "<group>"; };
+		6963ADA80FB7475500B2287A /* BBOSCArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSCArgument.h; path = BBosc/src/BBOSCArgument.h; sourceTree = "<group>"; };
+		6963ADA90FB7475500B2287A /* BBOSCArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBOSCArgument.m; path = BBosc/src/BBOSCArgument.m; sourceTree = "<group>"; };
+		6963ADAA0FB7475500B2287A /* BBOSCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSCBundle.h; path = BBosc/src/BBOSCBundle.h; sourceTree = "<group>"; };
+		6963ADAB0FB7475500B2287A /* BBOSCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBOSCBundle.m; path = BBosc/src/BBOSCBundle.m; sourceTree = "<group>"; };
+		6963ADB00FB7476A00B2287A /* BBOSCDataUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSCDataUtilities.h; path = BBosc/src/BBOSCDataUtilities.h; sourceTree = "<group>"; };
+		6963ADB10FB7476A00B2287A /* BBOSCDataUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBOSCDataUtilities.m; path = BBosc/src/BBOSCDataUtilities.m; sourceTree = "<group>"; };
+		6963ADB20FB7476A00B2287A /* BBOSCDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSCDecoder.h; path = BBosc/src/BBOSCDecoder.h; sourceTree = "<group>"; };
+		6963ADB30FB7476A00B2287A /* BBOSCDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBOSCDecoder.m; path = BBosc/src/BBOSCDecoder.m; sourceTree = "<group>"; };
+		6963ADB40FB7476A00B2287A /* BBOSCDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSCDispatcher.h; path = BBosc/src/BBOSCDispatcher.h; sourceTree = "<group>"; };
+		6963ADB50FB7476A00B2287A /* BBOSCDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBOSCDispatcher.m; path = BBosc/src/BBOSCDispatcher.m; sourceTree = "<group>"; };
+		6963ADB90FB7477F00B2287A /* BBOSCListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSCListener.h; path = BBosc/src/BBOSCListener.h; sourceTree = "<group>"; };
+		6963ADBA0FB7477F00B2287A /* BBOSCListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBOSCListener.m; path = BBosc/src/BBOSCListener.m; sourceTree = "<group>"; };
+		6963ADBB0FB7477F00B2287A /* BBOSCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSCMessage.h; path = BBosc/src/BBOSCMessage.h; sourceTree = "<group>"; };
+		6963ADBC0FB7477F00B2287A /* BBOSCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBOSCMessage.m; path = BBosc/src/BBOSCMessage.m; sourceTree = "<group>"; };
+		6963ADBD0FB7477F00B2287A /* BBOSCPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSCPacket.h; path = BBosc/src/BBOSCPacket.h; sourceTree = "<group>"; };
+		6963ADBE0FB7477F00B2287A /* BBOSCPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBOSCPacket.m; path = BBosc/src/BBOSCPacket.m; sourceTree = "<group>"; };
+		6963ADBF0FB7477F00B2287A /* BBOSCSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBOSCSender.h; path = BBosc/src/BBOSCSender.h; sourceTree = "<group>"; };
+		6963ADC00FB7477F00B2287A /* BBOSCSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBOSCSender.m; path = BBosc/src/BBOSCSender.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CocoNuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoNuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -156,6 +190,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6963ADA10FB7469700B2287A /* BBOsc */,
 				6963A9680FB707E600B2287A /* CNAppController.h */,
 				6963A9690FB707E600B2287A /* CNAppController.m */,
 				6963A9660FB706C400B2287A /* SetupWindows */,
@@ -372,6 +407,36 @@
 			name = Draw;
 			sourceTree = "<group>";
 		};
+		6963ADA10FB7469700B2287A /* BBOsc */ = {
+			isa = PBXGroup;
+			children = (
+				6963ADB90FB7477F00B2287A /* BBOSCListener.h */,
+				6963ADBA0FB7477F00B2287A /* BBOSCListener.m */,
+				6963ADBB0FB7477F00B2287A /* BBOSCMessage.h */,
+				6963ADBC0FB7477F00B2287A /* BBOSCMessage.m */,
+				6963ADBD0FB7477F00B2287A /* BBOSCPacket.h */,
+				6963ADBE0FB7477F00B2287A /* BBOSCPacket.m */,
+				6963ADBF0FB7477F00B2287A /* BBOSCSender.h */,
+				6963ADC00FB7477F00B2287A /* BBOSCSender.m */,
+				6963ADB00FB7476A00B2287A /* BBOSCDataUtilities.h */,
+				6963ADB10FB7476A00B2287A /* BBOSCDataUtilities.m */,
+				6963ADB20FB7476A00B2287A /* BBOSCDecoder.h */,
+				6963ADB30FB7476A00B2287A /* BBOSCDecoder.m */,
+				6963ADB40FB7476A00B2287A /* BBOSCDispatcher.h */,
+				6963ADB50FB7476A00B2287A /* BBOSCDispatcher.m */,
+				6963ADA30FB7475400B2287A /* BBAppController.h */,
+				6963ADA40FB7475400B2287A /* BBAppController.m */,
+				6963ADA50FB7475500B2287A /* BBOSC_Prefix.pch */,
+				6963ADA60FB7475500B2287A /* BBOSCAddress.h */,
+				6963ADA70FB7475500B2287A /* BBOSCAddress.m */,
+				6963ADA80FB7475500B2287A /* BBOSCArgument.h */,
+				6963ADA90FB7475500B2287A /* BBOSCArgument.m */,
+				6963ADAA0FB7475500B2287A /* BBOSCBundle.h */,
+				6963ADAB0FB7475500B2287A /* BBOSCBundle.m */,
+			);
+			name = BBOsc;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -465,6 +530,17 @@
 				6963A9D90FB70AEF00B2287A /* CNTuioDispatcher.m in Sources */,
 				6963A9DA0FB70AEF00B2287A /* CNUntouchableLayer.m in Sources */,
 				6963A9DB0FB70AEF00B2287A /* CNUpdate.m in Sources */,
+				6963ADAC0FB7475500B2287A /* BBAppController.m in Sources */,
+				6963ADAD0FB7475500B2287A /* BBOSCAddress.m in Sources */,
+				6963ADAE0FB7475500B2287A /* BBOSCArgument.m in Sources */,
+				6963ADAF0FB7475500B2287A /* BBOSCBundle.m in Sources */,
+				6963ADB60FB7476A00B2287A /* BBOSCDataUtilities.m in Sources */,
+				6963ADB70FB7476A00B2287A /* BBOSCDecoder.m in Sources */,
+				6963ADB80FB7476A00B2287A /* BBOSCDispatcher.m in Sources */,
+				6963ADC10FB7477F00B2287A /* BBOSCListener.m in Sources */,
+				6963ADC20FB7477F00B2287A /* BBOSCMessage.m in Sources */,
+				6963ADC30FB7477F00B2287A /* BBOSCPacket.m in Sources */,
+				6963ADC40FB7477F00B2287A /* BBOSCSender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
