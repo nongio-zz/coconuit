@@ -136,7 +136,7 @@
 		6963A9D70FB70AEF00B2287A /* CNUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUpdate.m; sourceTree = "<group>"; };
 		6963AA370FB70C5E00B2287A /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		6963AA3B0FB70C7400B2287A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
-		6963ACA50FB72EC900B2287A /* BBOSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BBOSC.framework; sourceTree = "<group>"; };
+		6963ACA50FB72EC900B2287A /* BBOSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BBOSC.framework; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CocoNuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoNuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
