@@ -19,7 +19,6 @@
 
 #import "CNTap.h"
 #import "CNLayer.h"
-#import "CNCircleLayer.h"
 
 @implementation CNTap
 

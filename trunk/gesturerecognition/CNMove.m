@@ -20,7 +20,6 @@
 #import "CNMove.h"
 #import "CNLayer.h"
 #import "CNPathElement.h"
-#import "CNCircleLayer.h"
 
 @implementation CNMove
 
@@ -56,9 +55,9 @@
 						double MinMoveVelocity = [[GesturesParams objectForKey:@"MinMoveVelocity"] doubleValue];
 						
 						//DISEGNO DEL TOCCO
-						CALayer*global = [sender globalLayer];
-						CNCircleLayer*circle = [global valueForKey:@"circletouch"];
-						if(!circle)
+						//CALayer*global = [sender globalLayer];
+						//CNCircleLayer*circle = [global valueForKey:@"circletouch"];
+						/*if(!circle)
 						{
 							circle = [[CNCircleLayer alloc] initWithRadius:5.0];
 							[global setValue:circle forKey:@"circletouch"];
@@ -66,7 +65,7 @@
 						}
 						circle.position=[sender unitToReal:CGPointMake(touch.position.x,(1-touch.position.y)) ofLayer:global];
 						//FINE DISEGNO						
-						
+						*/
 						CN2dVect* vectT = [[CN2dVect alloc] initWithPoint:touch.position andPoint:last.position];
 					
 						if(touch.type==ReleaseTouch && state==UpdateGesture){

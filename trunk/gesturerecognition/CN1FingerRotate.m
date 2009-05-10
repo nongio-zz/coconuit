@@ -18,7 +18,6 @@
 //
 
 #import "CN1FingerRotate.h"
-#import "CNCircleLayer.h"
 #import "CNLayer.h"
 @implementation CN1FingerRotate
 @synthesize angle, angularVelocity;
