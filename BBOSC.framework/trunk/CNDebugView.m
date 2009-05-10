@@ -1,0 +1,111 @@
+//
+//  CNDebugView.m
+//  TuioClient
+//
+//  Created by Riccardo Canalicchio on 19/04/09.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//
+
+#import "CNDebugView.h"
+
+
+@implementation CNDebugView
+@synthesize tcdbg;
+-(void)setupLayers
+{	
+	//STATUS BAR
+	CNStatusbarLayer*statusbar = [CNStatusbarLayer layer];
+	statusbar.name = @"status";
+	statusbar.frame = CGRectMake(0, 0, self.frame.size.width, 50);
+	statusbar.anchorPoint = CGPointMake(0.0,1.0);
+	statusbar.position = CGPointMake(0,self.frame.size.height);
+	[viewLayer setValue:statusbar forKey:@"status"];
+
+	//LIGHTS
+	CNLightLayer*light1 = [[CNLightLayer alloc] initWithLabel:@"CNPress"
+									  observedGestureName:@"CNPress"
+												 andColor:CGColorCreateGenericCMYK(0.38, 0.03, 1.0, 0, 1)
+											  withConsole:NO];
+	light1.position = CGPointMake(100.0,25);
+	
+	CNLightLayer*light2 = [[CNLightLayer alloc] initWithLabel:@"CNTap"
+ 									  observedGestureName:@"updateTouch"
+												 andColor:CGColorCreateGenericCMYK(0.07, 0.00, 0.91, 0, 1)
+											  withConsole:NO];
+	light2.position = CGPointMake(150.0,25);
+	
+	CNLightLayer*light3 = [[CNLightLayer alloc] initWithLabel:@"CNRelease"
+  									  observedGestureName:@"CNRelease"
+												 andColor:CGColorCreateGenericCMYK(0.03, 0.99, 0.37, 0, 1)
+												  withConsole:NO];
+	light3.position = CGPointMake(200.0,25);
+	
+	CNLightLayer*light4 = [[CNLightLayer alloc] initWithLabel:@"CNTap"
+									  observedGestureName:@"CNTap"
+												 andColor:CGColorCreateGenericCMYK(0.64, 0.02, 0.0, 0, 1)
+											  withConsole:NO];
+	light4.position = CGPointMake(250.0,25);
+	
+	CNLightLayer*light5 = [[CNLightLayer alloc] initWithLabel:@"2tap"
+									  observedGestureName:@"CNTap"
+												 andColor:CGColorCreateGenericCMYK(0.72, 0.27, 0.0, 0, 1)
+											  withConsole:NO];
+	light5.position = CGPointMake(300.0,25);
+	
+	CNLightLayer*light6 = [[CNLightLayer alloc] initWithLabel:@"CNHold"
+									  observedGestureName:@"CNHold"
+												 andColor:CGColorCreateGenericCMYK(0.86, 0.73, 0.0, 0, 1)
+											  withConsole:NO];
+	light6.position = CGPointMake(350.0,25);
+	CNLightLayer*light7 = [[CNLightLayer alloc] initWithLabel:@"Move" 
+ 									  observedGestureName:@"Move"
+												 andColor:CGColorCreateGenericCMYK(0.0, 1.0, 0.0, 0, 1)
+											  withConsole:YES];
+	light7.position = CGPointMake(470.0,25);
+	CNLightLayer*light8 = [[CNLightLayer alloc] initWithLabel:@"rotate"
+ 									  observedGestureName:@"TwoFingerRotate"
+												 andColor:CGColorCreateGenericCMYK(0.00, 1.0, 0.0, 0, 1)
+											  withConsole:YES];
+	light8.position = CGPointMake(590.0,25);
+	CNLightLayer*light9 = [[CNLightLayer alloc] initWithLabel:@"scale"
+ 									  observedGestureName:@"TwoFingerScale"
+												 andColor:CGColorCreateGenericCMYK(0.0, 1.0, 0.0, 0, 1)
+											  withConsole:YES];
+	light9.position = CGPointMake(710.0,25);
+
+	[statusbar addSublayer:light1];
+	[statusbar addSublayer:light2];
+	[statusbar addSublayer:light3];
+	[statusbar addSublayer:light4];
+	[statusbar addSublayer:light5];
+	[statusbar addSublayer:light6];
+	[statusbar addSublayer:light7];
+	[statusbar addSublayer:light8];
+	[statusbar addSublayer:light9];
+
+	
+	//ADD LAYERS
+	[self addSublayer:statusbar];
+	
+	tcdbg = [[CNDebug alloc] initWithImage:@"john.jpg"];
+	tcdbg.position = CGPointMake(700,350);
+	[self addSublayer:tcdbg];
+	
+	CNDebug*tcdbg2 = [[CNDebug alloc] initWithImage:@"einstein.jpg"];
+	tcdbg2.position = CGPointMake(250,400);
+	[self addSublayer:tcdbg2];
+	
+	
+	//OBSERVERS
+	[tcdbg addObserver:light1];
+	[tcdbg addObserver:light2];
+	[tcdbg addObserver:light3];
+	[tcdbg addObserver:light4];
+	[tcdbg addObserver:light5];
+	[tcdbg addObserver:light6];
+	[tcdbg addObserver:light7];
+	[tcdbg addObserver:light8];
+	[tcdbg addObserver:light9];
+}
+
+@end
