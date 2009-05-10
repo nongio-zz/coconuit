@@ -276,7 +276,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>4</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -327,14 +326,14 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>6963B0B30FB7673600B2287A</string>
+										<string>6963B18E0FB774BE00B2287A</string>
 										<key>history</key>
 										<array>
 											<string>6963A9DD0FB70B3200B2287A</string>
 											<string>6963A9DE0FB70B3200B2287A</string>
 											<string>6963A9E70FB70B3200B2287A</string>
 											<string>6963B0A90FB7670C00B2287A</string>
-											<string>6963B0AE0FB7670C00B2287A</string>
+											<string>6963B16A0FB7734900B2287A</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -343,8 +342,6 @@
 											<string>6963AA030FB70B3200B2287A</string>
 											<string>6963AA0F0FB70B3200B2287A</string>
 											<string>6963B0710FB7662E00B2287A</string>
-											<string>6963B08F0FB766BA00B2287A</string>
-											<string>6963B0AC0FB7670C00B2287A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -467,11 +464,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>6963B0730FB7662E00B2287A</string>
+				<string>6963B1850FB774AA00B2287A</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>6963B0740FB7662E00B2287A</string>
+				<string>6963B1860FB774AA00B2287A</string>
 				<string>6963A9350FB7066200B2287A</string>
-				<string>6963B0750FB7662E00B2287A</string>
+				<string>6963B1870FB774AA00B2287A</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -618,14 +615,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>6963B0760FB7662E00B2287A</string>
+				<string>6963B1880FB774AA00B2287A</string>
 				<string>1CCC7628064C1048000F2A68</string>
 				<string>1CCC7629064C1048000F2A68</string>
-				<string>6963B0770FB7662E00B2287A</string>
-				<string>6963B0780FB7662E00B2287A</string>
-				<string>6963B0790FB7662E00B2287A</string>
-				<string>6963B07A0FB7662E00B2287A</string>
-				<string>6963B07B0FB7662E00B2287A</string>
+				<string>6963B1890FB774AA00B2287A</string>
+				<string>6963B18A0FB774AA00B2287A</string>
+				<string>6963B18B0FB774AA00B2287A</string>
+				<string>6963B18C0FB774AA00B2287A</string>
+				<string>6963B18D0FB774AA00B2287A</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -655,9 +652,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>6963B0B00FB7670C00B2287A</string>
-		<string>6963B0830FB7665300B2287A</string>
-		<string>6963B0840FB7665300B2287A</string>
 		<string>/Users/nicolamartorana/Documents/Coconuit/trunk/CocoNuit.xcodeproj</string>
 	</array>
 	<key>WindowString</key>

@@ -13,42 +13,42 @@
 		6963AF200FB75F7800B2287A /* CNTuioCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF1A0FB75F7800B2287A /* CNTuioCursor.m */; };
 		6963AF210FB75F7800B2287A /* CNTuioDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF1B0FB75F7800B2287A /* CNTuioDispatcher.h */; };
 		6963AF220FB75F7800B2287A /* CNTuioDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF1C0FB75F7800B2287A /* CNTuioDispatcher.m */; };
-		6963AF3A0FB75F9D00B2287A /* CN1FingerRotate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF240FB75F9D00B2287A /* CN1FingerRotate.h */; };
+		6963AF3A0FB75F9D00B2287A /* CN1FingerRotate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF240FB75F9D00B2287A /* CN1FingerRotate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF3B0FB75F9D00B2287A /* CN1FingerRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF250FB75F9D00B2287A /* CN1FingerRotate.m */; };
-		6963AF3C0FB75F9D00B2287A /* CN2FingerRotate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF260FB75F9D00B2287A /* CN2FingerRotate.h */; };
+		6963AF3C0FB75F9D00B2287A /* CN2FingerRotate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF260FB75F9D00B2287A /* CN2FingerRotate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF3D0FB75F9D00B2287A /* CN2FingerRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF270FB75F9D00B2287A /* CN2FingerRotate.m */; };
-		6963AF3E0FB75F9D00B2287A /* CN2FingerScale.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF280FB75F9D00B2287A /* CN2FingerScale.h */; };
+		6963AF3E0FB75F9D00B2287A /* CN2FingerScale.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF280FB75F9D00B2287A /* CN2FingerScale.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF3F0FB75F9D00B2287A /* CN2FingerScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF290FB75F9D00B2287A /* CN2FingerScale.m */; };
-		6963AF400FB75F9D00B2287A /* CNGesture.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF2A0FB75F9D00B2287A /* CNGesture.h */; };
+		6963AF400FB75F9D00B2287A /* CNGesture.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF2A0FB75F9D00B2287A /* CNGesture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF410FB75F9D00B2287A /* CNGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF2B0FB75F9D00B2287A /* CNGesture.m */; };
-		6963AF420FB75F9D00B2287A /* CNGestureFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF2C0FB75F9D00B2287A /* CNGestureFactory.h */; };
+		6963AF420FB75F9D00B2287A /* CNGestureFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF2C0FB75F9D00B2287A /* CNGestureFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF430FB75F9D00B2287A /* CNGestureFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF2D0FB75F9D00B2287A /* CNGestureFactory.m */; };
-		6963AF440FB75F9D00B2287A /* CNHold.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF2E0FB75F9D00B2287A /* CNHold.h */; };
+		6963AF440FB75F9D00B2287A /* CNHold.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF2E0FB75F9D00B2287A /* CNHold.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF450FB75F9D00B2287A /* CNHold.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF2F0FB75F9D00B2287A /* CNHold.m */; };
-		6963AF460FB75F9D00B2287A /* CNMove.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF300FB75F9D00B2287A /* CNMove.h */; };
+		6963AF460FB75F9D00B2287A /* CNMove.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF300FB75F9D00B2287A /* CNMove.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF470FB75F9D00B2287A /* CNMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF310FB75F9D00B2287A /* CNMove.m */; };
-		6963AF480FB75F9D00B2287A /* CNPress.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF320FB75F9D00B2287A /* CNPress.h */; };
+		6963AF480FB75F9D00B2287A /* CNPress.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF320FB75F9D00B2287A /* CNPress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF490FB75F9D00B2287A /* CNPress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF330FB75F9D00B2287A /* CNPress.m */; };
-		6963AF4A0FB75F9D00B2287A /* CNRelease.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF340FB75F9D00B2287A /* CNRelease.h */; };
+		6963AF4A0FB75F9D00B2287A /* CNRelease.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF340FB75F9D00B2287A /* CNRelease.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF4B0FB75F9D00B2287A /* CNRelease.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF350FB75F9D00B2287A /* CNRelease.m */; };
-		6963AF4C0FB75F9D00B2287A /* CNTap.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF360FB75F9D00B2287A /* CNTap.h */; };
+		6963AF4C0FB75F9D00B2287A /* CNTap.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF360FB75F9D00B2287A /* CNTap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF4D0FB75F9D00B2287A /* CNTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF370FB75F9D00B2287A /* CNTap.m */; };
-		6963AF4E0FB75F9D00B2287A /* CNUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF380FB75F9D00B2287A /* CNUpdate.h */; };
+		6963AF4E0FB75F9D00B2287A /* CNUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF380FB75F9D00B2287A /* CNUpdate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF4F0FB75F9D00B2287A /* CNUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF390FB75F9D00B2287A /* CNUpdate.m */; };
 		6963AF5B0FB75FB400B2287A /* CNEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF510FB75FB400B2287A /* CNEvent.h */; };
 		6963AF5C0FB75FB400B2287A /* CNEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF520FB75FB400B2287A /* CNEvent.m */; };
-		6963AF5D0FB75FB400B2287A /* CNEventDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF530FB75FB400B2287A /* CNEventDispatcher.h */; };
+		6963AF5D0FB75FB400B2287A /* CNEventDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF530FB75FB400B2287A /* CNEventDispatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF5E0FB75FB400B2287A /* CNEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF540FB75FB400B2287A /* CNEventDispatcher.m */; };
-		6963AF5F0FB75FB400B2287A /* CNPathElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF550FB75FB400B2287A /* CNPathElement.h */; };
+		6963AF5F0FB75FB400B2287A /* CNPathElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF550FB75FB400B2287A /* CNPathElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF600FB75FB400B2287A /* CNPathElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF560FB75FB400B2287A /* CNPathElement.m */; };
-		6963AF610FB75FB400B2287A /* CNStroke.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF570FB75FB400B2287A /* CNStroke.h */; };
+		6963AF610FB75FB400B2287A /* CNStroke.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF570FB75FB400B2287A /* CNStroke.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF620FB75FB400B2287A /* CNStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF580FB75FB400B2287A /* CNStroke.m */; };
-		6963AF630FB75FB400B2287A /* CNTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF590FB75FB400B2287A /* CNTouch.h */; };
+		6963AF630FB75FB400B2287A /* CNTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF590FB75FB400B2287A /* CNTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF640FB75FB400B2287A /* CNTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF5A0FB75FB400B2287A /* CNTouch.m */; };
-		6963AF6A0FB75FDA00B2287A /* CN2dVect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF660FB75FDA00B2287A /* CN2dVect.h */; };
+		6963AF6A0FB75FDA00B2287A /* CN2dVect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF660FB75FDA00B2287A /* CN2dVect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AF6B0FB75FDA00B2287A /* CN2dVect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AF670FB75FDA00B2287A /* CN2dVect.m */; };
-		6963AF6C0FB75FDA00B2287A /* CNMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF680FB75FDA00B2287A /* CNMath.h */; };
-		6963AF6D0FB75FDA00B2287A /* CNObserverProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF690FB75FDA00B2287A /* CNObserverProtocol.h */; };
+		6963AF6C0FB75FDA00B2287A /* CNMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF680FB75FDA00B2287A /* CNMath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6963AF6D0FB75FDA00B2287A /* CNObserverProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AF690FB75FDA00B2287A /* CNObserverProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AFB70FB7603900B2287A /* BBAppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AFA00FB7603900B2287A /* BBAppController.h */; };
 		6963AFB80FB7603900B2287A /* BBAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AFA10FB7603900B2287A /* BBAppController.m */; };
 		6963AFBA0FB7603900B2287A /* BBOSCAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AFA30FB7603900B2287A /* BBOSCAddress.h */; };
@@ -71,12 +71,12 @@
 		6963AFCB0FB7603900B2287A /* BBOSCPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AFB40FB7603900B2287A /* BBOSCPacket.m */; };
 		6963AFCC0FB7603900B2287A /* BBOSCSender.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AFB50FB7603900B2287A /* BBOSCSender.h */; };
 		6963AFCD0FB7603900B2287A /* BBOSCSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AFB60FB7603900B2287A /* BBOSCSender.m */; };
-		6963AFD80FB760C100B2287A /* CNLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AFD40FB760C100B2287A /* CNLayer.h */; };
 		6963AFD90FB760C100B2287A /* CNLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AFD50FB760C100B2287A /* CNLayer.m */; };
-		6963AFDA0FB760C100B2287A /* CNLayerModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AFD60FB760C100B2287A /* CNLayerModifier.h */; };
+		6963AFDA0FB760C100B2287A /* CNLayerModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AFD60FB760C100B2287A /* CNLayerModifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6963AFDB0FB760C100B2287A /* CNLayerModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963AFD70FB760C100B2287A /* CNLayerModifier.m */; };
 		6963AFE50FB7617700B2287A /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6963AFE40FB7617700B2287A /* QTKit.framework */; };
 		6963AFE70FB7618600B2287A /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6963AFE60FB7618600B2287A /* Quartz.framework */; };
+		6963B1010FB76FC400B2287A /* CNLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AFD40FB760C100B2287A /* CNLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -409,8 +409,8 @@
 				6963AFC80FB7603900B2287A /* BBOSCMessage.h in Headers */,
 				6963AFCA0FB7603900B2287A /* BBOSCPacket.h in Headers */,
 				6963AFCC0FB7603900B2287A /* BBOSCSender.h in Headers */,
-				6963AFD80FB760C100B2287A /* CNLayer.h in Headers */,
 				6963AFDA0FB760C100B2287A /* CNLayerModifier.h in Headers */,
+				6963B1010FB76FC400B2287A /* CNLayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,7 +555,9 @@
 				GCC_PREFIX_HEADER = CocoNuitFramework_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				PRODUCT_NAME = CocoNuitFramework;
+				OBJROOT = build;
+				PRODUCT_NAME = CocoNuit;
+				SYMROOT = build;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -581,8 +583,10 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				OBJROOT = build;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
+				SYMROOT = build;
 			};
 			name = Release;
 		};
