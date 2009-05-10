@@ -60,8 +60,8 @@
 					PBXFindDataSource_LocationID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 263663067;
-			PBXWorkspaceStateSaveDate = 263663067;
+			PBXPerProjectTemplateStateSaveDate = 263663762;
+			PBXWorkspaceStateSaveDate = 263663762;
 		};
 		perUserProjectItems = {
 			6963A9DD0FB70B3200B2287A = 6963A9DD0FB70B3200B2287A /* PBXBookmark */;
@@ -205,11 +205,9 @@
 			6963AB860FB722BF00B2287A = 6963AB860FB722BF00B2287A /* PBXTextBookmark */;
 			6963AC610FB724FA00B2287A = 6963AC610FB724FA00B2287A /* PBXTextBookmark */;
 			6963AC620FB724FA00B2287A = 6963AC620FB724FA00B2287A /* PBXTextBookmark */;
-			6963AC830FB7267D00B2287A = 6963AC830FB7267D00B2287A /* PBXTextBookmark */;
 			6963AC980FB72D7E00B2287A = 6963AC980FB72D7E00B2287A /* PBXTextBookmark */;
-			6963AC9F0FB72DEC00B2287A /* PBXTextBookmark */ = 6963AC9F0FB72DEC00B2287A /* PBXTextBookmark */;
-			6963ACAB0FB72F8500B2287A /* PBXTextBookmark */ = 6963ACAB0FB72F8500B2287A /* PBXTextBookmark */;
-			6963ACB30FB72FD100B2287A /* PBXTextBookmark */ = 6963ACB30FB72FD100B2287A /* PBXTextBookmark */;
+			6963ACB70FB7307E00B2287A = 6963ACB70FB7307E00B2287A /* PBXTextBookmark */;
+			6963ACC20FB730BD00B2287A /* PBXTextBookmark */ = 6963ACC20FB730BD00B2287A /* PBXTextBookmark */;
 		};
 		sourceControlManager = 6963A9330FB7065200B2287A /* Source Control */;
 		userBuildSettings = {
@@ -260,7 +258,7 @@
 	};
 	6963A9690FB707E600B2287A /* CNAppController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1069, 2346}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1092, 2295}}";
 			sepNavSelRange = "{1177, 0}";
 			sepNavVisRange = "{0, 824}";
 		};
@@ -2104,16 +2102,6 @@
 		vrLen = 752;
 		vrLoc = 1017;
 	};
-	6963AC830FB7267D00B2287A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6963A9690FB707E600B2287A /* CNAppController.m */;
-		name = "CNAppController.m: 38";
-		rLen = 0;
-		rLoc = 1177;
-		rType = 0;
-		vrLen = 824;
-		vrLoc = 0;
-	};
 	6963AC980FB72D7E00B2287A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 6963A9690FB707E600B2287A /* CNAppController.m */;
@@ -2124,7 +2112,7 @@
 		vrLen = 824;
 		vrLoc = 0;
 	};
-	6963AC9F0FB72DEC00B2287A /* PBXTextBookmark */ = {
+	6963ACB70FB7307E00B2287A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 6963A9690FB707E600B2287A /* CNAppController.m */;
 		name = "CNAppController.m: 38";
@@ -2134,17 +2122,7 @@
 		vrLen = 824;
 		vrLoc = 0;
 	};
-	6963ACAB0FB72F8500B2287A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6963A9690FB707E600B2287A /* CNAppController.m */;
-		name = "CNAppController.m: 38";
-		rLen = 0;
-		rLoc = 1177;
-		rType = 0;
-		vrLen = 795;
-		vrLoc = 0;
-	};
-	6963ACB30FB72FD100B2287A /* PBXTextBookmark */ = {
+	6963ACC20FB730BD00B2287A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 6963A9690FB707E600B2287A /* CNAppController.m */;
 		name = "CNAppController.m: 38";
