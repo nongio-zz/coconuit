@@ -56,7 +56,7 @@
 		NSArray* OldCursorsKeys = [OldCursors allKeys];
 		NSArray* NewCursorsKeys = [NewCursors allKeys];
 		
-		CNEvent*eventcopy = [myEvent copy];
+		CNEvent* eventcopy = [myEvent copy];
 		
 		for(CNTouch* touch in myEvent.strokes){
 			if(touch.type == ReleaseTouch){
@@ -88,6 +88,7 @@
 				[myEvent setStroke:newTouch];
 			}
 		}
+		
 		if([myEvent.strokes count]>0){
 			[[NSNotificationCenter defaultCenter] postNotificationName:@"newEvent" object:[myEvent copy]];
 		}

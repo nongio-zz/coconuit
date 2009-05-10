@@ -51,9 +51,9 @@
 	
 	myNotificationCenter = [NSNotificationCenter defaultCenter];
 	
-	[myNotificationCenter addObserver:myTCView selector:@selector(newEvent:)  name:@"newEvent" object:Nil];
-	
 	myTCView = [[CNDebugView alloc] initWithFrame:[[mainWindow contentView] bounds]];
+	
+	[myNotificationCenter addObserver:myTCView selector:@selector(newEvent:)  name:@"newEvent" object:Nil];
 	
 	[myTCView setAutoresizesSubviews:YES];
 	

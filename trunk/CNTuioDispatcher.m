@@ -99,7 +99,7 @@
 
 -(void)processSet:(NSArray*)args{
 	// make a enw cursor from the arg array
-	CNTuioCursor * cursor = [[CNTuioDispatcher alloc] initWithArgs:args];
+	CNTuioCursor * cursor = [[CNTuioCursor alloc] initWithArgs:args];
 	// put it into the active blob collection
 	//NSLog(@"New ID=%@",[self keyForID:[cursor cursorID]]);
 	
@@ -121,7 +121,7 @@
 		
 		//NSLog(@"Alive ID=%@",key);
 		// grab the cursor out of the active list and add it to the storage
-		id cursor = [activeBlobs objectForKey:key];
+		CNTuioCursor* cursor = (CNTuioCursor*) [activeBlobs objectForKey:key];
 		
 
 		if(cursor!=nil){
