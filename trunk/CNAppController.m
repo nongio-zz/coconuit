@@ -34,7 +34,6 @@
 //After all outlets and actions are connected, the nib loader sends awakeFromNib to every object in the nib.
 -(void) awakeFromNib{
 	[NSApp setDelegate:self];
-	[self disconnect];
 	connected=NO;
 }
 
@@ -42,7 +41,6 @@
 //The object ‘AppDelegate’ is referenced as the delegate for the NSApplication.when the application has indeed finished launching, 
 //then this method on the AppDelegate and only the AppDelegate will be called. Only one object gets this method per application launch.
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification{
-	//TuioMessageDispatcher = [[CNTuioDispatcher alloc] init];
 	
 	myEventDispatcher = [[CNEventDispatcher alloc] init];
 	
@@ -53,12 +51,11 @@
 	
 	myTCView = [[CNDebugView alloc] initWithFrame:[[mainWindow contentView] bounds]];
 	
-	[myNotificationCenter addObserver:myTCView selector:@selector(newEvent:)  name:@"newEvent" object:Nil];
+	[myNotificationCenter addObserver:myTCView selector:@selector(newEvent:)  name:@"newCNEvent" object:Nil];
 	
 	[myTCView setAutoresizesSubviews:YES];
 	
 	[[mainWindow contentView] addSubview:myTCView];
-	//[self toggleConnection:nil];
 	
 }
 
@@ -85,50 +82,6 @@
     CGDisplayFade(tok, 0.5, kCGDisplayBlendSolidColor, kCGDisplayBlendNormal, 0, 0, 0, TRUE);
     CGReleaseDisplayFadeReservation(tok);
 }
-/**
- * Questa azione è associata al pulsante che avvia e ferma la ricezione di pacchetti Tuio
- */
--(IBAction)toggleConnection:(id)sender{
-	if(!connected){
-		connected=YES;
-		//[TuioMessageDispatcher addObserver:myEventDispatcher];
-		
-		[myNotificationCenter addObserver:myTCView selector:@selector(newEvent:)  name:@"newEvent" object:Nil];///La Vista si registra come osservatore presso il centro di notifica per gli eventiMultiTouch. Il metodo della vista NewEvent gestisce la notifica
-		
-		//[self connect:3333];///Si invoca il metodo per avviare la connessione
-		//[connectionButton setTitle:@"Stop"];
-		}
-	else{
-		connected=NO;
-		//[TuioMessageDispatcher removeObserver:myEventDispatcher forKeyPath:@"activeBlobs"];
-		[TuioMessageDispatcher removeObserver:myEventDispatcher];
-		[myNotificationCenter removeObserver:myTCView name:@"newEvent" object:Nil];
-		[self disconnect];
-	//	[connectionButton setTitle:@"Start"];
-		}
-}
-
-/**
- Questo metodo istanzia la connessione con il server Osc. Avvia un Thread e si mette in ascolto sulla porta passata come argomento
- */
--(void)connect:(int)port{
-	BBOSCListener* TempListener = [[BBOSCListener alloc] init];///Si istanzia l'OscListener
-	
-	[TempListener setDelegate:TuioMessageDispatcher];///Si imposta il delegato per la gestione dei messaggi Osc
-	[TempListener startListeningOnPort:port];///Si avvia l'OscListener sulla porta specificata
-	
-	 // keep a copy for myself
-	 self.OscListener = [TempListener retain];
-}
-
-/**
- Questo metodo rimuove l'OscListener
- */
-- (void)disconnect{
-	//[OscListener stopListening];
-	//[OscListener release];//rilascia anche il delegato
-}
-
 
 
 

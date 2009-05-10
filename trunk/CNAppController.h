@@ -49,10 +49,6 @@
 @property (retain) BBOSCListener* OscListener;
 
 -(IBAction)fullscreen:(id)sender;
--(IBAction)toggleConnection:(id)sender;///< Riceve l'evento di pressione del bottone Start/Stop nella vista
--(void)connect:(int)port;///< Mette il client in ascolto
--(void)disconnect;///< Toglie il client dall'ascolto
-//-(void)observeValueForKeyPath:(NSString*) keyPath ofObject:(id) object change:(NSDictionary*) change context:(void*) context;///< Notifica aggiornamento Blobs
 -(void)fadeIn;
 -(void)fadeOut;
 @end
