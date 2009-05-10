@@ -47,7 +47,6 @@
 		6963A9DB0FB70AEF00B2287A /* CNUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963A9D70FB70AEF00B2287A /* CNUpdate.m */; };
 		6963AA380FB70C5E00B2287A /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6963AA370FB70C5E00B2287A /* QTKit.framework */; };
 		6963AA3C0FB70C7400B2287A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6963AA3B0FB70C7400B2287A /* QuartzCore.framework */; };
-		6963ACD30FB732D400B2287A /* BBOSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6963ACD20FB732D400B2287A /* BBOSC.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -136,7 +135,6 @@
 		6963A9D70FB70AEF00B2287A /* CNUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUpdate.m; sourceTree = "<group>"; };
 		6963AA370FB70C5E00B2287A /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		6963AA3B0FB70C7400B2287A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
-		6963ACD20FB732D400B2287A /* BBOSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BBOSC.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CocoNuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoNuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -149,7 +147,6 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				6963AA380FB70C5E00B2287A /* QTKit.framework in Frameworks */,
 				6963AA3C0FB70C7400B2287A /* QuartzCore.framework in Frameworks */,
-				6963ACD30FB732D400B2287A /* BBOSC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +171,6 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6963ACD20FB732D400B2287A /* BBOSC.framework */,
 				6963AA3B0FB70C7400B2287A /* QuartzCore.framework */,
 				6963AA370FB70C5E00B2287A /* QTKit.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,

@@ -96,7 +96,7 @@
 		[self setLayer:rootLayer];
 		[self setWantsLayer:YES];
 		viewLayer = [CALayer layer];
-		dbgLayer = [CNUntouchableLayer layer];
+		dbgLayer = [[CNDebugLayer alloc] init];
 		[rootLayer addSublayer:viewLayer];
 		[rootLayer addSublayer:dbgLayer];
 		[self addActiveSubLayer:dbgLayer];
