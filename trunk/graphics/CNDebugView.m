@@ -10,9 +10,77 @@
 
 
 @implementation CNDebugView
-@synthesize tcdbg;
+@synthesize tcdbg,circlesfortouches;
+
+-(void)newEvent:(NSNotification *)notification{
+	
+	CNEvent* newMultitouchEvent = [notification object];
+	
+	//primo ciclo aggiornamento degli strokes dei layer attivi (CNLayer)
+	for(id aLayer in activeLayers){
+		if([aLayer isKindOfClass:[CNLayer class]]){
+			CNLayer* aTCLayer = (CNLayer*) aLayer;
+			[aTCLayer updateStrokes:newMultitouchEvent];
+		}
+	}
+	
+	//secondo ciclo dispatch dei nuovi strokes
+	for (id stroke in newMultitouchEvent.strokes){
+		//controllo se è un tocco
+		if([stroke isKindOfClass:[CNTouch class]]){
+			CNTouch*touch = stroke;
+			CNLayer* touchable;
+			CALayer* tempLayer;
+			//converto il punto dalle coordinate 0:1 a quelle reali del rootLayer
+			CGPoint point = CGPointMake(touch.position.x*rootLayer.bounds.size.width, (1-touch.position.y)*rootLayer.bounds.size.height);
+			if(touch.type==NewTouch){
+				//con il metodo hitTest di core animation si guarda a chi appartiene il nuovo tocco
+				tempLayer  = [viewLayer hitTest: point];
+				BOOL ishover = NO;
+				if([tempLayer isKindOfClass:[CNLayer class]])
+				{
+					touchable = (CNLayer*) tempLayer;
+					[touchable.myMultitouchEvent setStroke:[touch copy]];
+					ishover=YES;
+				}
+				[circlesfortouches setStroke:[touch copy] hover:ishover];
+			}
+		}
+	}
+	//fine dispatch
+	
+	//terzo ciclo viene richiamto il metodo riconosci gesto sui ogni layer attivo
+	//poi si tolgono i tocchi di tipo release
+	for(id layer in activeLayers){
+		if([layer isKindOfClass:[CNLayer class]]){
+			CNLayer*tl = (CNLayer*)layer;
+			[tl.GestureRecognizer recognizeGesture:tl];
+			
+			//NSMutableArray* tempStrokesCopy = [tl.myMultitouchEvent.strokes mutableCopy];
+			
+			CNEvent* aEvent = [tl.myMultitouchEvent copy];
+			NSMutableArray* tempStrokeCopy = aEvent.strokes;
+			
+			for(id stroke in tl.myMultitouchEvent.strokes){
+				CNTouch* aStroke = (CNTouch*) stroke;
+				//CNTouch*stroke = [tl.myMultitouchEvent.strokes objectAtIndex:i];
+				if(aStroke.type == ReleaseTouch){
+					[aEvent removeStrokeByID:aStroke.strokeID];
+				}
+			}
+			tl.myMultitouchEvent.strokes = tempStrokeCopy;
+		}
+	}	
+}
+
 -(void)setupLayers
 {	
+	circlesfortouches = [[CNDebugLayer alloc] init];
+	//CIRCLES
+	[rootLayer addSublayer:circlesfortouches];
+	[self addActiveSubLayer:circlesfortouches];
+	
+	
 	//STATUS BAR
 	CNStatusbarLayer*statusbar = [CNStatusbarLayer layer];
 	statusbar.name = @"status";

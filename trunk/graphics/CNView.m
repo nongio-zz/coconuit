@@ -11,8 +11,24 @@
 
 @implementation CNView
 
-@synthesize rootLayer,viewLayer,dbgLayer;
+@synthesize rootLayer,viewLayer;
 @synthesize activeLayers;
+
+- (id)initWithFrame:(NSRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+		activeLayers = [NSMutableArray new];
+		[[self window] makeFirstResponder:self];	
+		rootLayer = [[CALayer alloc] init];
+		[rootLayer setBackgroundColor:CGColorCreateGenericRGB(0.3, 0.3, 0.3, 1.0)];
+		[self setLayer:rootLayer];
+		[self setWantsLayer:YES];
+		viewLayer = [CALayer layer];
+		[rootLayer addSublayer:viewLayer];
+	    [self setupLayers];
+    }
+    return self;
+}
 
 -(BOOL)acceptsFirstResponder{
 	return YES;
@@ -39,23 +55,14 @@
 			CALayer* tempLayer;
 			//converto il punto dalle coordinate 0:1 a quelle reali del rootLayer
 			CGPoint point = CGPointMake(touch.position.x*rootLayer.bounds.size.width, (1-touch.position.y)*rootLayer.bounds.size.height);
-			switch(touch.type){
-				case NewTouch:
+			if(touch.type==NewTouch){
 					//con il metodo hitTest di core animation si guarda a chi appartiene il nuovo tocco
 					tempLayer  = [viewLayer hitTest: point];
-					BOOL ishover = NO;
 					if([tempLayer isKindOfClass:[CNLayer class]])
 					{
 						touchable = (CNLayer*) tempLayer;
 						[touchable.myMultitouchEvent setStroke:[touch copy]];
-						ishover=YES;
 					}
-					[dbgLayer setStroke:[touch copy] hover:ishover];
-					break;
-				case UpdateTouch:				
-					break;
-				case ReleaseTouch:
-					break;
 			}
 		}
 	}
@@ -67,12 +74,12 @@
 		if([layer isKindOfClass:[CNLayer class]]){
 			CNLayer*tl = (CNLayer*)layer;
 			[tl.GestureRecognizer recognizeGesture:tl];
-			
+
 			//NSMutableArray* tempStrokesCopy = [tl.myMultitouchEvent.strokes mutableCopy];
-			
+
 			CNEvent* aEvent = [tl.myMultitouchEvent copy];
 			NSMutableArray* tempStrokeCopy = aEvent.strokes;
-			
+
 			for(id stroke in tl.myMultitouchEvent.strokes){
 				CNTouch* aStroke = (CNTouch*) stroke;
 				//CNTouch*stroke = [tl.myMultitouchEvent.strokes objectAtIndex:i];
@@ -84,25 +91,6 @@
 			tl.myMultitouchEvent.strokes = tempStrokeCopy;
 		}
 	}	
-}
-
-- (id)initWithFrame:(NSRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-		activeLayers = [NSMutableArray new];
-		[[self window] makeFirstResponder:self];	
-		rootLayer = [[CALayer alloc] init];
-		[rootLayer setBackgroundColor:CGColorCreateGenericRGB( 0.3, 0.3, 0.3, 1.0)];
-		[self setLayer:rootLayer];
-		[self setWantsLayer:YES];
-		viewLayer = [CALayer layer];
-		dbgLayer = [[CNDebugLayer alloc] init];
-		[rootLayer addSublayer:viewLayer];
-		[rootLayer addSublayer:dbgLayer];
-		[self addActiveSubLayer:dbgLayer];
-	    [self setupLayers];
-    }
-    return self;
 }
 
 -(void)setupLayers{}

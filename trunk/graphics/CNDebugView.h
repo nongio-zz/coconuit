@@ -10,9 +10,13 @@
 #import "CNView.h"
 #import "CNStatusbarLayer.h"
 #import "CNLightLayer.h"
+#import "CNDebug.h"
+#import "CNDebugLayer.h"
 
 @interface CNDebugView : CNView {
 	CNDebug*tcdbg;
+	CNDebugLayer*circlesfortouches;
 }
 @property(retain) CNDebug*tcdbg;
+@property(retain) CNDebugLayer*circlesfortouches;
 @end

@@ -79,6 +79,8 @@
 		6963B1010FB76FC400B2287A /* CNLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6963AFD40FB760C100B2287A /* CNLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		B375BDE60FB76E1300179F5D /* BBOSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B375BDE50FB76E1300179F5D /* BBOSC.framework */; };
+		B376DB250FB86B5D00987ED4 /* CNView.h in Headers */ = {isa = PBXBuildFile; fileRef = B376DB240FB86B5D00987ED4 /* CNView.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +161,8 @@
 		6963AFE60FB7618600B2287A /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* CocoNuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoNuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B375BDE50FB76E1300179F5D /* BBOSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BBOSC.framework; path = ../../Library/Frameworks/BBOSC.framework; sourceTree = SOURCE_ROOT; };
+		B376DB240FB86B5D00987ED4 /* CNView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNView.h; path = graphics/CNView.h; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +174,7 @@
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				6963AFE50FB7617700B2287A /* QTKit.framework in Frameworks */,
 				6963AFE70FB7618600B2287A /* Quartz.framework in Frameworks */,
+				B375BDE60FB76E1300179F5D /* BBOSC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +235,7 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B375BDE50FB76E1300179F5D /* BBOSC.framework */,
 				6963AFE60FB7618600B2287A /* Quartz.framework */,
 				6963AFE40FB7617700B2287A /* QTKit.framework */,
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
@@ -361,6 +367,7 @@
 		6963AFD30FB7609700B2287A /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				B376DB240FB86B5D00987ED4 /* CNView.h */,
 				6963AFD40FB760C100B2287A /* CNLayer.h */,
 				6963AFD50FB760C100B2287A /* CNLayer.m */,
 				6963AFD60FB760C100B2287A /* CNLayerModifier.h */,
@@ -411,6 +418,7 @@
 				6963AFCC0FB7603900B2287A /* BBOSCSender.h in Headers */,
 				6963AFDA0FB760C100B2287A /* CNLayerModifier.h in Headers */,
 				6963B1010FB76FC400B2287A /* CNLayer.h in Headers */,
+				B376DB250FB86B5D00987ED4 /* CNView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +535,10 @@
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -549,6 +561,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -585,6 +601,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OBJROOT = build;
 				PREBINDING = NO;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = macosx10.5;
 				SYMROOT = build;
 			};
