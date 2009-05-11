@@ -94,7 +94,7 @@
 								NSArray* objects = [NSArray arrayWithObjects:vectT,center, velocity,gState, nil];
 								NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
 								
-								if(vectT.module>0){
+								if(vectT.module>0 ||state==EndGesture){
 								[sender performGesture:@"Move" withData:params];
 								}
 								

@@ -70,7 +70,7 @@
 				if(Touch0.type==ReleaseTouch || Touch1.type==ReleaseTouch){
 					state=EndGesture;
 				}
-				if(alfa_0<(minAlfa)&&alfa_1<(minAlfa) ||state==EndGesture){
+				if(alfa_0<(minAlfa)&&alfa_1<(minAlfa) || state==EndGesture){
 					if(fabs(alfa)>=M_PI-0.10){//????
 						if(state==BeginGesture){
 							state=UpdateGesture;
@@ -91,7 +91,7 @@
 						double scale = secondLenght/firstLenght;
 						
 						//NSLog(@"Scale del fattore %d ",maxDouble(scale_0,scale_1));//da correggere se il segno dei fatt di scala è negativo deve tornare il min
-						if(fabs(vect_0.module-vect_0_proj.module)>Min2FingerScaleValue || fabs(vect_1.module-vect_1_proj.module)>Min2FingerScaleValue){
+						if(fabs(vect_0.module-vect_0_proj.module)>Min2FingerScaleValue || fabs(vect_1.module-vect_1_proj.module)>Min2FingerScaleValue || state==EndGesture){
 							
 							//[sender twoFingerScale:scale withCenter:anchorPoint andGestureState:self.state];
 							
