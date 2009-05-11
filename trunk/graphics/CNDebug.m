@@ -30,6 +30,13 @@
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNPress"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNRelease"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
+		
+	//Animations
+	CABasicAnimation *position = [CABasicAnimation animation];
+	position.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+	[position setDuration:0.1];
+	self.actions = [NSDictionary dictionaryWithObject:position 
+													  forKey:@"position"];
 	}
 	return self;
 }
@@ -87,18 +94,14 @@
 	velocity.y = (-1)*(velocity.y)*sl.bounds.size.height; //il segno della velocità è al contrario...
 	float tx = fabs(velocity.x)*0.001;
 	float ty = fabs(velocity.y)*0.001;
-	float t = 1.5 +maxAbs(tx, ty);
+	float t = 0.3 +maxAbs(tx, ty);
 	
 	if(gestureState!=EndGesture)
 	{
-		//durante il move non c'è animazione
-		[CATransaction begin];
-		[CATransaction setValue:(id)kCFBooleanTrue
-						 forKey:kCATransactionDisableActions];
-			CALayer*sl = [self globalLayer];
-			CGPoint newPoint = CGPointMake(self.position.x-(vectT.x*sl.bounds.size.width),self.position.y+(vectT.y*sl.bounds.size.height));	
-			self.position = newPoint;
-		[CATransaction commit];
+		//viene usata l'animazione di default impostata all'inizio
+		CALayer*sl = [self globalLayer];
+		CGPoint newPoint = CGPointMake(self.position.x-(vectT.x*sl.bounds.size.width),self.position.y+(vectT.y*sl.bounds.size.height));	
+		self.position = newPoint;
 	}
 		else
 	{
