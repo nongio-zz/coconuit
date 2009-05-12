@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'BBOSCCocoa' target in the 'BBOSCCocoa' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
