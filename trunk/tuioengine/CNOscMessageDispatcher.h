@@ -18,7 +18,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <BBOSC/BBOSCMessage.h>
+#import "BBOSCMessage.h"
 
 ///Generica classe per la gestione di messaggi OSC
 @interface CNOscMessageDispatcher : NSObject {

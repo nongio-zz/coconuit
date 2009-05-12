@@ -18,7 +18,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <BBOSC/BBOSCListener.h>
+#import "BBOSCListener.h"
 #import "CNTuioDispatcher.h"
 #import "CNEvent.h"
 #import "CNObserverProtocol.h"

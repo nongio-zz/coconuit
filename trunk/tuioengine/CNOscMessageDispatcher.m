@@ -18,8 +18,8 @@
 //
 
 #import "CNOscMessageDispatcher.h"
-#import <BBOSC/BBOSCDecoder.h>
-#import <BBOSC/BBOSCBundle.h>
+#import "BBOSCDecoder.h"
+#import "BBOSCBundle.h"
 
 @implementation CNOscMessageDispatcher
 
