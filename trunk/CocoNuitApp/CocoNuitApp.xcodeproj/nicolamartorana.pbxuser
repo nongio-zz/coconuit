@@ -34,8 +34,12 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 263841407;
-			PBXWorkspaceStateSaveDate = 263841407;
+			PBXPerProjectTemplateStateSaveDate = 263860091;
+			PBXWorkspaceStateSaveDate = 263860091;
+		};
+		perUserProjectItems = {
+			69E2C1240FBA2FAA00E03C64 /* PBXTextBookmark */ = 69E2C1240FBA2FAA00E03C64 /* PBXTextBookmark */;
+			69E2C1250FBA2FAA00E03C64 /* PBXTextBookmark */ = 69E2C1250FBA2FAA00E03C64 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 69E2C0220FB9DA2600E03C64 /* Source Control */;
 		userBuildSettings = {
@@ -75,6 +79,33 @@
 	69E2C0230FB9DA2600E03C64 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	69E2C0250FB9DA2900E03C64 /* BBAppController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {853, 748}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 122}";
+		};
+	};
+	69E2C1240FBA2FAA00E03C64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 69E2C0250FB9DA2900E03C64 /* BBAppController.h */;
+		name = "BBAppController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 122;
+		vrLoc = 0;
+	};
+	69E2C1250FBA2FAA00E03C64 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 69E2C0250FB9DA2900E03C64 /* BBAppController.h */;
+		name = "BBAppController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 122;
+		vrLoc = 0;
 	};
 	8D1107260486CEB800E47090 /* CocoNuitApp */ = {
 		activeExec = 0;
