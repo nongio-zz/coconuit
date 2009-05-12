@@ -271,14 +271,11 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>29B97323FDCFA39411CA2CEA</string>
-								<string>1058C7A0FEA54F0111CA2CBB</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>11</integer>
-									<integer>10</integer>
+									<integer>9</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -316,13 +313,15 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>69E2C0B30FB9DDF000E03C64</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>&lt;No Editor&gt;</string>
+								<string></string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>69E2C0B40FB9DDF000E03C64</string>
+										<key>PBXProjectModuleLabel</key>
+										<string></string>
 									</dict>
 									<key>SplitCount</key>
 									<string>1</string>
@@ -360,7 +359,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {603, 416}}</string>
+										<string>{{10, 27}, {914, 447}}</string>
+										<key>RubberWindowFrame</key>
+										<string>224 264 1121 520 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -415,8 +416,6 @@
 									<dict>
 										<key>Frame</key>
 										<string>{{10, 27}, {914, 447}}</string>
-										<key>RubberWindowFrame</key>
-										<string>224 264 1121 520 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXBuildResultsModule</string>
@@ -444,11 +443,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>69E2C0B50FB9DDF000E03C64</string>
+				<string>69E2C10D0FB9E68800E03C64</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>69E2C0B60FB9DDF000E03C64</string>
+				<string>69E2C10E0FB9E68800E03C64</string>
 				<string>69E2C0B30FB9DDF000E03C64</string>
-				<string>69E2C0B70FB9DDF000E03C64</string>
+				<string>69E2C10F0FB9E68800E03C64</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
