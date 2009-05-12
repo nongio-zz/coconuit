@@ -43,6 +43,7 @@
 		69E2C09D0FB9DA9A00E03C64 /* CNStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0970FB9DA9A00E03C64 /* CNStroke.m */; };
 		69E2C09E0FB9DA9A00E03C64 /* CNTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0990FB9DA9A00E03C64 /* CNTouch.m */; };
 		69E2C0B10FB9DDD500E03C64 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E2C0B00FB9DDD500E03C64 /* QuartzCore.framework */; };
+		69E2C1230FBA2FA300E03C64 /* CNAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C1220FBA2FA300E03C64 /* CNAppController.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -130,6 +131,8 @@
 		69E2C0980FB9DA9A00E03C64 /* CNTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNTouch.h; sourceTree = "<group>"; };
 		69E2C0990FB9DA9A00E03C64 /* CNTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNTouch.m; sourceTree = "<group>"; };
 		69E2C0B00FB9DDD500E03C64 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		69E2C1210FBA2FA300E03C64 /* CNAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNAppController.h; sourceTree = "<group>"; };
+		69E2C1220FBA2FA300E03C64 /* CNAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNAppController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CocoNuitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoNuitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -150,6 +153,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				69E2C1210FBA2FA300E03C64 /* CNAppController.h */,
+				69E2C1220FBA2FA300E03C64 /* CNAppController.m */,
 				69E2C08F0FB9DA9A00E03C64 /* eventmanagement */,
 				69E2C0850FB9DA8B00E03C64 /* graphics */,
 				69E2C0630FB9DA6F00E03C64 /* gesturerecognition */,
@@ -437,6 +442,7 @@
 				69E2C09C0FB9DA9A00E03C64 /* CNPathElement.m in Sources */,
 				69E2C09D0FB9DA9A00E03C64 /* CNStroke.m in Sources */,
 				69E2C09E0FB9DA9A00E03C64 /* CNTouch.m in Sources */,
+				69E2C1230FBA2FA300E03C64 /* CNAppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
