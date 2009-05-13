@@ -34,7 +34,7 @@
 	return YES;
 }
 
--(void)newEvent:(NSNotification *)notification{
+-(void)newCNEvent:(NSNotification *)notification{
 	
 	CNEvent* newMultitouchEvent = [notification object];
 	
