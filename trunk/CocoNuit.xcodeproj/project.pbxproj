@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		69E2C0E00FB9E2F200E03C64 /* BBAppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0C80FB9E2F200E03C64 /* BBAppController.h */; };
+		69E2C0E00FB9E2F200E03C64 /* BBAppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0C80FB9E2F200E03C64 /* BBAppController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0E10FB9E2F200E03C64 /* BBAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0C90FB9E2F200E03C64 /* BBAppController.m */; };
 		69E2C0E20FB9E2F200E03C64 /* BBOSC_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0CA0FB9E2F200E03C64 /* BBOSC_Prefix.pch */; };
-		69E2C0E30FB9E2F200E03C64 /* BBOSCAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0CB0FB9E2F200E03C64 /* BBOSCAddress.h */; };
+		69E2C0E30FB9E2F200E03C64 /* BBOSCAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0CB0FB9E2F200E03C64 /* BBOSCAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0E40FB9E2F200E03C64 /* BBOSCAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0CC0FB9E2F200E03C64 /* BBOSCAddress.m */; };
-		69E2C0E50FB9E2F200E03C64 /* BBOSCArgument.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0CD0FB9E2F200E03C64 /* BBOSCArgument.h */; };
+		69E2C0E50FB9E2F200E03C64 /* BBOSCArgument.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0CD0FB9E2F200E03C64 /* BBOSCArgument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0E60FB9E2F200E03C64 /* BBOSCArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0CE0FB9E2F200E03C64 /* BBOSCArgument.m */; };
-		69E2C0E70FB9E2F200E03C64 /* BBOSCBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0CF0FB9E2F200E03C64 /* BBOSCBundle.h */; };
+		69E2C0E70FB9E2F200E03C64 /* BBOSCBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0CF0FB9E2F200E03C64 /* BBOSCBundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0E80FB9E2F200E03C64 /* BBOSCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0D00FB9E2F200E03C64 /* BBOSCBundle.m */; };
 		69E2C0E90FB9E2F200E03C64 /* BBOSCCocoa_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0D10FB9E2F200E03C64 /* BBOSCCocoa_Prefix.pch */; };
-		69E2C0EA0FB9E2F200E03C64 /* BBOSCDataUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0D20FB9E2F200E03C64 /* BBOSCDataUtilities.h */; };
+		69E2C0EA0FB9E2F200E03C64 /* BBOSCDataUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0D20FB9E2F200E03C64 /* BBOSCDataUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0EB0FB9E2F200E03C64 /* BBOSCDataUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0D30FB9E2F200E03C64 /* BBOSCDataUtilities.m */; };
-		69E2C0EC0FB9E2F200E03C64 /* BBOSCDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0D40FB9E2F200E03C64 /* BBOSCDecoder.h */; };
+		69E2C0EC0FB9E2F200E03C64 /* BBOSCDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0D40FB9E2F200E03C64 /* BBOSCDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0ED0FB9E2F200E03C64 /* BBOSCDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0D50FB9E2F200E03C64 /* BBOSCDecoder.m */; };
-		69E2C0EE0FB9E2F200E03C64 /* BBOSCDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0D60FB9E2F200E03C64 /* BBOSCDispatcher.h */; };
+		69E2C0EE0FB9E2F200E03C64 /* BBOSCDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0D60FB9E2F200E03C64 /* BBOSCDispatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0EF0FB9E2F200E03C64 /* BBOSCDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0D70FB9E2F200E03C64 /* BBOSCDispatcher.m */; };
-		69E2C0F00FB9E2F200E03C64 /* BBOSCListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0D80FB9E2F200E03C64 /* BBOSCListener.h */; };
+		69E2C0F00FB9E2F200E03C64 /* BBOSCListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0D80FB9E2F200E03C64 /* BBOSCListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0F10FB9E2F200E03C64 /* BBOSCListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0D90FB9E2F200E03C64 /* BBOSCListener.m */; };
-		69E2C0F20FB9E2F200E03C64 /* BBOSCMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0DA0FB9E2F200E03C64 /* BBOSCMessage.h */; };
+		69E2C0F20FB9E2F200E03C64 /* BBOSCMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0DA0FB9E2F200E03C64 /* BBOSCMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0F30FB9E2F200E03C64 /* BBOSCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0DB0FB9E2F200E03C64 /* BBOSCMessage.m */; };
-		69E2C0F40FB9E2F200E03C64 /* BBOSCPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0DC0FB9E2F200E03C64 /* BBOSCPacket.h */; };
+		69E2C0F40FB9E2F200E03C64 /* BBOSCPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0DC0FB9E2F200E03C64 /* BBOSCPacket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0F50FB9E2F200E03C64 /* BBOSCPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0DD0FB9E2F200E03C64 /* BBOSCPacket.m */; };
-		69E2C0F60FB9E2F200E03C64 /* BBOSCSender.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0DE0FB9E2F200E03C64 /* BBOSCSender.h */; };
+		69E2C0F60FB9E2F200E03C64 /* BBOSCSender.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0DE0FB9E2F200E03C64 /* BBOSCSender.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0F70FB9E2F200E03C64 /* BBOSCSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0DF0FB9E2F200E03C64 /* BBOSCSender.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };

@@ -10,10 +10,10 @@
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
 				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
-				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Built_ColumnID;
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_ObjectSize_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					10,
+					994,
 					20,
 					48,
 					43,
@@ -30,15 +30,12 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 263835948;
-			PBXWorkspaceStateSaveDate = 263835948;
+			PBXPerProjectTemplateStateSaveDate = 263911011;
+			PBXWorkspaceStateSaveDate = 263911011;
 		};
 		perUserProjectItems = {
-			B3D4AC120FB9CE080070AC19 = B3D4AC120FB9CE080070AC19 /* PBXTextBookmark */;
-			B3D4AC130FB9CE080070AC19 = B3D4AC130FB9CE080070AC19 /* PBXTextBookmark */;
-			B3D4AC140FB9CE080070AC19 = B3D4AC140FB9CE080070AC19 /* PBXTextBookmark */;
-			B3D4AC150FB9CE080070AC19 = B3D4AC150FB9CE080070AC19 /* PBXTextBookmark */;
-			B3D4AC660FB9D1330070AC19 /* PBXTextBookmark */ = B3D4AC660FB9D1330070AC19 /* PBXTextBookmark */;
+			B302F1A70FBAF69D00BAAF55 /* PBXTextBookmark */ = B302F1A70FBAF69D00BAAF55 /* PBXTextBookmark */;
+			B302F1A80FBAF69D00BAAF55 /* PBXTextBookmark */ = B302F1A80FBAF69D00BAAF55 /* PBXTextBookmark */;
 		};
 		sourceControlManager = B3D4AB7E0FB9CCC80070AC19 /* Source Control */;
 		userBuildSettings = {
@@ -46,6 +43,26 @@
 	};
 	8DC2EF4F0486A6940098B216 /* CocoNuit */ = {
 		activeExec = 0;
+	};
+	B302F1A70FBAF69D00BAAF55 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B3D4AB8A0FB9CD110070AC19 /* CNTouch.h */;
+		name = "CNTouch.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 480;
+		vrLoc = 0;
+	};
+	B302F1A80FBAF69D00BAAF55 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B3D4AB8A0FB9CD110070AC19 /* CNTouch.h */;
+		name = "CNTouch.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 480;
+		vrLoc = 0;
 	};
 	B3D4AB7E0FB9CCC80070AC19 /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -57,6 +74,13 @@
 	B3D4AB7F0FB9CCC80070AC19 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	B3D4AB8A0FB9CD110070AC19 /* CNTouch.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1172, 1140}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 480}";
+		};
 	};
 	B3D4ABAF0FB9CD110070AC19 /* CNLayer.m */ = {
 		uiCtxt = {
@@ -71,53 +95,5 @@
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 481}";
 		};
-	};
-	B3D4AC120FB9CE080070AC19 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B3D4ABC40FB9CD110070AC19 /* CN2dVect.h */;
-		name = "CN2dVect.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 481;
-		vrLoc = 0;
-	};
-	B3D4AC130FB9CE080070AC19 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "error: CNCircleLayer.h: No such file or directory";
-		fRef = B3D4ABAF0FB9CD110070AC19 /* CNLayer.m */;
-		rLen = 0;
-		rLoc = 17;
-		rType = 1;
-	};
-	B3D4AC140FB9CE080070AC19 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B3D4ABC40FB9CD110070AC19 /* CN2dVect.h */;
-		name = "CN2dVect.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 481;
-		vrLoc = 0;
-	};
-	B3D4AC150FB9CE080070AC19 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B3D4ABAF0FB9CD110070AC19 /* CNLayer.m */;
-		name = "CNLayer.m: 21";
-		rLen = 0;
-		rLoc = 735;
-		rType = 0;
-		vrLen = 292;
-		vrLoc = 689;
-	};
-	B3D4AC660FB9D1330070AC19 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B3D4ABAF0FB9CD110070AC19 /* CNLayer.m */;
-		name = "CNLayer.m: 21";
-		rLen = 0;
-		rLoc = 735;
-		rType = 0;
-		vrLen = 247;
-		vrLoc = 689;
 	};
 }
