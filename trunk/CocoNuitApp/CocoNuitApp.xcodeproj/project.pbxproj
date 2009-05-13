@@ -47,6 +47,18 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		B302F1E60FBAFB0400BAAF55 /* CNDebugView.m in Sources */ = {isa = PBXBuildFile; fileRef = B302F1E50FBAFB0400BAAF55 /* CNDebugView.m */; };
+		B302F1F40FBAFB7300BAAF55 /* CNCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B302F1E90FBAFB7300BAAF55 /* CNCircleLayer.m */; };
+		B302F1F50FBAFB7300BAAF55 /* CNCursorLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B302F1EB0FBAFB7300BAAF55 /* CNCursorLayer.m */; };
+		B302F1F60FBAFB7300BAAF55 /* CNDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = B302F1ED0FBAFB7300BAAF55 /* CNDebug.m */; };
+		B302F1F70FBAFB7300BAAF55 /* CNDebugLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B302F1EF0FBAFB7300BAAF55 /* CNDebugLayer.m */; };
+		B302F1F80FBAFB7300BAAF55 /* CNLightLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B302F1F10FBAFB7300BAAF55 /* CNLightLayer.m */; };
+		B302F1F90FBAFB7300BAAF55 /* CNStatusbarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B302F1F30FBAFB7300BAAF55 /* CNStatusbarLayer.m */; };
+		B302F1FD0FBAFBA400BAAF55 /* CNUntouchableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B302F1FC0FBAFBA400BAAF55 /* CNUntouchableLayer.m */; };
+		B302F2030FBAFCC000BAAF55 /* CNSetupWinController.m in Sources */ = {isa = PBXBuildFile; fileRef = B302F2020FBAFCC000BAAF55 /* CNSetupWinController.m */; };
+		B302F2090FBAFCFF00BAAF55 /* einstein.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B302F2070FBAFCFF00BAAF55 /* einstein.jpg */; };
+		B302F20A0FBAFCFF00BAAF55 /* john.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B302F2080FBAFCFF00BAAF55 /* john.jpg */; };
+		B302F2450FBAFFA800BAAF55 /* Coconut.icns in Resources */ = {isa = PBXBuildFile; fileRef = B302F2440FBAFFA800BAAF55 /* Coconut.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +147,27 @@
 		69E2C1220FBA2FA300E03C64 /* CNAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNAppController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CocoNuitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoNuitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B302F1E40FBAFB0400BAAF55 /* CNDebugView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNDebugView.h; sourceTree = SOURCE_ROOT; };
+		B302F1E50FBAFB0400BAAF55 /* CNDebugView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNDebugView.m; sourceTree = SOURCE_ROOT; };
+		B302F1E80FBAFB7300BAAF55 /* CNCircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNCircleLayer.h; sourceTree = SOURCE_ROOT; };
+		B302F1E90FBAFB7300BAAF55 /* CNCircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNCircleLayer.m; sourceTree = SOURCE_ROOT; };
+		B302F1EA0FBAFB7300BAAF55 /* CNCursorLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNCursorLayer.h; sourceTree = SOURCE_ROOT; };
+		B302F1EB0FBAFB7300BAAF55 /* CNCursorLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNCursorLayer.m; sourceTree = SOURCE_ROOT; };
+		B302F1EC0FBAFB7300BAAF55 /* CNDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNDebug.h; sourceTree = SOURCE_ROOT; };
+		B302F1ED0FBAFB7300BAAF55 /* CNDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNDebug.m; sourceTree = SOURCE_ROOT; };
+		B302F1EE0FBAFB7300BAAF55 /* CNDebugLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNDebugLayer.h; sourceTree = SOURCE_ROOT; };
+		B302F1EF0FBAFB7300BAAF55 /* CNDebugLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNDebugLayer.m; sourceTree = SOURCE_ROOT; };
+		B302F1F00FBAFB7300BAAF55 /* CNLightLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNLightLayer.h; sourceTree = SOURCE_ROOT; };
+		B302F1F10FBAFB7300BAAF55 /* CNLightLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNLightLayer.m; sourceTree = SOURCE_ROOT; };
+		B302F1F20FBAFB7300BAAF55 /* CNStatusbarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNStatusbarLayer.h; sourceTree = SOURCE_ROOT; };
+		B302F1F30FBAFB7300BAAF55 /* CNStatusbarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNStatusbarLayer.m; sourceTree = SOURCE_ROOT; };
+		B302F1FB0FBAFBA400BAAF55 /* CNUntouchableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUntouchableLayer.h; sourceTree = SOURCE_ROOT; };
+		B302F1FC0FBAFBA400BAAF55 /* CNUntouchableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUntouchableLayer.m; sourceTree = SOURCE_ROOT; };
+		B302F2010FBAFCC000BAAF55 /* CNSetupWinController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNSetupWinController.h; sourceTree = "<group>"; };
+		B302F2020FBAFCC000BAAF55 /* CNSetupWinController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNSetupWinController.m; sourceTree = "<group>"; };
+		B302F2070FBAFCFF00BAAF55 /* einstein.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = einstein.jpg; sourceTree = "<group>"; };
+		B302F2080FBAFCFF00BAAF55 /* john.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = john.jpg; sourceTree = "<group>"; };
+		B302F2440FBAFFA800BAAF55 /* Coconut.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Coconut.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +186,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B302F2010FBAFCC000BAAF55 /* CNSetupWinController.h */,
+				B302F2020FBAFCC000BAAF55 /* CNSetupWinController.m */,
 				69E2C1210FBA2FA300E03C64 /* CNAppController.h */,
 				69E2C1220FBA2FA300E03C64 /* CNAppController.m */,
 				69E2C08F0FB9DA9A00E03C64 /* eventmanagement */,
@@ -216,6 +251,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B302F2440FBAFFA800BAAF55 /* Coconut.icns */,
+				B302F2070FBAFCFF00BAAF55 /* einstein.jpg */,
+				B302F2080FBAFCFF00BAAF55 /* john.jpg */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -323,6 +361,22 @@
 		69E2C0850FB9DA8B00E03C64 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				B302F1FB0FBAFBA400BAAF55 /* CNUntouchableLayer.h */,
+				B302F1FC0FBAFBA400BAAF55 /* CNUntouchableLayer.m */,
+				B302F1E80FBAFB7300BAAF55 /* CNCircleLayer.h */,
+				B302F1E90FBAFB7300BAAF55 /* CNCircleLayer.m */,
+				B302F1EA0FBAFB7300BAAF55 /* CNCursorLayer.h */,
+				B302F1EB0FBAFB7300BAAF55 /* CNCursorLayer.m */,
+				B302F1EC0FBAFB7300BAAF55 /* CNDebug.h */,
+				B302F1ED0FBAFB7300BAAF55 /* CNDebug.m */,
+				B302F1EE0FBAFB7300BAAF55 /* CNDebugLayer.h */,
+				B302F1EF0FBAFB7300BAAF55 /* CNDebugLayer.m */,
+				B302F1F00FBAFB7300BAAF55 /* CNLightLayer.h */,
+				B302F1F10FBAFB7300BAAF55 /* CNLightLayer.m */,
+				B302F1F20FBAFB7300BAAF55 /* CNStatusbarLayer.h */,
+				B302F1F30FBAFB7300BAAF55 /* CNStatusbarLayer.m */,
+				B302F1E40FBAFB0400BAAF55 /* CNDebugView.h */,
+				B302F1E50FBAFB0400BAAF55 /* CNDebugView.m */,
 				69E2C0860FB9DA8B00E03C64 /* CNLayer.h */,
 				69E2C0870FB9DA8B00E03C64 /* CNLayer.m */,
 				69E2C0880FB9DA8B00E03C64 /* CNLayerModifier.h */,
@@ -397,6 +451,9 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				B302F2090FBAFCFF00BAAF55 /* einstein.jpg in Resources */,
+				B302F20A0FBAFCFF00BAAF55 /* john.jpg in Resources */,
+				B302F2450FBAFFA800BAAF55 /* Coconut.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +500,15 @@
 				69E2C09D0FB9DA9A00E03C64 /* CNStroke.m in Sources */,
 				69E2C09E0FB9DA9A00E03C64 /* CNTouch.m in Sources */,
 				69E2C1230FBA2FA300E03C64 /* CNAppController.m in Sources */,
+				B302F1E60FBAFB0400BAAF55 /* CNDebugView.m in Sources */,
+				B302F1F40FBAFB7300BAAF55 /* CNCircleLayer.m in Sources */,
+				B302F1F50FBAFB7300BAAF55 /* CNCursorLayer.m in Sources */,
+				B302F1F60FBAFB7300BAAF55 /* CNDebug.m in Sources */,
+				B302F1F70FBAFB7300BAAF55 /* CNDebugLayer.m in Sources */,
+				B302F1F80FBAFB7300BAAF55 /* CNLightLayer.m in Sources */,
+				B302F1F90FBAFB7300BAAF55 /* CNStatusbarLayer.m in Sources */,
+				B302F1FD0FBAFBA400BAAF55 /* CNUntouchableLayer.m in Sources */,
+				B302F2030FBAFCC000BAAF55 /* CNSetupWinController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

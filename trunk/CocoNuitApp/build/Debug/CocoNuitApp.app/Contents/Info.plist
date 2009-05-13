@@ -6,6 +6,8 @@
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>CocoNuitApp</string>
+	<key>CFBundleIconFile</key>
+	<string>Coconut</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.yourcompany.CocoNuitApp</string>
 	<key>CFBundleInfoDictionaryVersion</key>
