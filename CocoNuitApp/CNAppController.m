@@ -58,7 +58,7 @@
 	[myTCView setAutoresizesSubviews:YES];
 	
 	[[mainWindow contentView] addSubview:myTCView];
-	//[self toggleConnection:nil];
+//	[self toggleConnection:nil];
 	
 }
 

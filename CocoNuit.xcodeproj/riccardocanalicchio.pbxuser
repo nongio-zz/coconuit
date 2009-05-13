@@ -34,8 +34,10 @@
 			PBXWorkspaceStateSaveDate = 263911011;
 		};
 		perUserProjectItems = {
-			B302F1A70FBAF69D00BAAF55 /* PBXTextBookmark */ = B302F1A70FBAF69D00BAAF55 /* PBXTextBookmark */;
-			B302F1A80FBAF69D00BAAF55 /* PBXTextBookmark */ = B302F1A80FBAF69D00BAAF55 /* PBXTextBookmark */;
+			B302F1D80FBAFAC700BAAF55 /* PBXTextBookmark */ = B302F1D80FBAFAC700BAAF55 /* PBXTextBookmark */;
+			B302F1D90FBAFAC700BAAF55 /* PBXBookmark */ = B302F1D90FBAFAC700BAAF55 /* PBXBookmark */;
+			B302F1DA0FBAFAC700BAAF55 /* PBXTextBookmark */ = B302F1DA0FBAFAC700BAAF55 /* PBXTextBookmark */;
+			B302F1DB0FBAFAC700BAAF55 /* PBXTextBookmark */ = B302F1DB0FBAFAC700BAAF55 /* PBXTextBookmark */;
 		};
 		sourceControlManager = B3D4AB7E0FB9CCC80070AC19 /* Source Control */;
 		userBuildSettings = {
@@ -44,7 +46,7 @@
 	8DC2EF4F0486A6940098B216 /* CocoNuit */ = {
 		activeExec = 0;
 	};
-	B302F1A70FBAF69D00BAAF55 /* PBXTextBookmark */ = {
+	B302F1D80FBAFAC700BAAF55 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = B3D4AB8A0FB9CD110070AC19 /* CNTouch.h */;
 		name = "CNTouch.h: 1";
@@ -54,7 +56,11 @@
 		vrLen = 480;
 		vrLoc = 0;
 	};
-	B302F1A80FBAF69D00BAAF55 /* PBXTextBookmark */ = {
+	B302F1D90FBAFAC700BAAF55 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = B3D4AB910FB9CD110070AC19 /* CN2FingerScale.h */;
+	};
+	B302F1DA0FBAFAC700BAAF55 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = B3D4AB8A0FB9CD110070AC19 /* CNTouch.h */;
 		name = "CNTouch.h: 1";
@@ -62,6 +68,16 @@
 		rLoc = 0;
 		rType = 0;
 		vrLen = 480;
+		vrLoc = 0;
+	};
+	B302F1DB0FBAFAC700BAAF55 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = B3D4AB910FB9CD110070AC19 /* CN2FingerScale.h */;
+		name = "CN2FingerScale.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 487;
 		vrLoc = 0;
 	};
 	B3D4AB7E0FB9CCC80070AC19 /* Source Control */ = {
@@ -80,6 +96,13 @@
 			sepNavIntBoundsRect = "{{0, 0}, {1172, 1140}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 480}";
+		};
+	};
+	B3D4AB910FB9CD110070AC19 /* CN2FingerScale.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1172, 475}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 487}";
 		};
 	};
 	B3D4ABAF0FB9CD110070AC19 /* CNLayer.m */ = {
