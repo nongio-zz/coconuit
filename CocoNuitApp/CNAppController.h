@@ -19,7 +19,7 @@
 
 
 #import <Cocoa/Cocoa.h>
-#import <BBOSC/BBOSCListener.h>
+#import "BBOSCListener.h"
 #import "CNTuioDispatcher.h"
 #import "CNDebugView.h"
 #import "CNView.h"
