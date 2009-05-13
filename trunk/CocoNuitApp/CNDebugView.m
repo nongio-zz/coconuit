@@ -12,7 +12,7 @@
 @implementation CNDebugView
 @synthesize tcdbg,circlesfortouches;
 
--(void)newEvent:(NSNotification *)notification{
+-(void)newCNEvent:(NSNotification *)notification{
 	
 	CNEvent* newMultitouchEvent = [notification object];
 	
