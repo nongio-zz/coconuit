@@ -37,8 +37,7 @@
 		self.lifetime = 0;
 		self.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
 		self.strokePath = [[NSMutableArray alloc] init];
-		//CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:self.position andVelocity:self.velocity andTime:self.timestamp];
-		//[self.strokePath addObject:[newPathElement retain]];	
+		
 	}
 	return self;
 }

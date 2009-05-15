@@ -48,7 +48,7 @@
 				[self groupStrokesToOne:gStrokes andUpdateTouch:touch];
 			}
 			else{
-				self.touch =(CNTouch*) [gStrokes lastObject];
+				self.touch = [[gStrokes lastObject] copy];
 			}
 		
 		if(touch){
