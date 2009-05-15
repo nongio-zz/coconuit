@@ -46,7 +46,7 @@
 					[self groupStrokesToOne:gStrokes andUpdateTouch:touch];
 				}
 				else{
-					self.touch = [gStrokes lastObject];
+					self.touch = [[gStrokes lastObject] copy];
 				}
 				
 				if(touch){
