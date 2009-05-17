@@ -56,18 +56,34 @@ static CNGestureFactory* GestureFactoryInstance = nil;
         if (GestureFactoryInstance == nil) {
             if (self = [super init]) {
                 GestureFactoryInstance = self;
-				
+				NSString* param;
 				GesturesParams = [[NSMutableDictionary alloc] init];
+				CoconuitConfig* myCoconuitConfigObj = [[CoconuitConfig alloc] init];
                 // custom initialization here
 				
-				NSNumber* MaxSingleTapInterval = [NSNumber numberWithDouble:0.15];
-				NSNumber* MaxDoubleTapInterval = [NSNumber numberWithDouble:0.25];
-				NSNumber* MinHoldTimeInterval = [NSNumber numberWithDouble:2];
-				NSNumber* MinMoveVelocity = [NSNumber numberWithDouble:0.13];
-				NSNumber* MinRTbyMoveRotationAngle = [NSNumber numberWithDouble:1];
-				NSNumber* Min2FingerRotationAngle = [NSNumber numberWithDouble:1];
-				NSNumber* Max2FingerScaleAngle = [NSNumber numberWithDouble:2.6];
-				NSNumber* Min2FingerScaleValue = [NSNumber numberWithDouble:0.0000003];
+				param = [myCoconuitConfigObj getConfigParamValue:@"GestureParams/SingleTapTime"];
+				NSNumber* MaxSingleTapInterval = [NSNumber numberWithDouble:[param doubleValue]];
+				
+				param = [myCoconuitConfigObj getConfigParamValue:@"GestureParams/DoubleTapTime"];
+				NSNumber* MaxDoubleTapInterval = [NSNumber numberWithDouble:[param doubleValue]];
+				
+				param = [myCoconuitConfigObj getConfigParamValue:@"GestureParams/HoldTime"];
+				NSNumber* MinHoldTimeInterval = [NSNumber numberWithDouble:[param doubleValue]];
+				
+				param = [myCoconuitConfigObj getConfigParamValue:@"GestureParams/MoveVelocityThreshold"];
+				NSNumber* MinMoveVelocity = [NSNumber numberWithDouble:[param doubleValue]];
+				
+				param = [myCoconuitConfigObj getConfigParamValue:@"GestureParams/OneFingerRotAngleThreshold"];
+				NSNumber* MinRTbyMoveRotationAngle = [NSNumber numberWithDouble:[param doubleValue]];
+				
+				param = [myCoconuitConfigObj getConfigParamValue:@"GestureParams/TwoFingerRotAngleThreshold"];
+				NSNumber* Min2FingerRotationAngle = [NSNumber numberWithDouble:[param doubleValue]];
+				
+				param = [myCoconuitConfigObj getConfigParamValue:@"GestureParams/TwoFingerScaleAngleThreshold"];
+				NSNumber* Max2FingerScaleAngle = [NSNumber numberWithDouble:[param doubleValue]];
+				
+				param = [myCoconuitConfigObj getConfigParamValue:@"GestureParams/TwoFingerScaleValueThreshold"];
+				NSNumber* Min2FingerScaleValue = [NSNumber numberWithDouble:[param doubleValue]];
 				
 				[GesturesParams setObject:MaxSingleTapInterval forKey:@"MaxSingleTapInterval"];
 				[GesturesParams setObject:MaxDoubleTapInterval forKey:@"MaxDoubleTapInterval"];
