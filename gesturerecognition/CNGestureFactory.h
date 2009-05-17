@@ -27,6 +27,7 @@
 #import "CNPress.h"
 #import "CNRelease.h"
 #import "CNTap.h"
+#import "CoconuitConfig.h"
 
 @interface CNGestureFactory : NSObject {
 	NSMutableDictionary* GesturesParams;
