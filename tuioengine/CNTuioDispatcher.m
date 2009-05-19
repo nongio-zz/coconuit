@@ -44,13 +44,7 @@
 // alive - this tells us which blobs (including the ones just set) that are still alive
 // fseq - this signals the end of this frame, and gives a sequence number, in theory the frames can come out of order, and we should be looking for that, but not for this app
 
-/** Questa è l'implementazione specifica del metodo di gestione dei messaggi Osc per il protocollo TUIO \n
- * Si accettano i soli messaggi TUIO/2DCur, che possono essere di 4 tipi:\n
- * - I messaggi source definiscono da dove vengono i pacchetti
- * - I messaggi set aggiungono un nuovo evento per un Blob che può avere un nuovo o un vecchio ID
- * - I messaggi alive dicono se i Blobs sono ancora vivi, compresi quelli appena aggiunti
- * - I messaggi fseq indicano la fine del frame corrente specificando un numero di sequenza. Poichè Osc si oppoggia su Udp i pacchetti possono arrivare fuori ordine, questo può essere utile per ricostruire l'ordine.
- */
+
 -(void)dispatchMessage:(BBOSCMessage*)message{
 	
 	// need to figure out what kind of message it is
@@ -78,12 +72,11 @@
 	}
 	
 	if ([command isEqualToString:@"source"]) {
-		//		[self processSource:[message attachedObjects]];
+		[self processSource:[message attachedObjects]];
 		return;
 	}
 	
 	if ([command isEqualToString:@"set"]) {
-		
 		[self processSet:[message attachedObjects]];
 		return;
 	}
@@ -101,10 +94,8 @@
 	// make a enw cursor from the arg array
 	CNTuioCursor * cursor = [[CNTuioCursor alloc] initWithArgs:args];
 	// put it into the active blob collection
-	//NSLog(@"New ID=%@",[self keyForID:[cursor cursorID]]);
 	
 	[activeBlobs setObject:cursor forKey:[self keyForID:[cursor cursorID]]];
-	//[self setActiveBlobs:[self activeBlobs]];
 }
 
 -(void)processAlive:(NSArray*)args{
@@ -139,8 +130,7 @@
 }
 
 -(void)processFseq:(NSArray*)args{
-	//[self setActiveBlobs:[self activeBlobs]]; //notify the observers or send an event
-	[observers makeObjectsPerformSelector:@selector(notify:) withObject:activeBlobs];
+	[observers makeObjectsPerformSelector:@selector(notify:) withObject:activeBlobs];//notify the observers or send an event
 }
 
 -(void)processSource:(NSArray*)args{
@@ -162,4 +152,5 @@
 -(void)removeObserver:(id)anObject{
 		[observers removeObject:anObject];
 }
+
 @end

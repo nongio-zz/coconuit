@@ -20,11 +20,11 @@
 #import <Cocoa/Cocoa.h>
 #import "BBOSCMessage.h"
 
-///Generica classe per la gestione di messaggi OSC
+///This Class let to manage Osc packets
 @interface CNOscMessageDispatcher : NSObject {
 
 }
--(void)dispatchRawPacket:(NSData*)someData;///<gestisce un pacchetto grezzo - lo trasforma in messaggio
--(void)dispatchMessage:(BBOSCMessage*)message;///<gestisce il messaggio - implementato dalle classi figlie
+-(void)dispatchRawPacket:(NSData*)someData;///<get a raw packet
+-(void)dispatchMessage:(BBOSCMessage*)message;///<do something with the Message create with the raw packet - child classes have to implement this method
 
 @end

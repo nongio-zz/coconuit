@@ -41,7 +41,7 @@
 			{
 				case UpdateTouch:
 
-					circle = [layersForTouches objectForKey:[self keyForID:tempTouch.strokeID]];
+					circle = [layersForTouches objectForKey:[NSNumber numberWithInt: tempTouch.strokeID]];
 					[CATransaction begin];
 					[CATransaction setValue:(id)kCFBooleanTrue
 									 forKey:kCATransactionDisableActions];
@@ -53,10 +53,10 @@
 					[CATransaction commit];						
 					break;
 				case ReleaseTouch:
-					circle = [layersForTouches objectForKey:[self keyForID:tempTouch.strokeID]];
+					circle = [layersForTouches objectForKey:[NSNumber numberWithInt: tempTouch.strokeID]];
 					[[self superlayer] setNeedsDisplayInRect:CGRectMake(circle.position.x-12.5, circle.position.y-12.5, 25, 25)];
 					[circle removeFromSuperlayer];
-					[layersForTouches removeObjectForKey:[self keyForID:tempTouch.strokeID]];
+					[layersForTouches removeObjectForKey:[NSNumber numberWithInt: tempTouch.strokeID]];
 					break;
 			}
 		}
@@ -74,12 +74,7 @@
 		circle.position = point;
 		[self addSublayer:circle];
 //		[[self superlayer] setNeedsDisplayInRect:CGRectMake(point.x-12.5, point.y-12.5, 25, 25)];
-		[layersForTouches setObject:circle forKey:[self keyForID:stroke.strokeID]];
+		[layersForTouches setObject:circle forKey:[[NSNumber numberWithInt: tempTouch.strokeID]];
 	}
-}
--(NSString*)keyForID:(NSInteger)num
-{
-	// just the ID in string form
-	return [NSString stringWithFormat:@"%d",num];
 }
 @end

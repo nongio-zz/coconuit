@@ -23,7 +23,7 @@
 
 @end
 
-@protocol QTObservableProtocol
+@protocol CNObservableProtocol
 
 -(void)addObserver:(id)anObserverObject;
 -(void)removeObserver:(id)anObserverObject;
