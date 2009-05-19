@@ -60,23 +60,20 @@
 				lastTapTimeStamp = touch.timestamp;
 			}
 			
-			if(touch.lifetime<maxSingleTapInterval && touch.type==ReleaseTouch){
-				
+			if(touch.lifetime<maxDoubleTapInterval && touch.type==ReleaseTouch){
 				double x = touch.timestamp-lastTapTimeStamp;
-				//NSLog(@"%f",x);
+				NSLog(@"%f",x);
 				if(x<maxSingleTapInterval){
 					state=EndGesture;
-					self.touch=Nil;
 					nTaps=1;
-					[sender performGesture:@"CNTap" withData:Nil];
+					[sender performGesture:@"CNTap" withData:nil];
 					state=WaitingGesture;
 					lastTapTimeStamp = touch.timestamp;
 				}
 				else{
 					state=EndGesture;
-					self.touch=Nil;
 					nTaps=2;
-					[sender performGesture:@"DoubleTap" withData:Nil];
+					[sender performGesture:@"CNDoubleTap" withData:nil];
 					lastTapTimeStamp=0;
 					state=WaitingGesture;
 					}

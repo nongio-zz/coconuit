@@ -74,7 +74,7 @@
 		circle.position = point;
 		[self addSublayer:circle];
 //		[[self superlayer] setNeedsDisplayInRect:CGRectMake(point.x-12.5, point.y-12.5, 25, 25)];
-		[layersForTouches setObject:circle forKey:[[NSNumber numberWithInt: tempTouch.strokeID]];
+		[layersForTouches setObject:circle forKey:[NSNumber numberWithInt: tempTouch.strokeID]];
 	}
 }
 @end

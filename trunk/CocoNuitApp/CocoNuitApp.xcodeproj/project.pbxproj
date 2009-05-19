@@ -60,6 +60,7 @@
 		B302F2090FBAFCFF00BAAF55 /* einstein.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B302F2070FBAFCFF00BAAF55 /* einstein.jpg */; };
 		B302F20A0FBAFCFF00BAAF55 /* john.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B302F2080FBAFCFF00BAAF55 /* john.jpg */; };
 		B302F2450FBAFFA800BAAF55 /* Coconut.icns in Resources */ = {isa = PBXBuildFile; fileRef = B302F2440FBAFFA800BAAF55 /* Coconut.icns */; };
+		E340B7F00FC2AA8100BFDDDD /* CocoNuitConfig.xml in Resources */ = {isa = PBXBuildFile; fileRef = E340B7EF0FC2AA8100BFDDDD /* CocoNuitConfig.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +172,7 @@
 		B302F2070FBAFCFF00BAAF55 /* einstein.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = einstein.jpg; sourceTree = "<group>"; };
 		B302F2080FBAFCFF00BAAF55 /* john.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = john.jpg; sourceTree = "<group>"; };
 		B302F2440FBAFFA800BAAF55 /* Coconut.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Coconut.icns; sourceTree = "<group>"; };
+		E340B7EF0FC2AA8100BFDDDD /* CocoNuitConfig.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = CocoNuitConfig.xml; path = ../CocoNuitApp/build/Debug/CocoNuitConfig.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 		69372B230FC0313800E6A604 /* config */ = {
 			isa = PBXGroup;
 			children = (
+				E340B7EF0FC2AA8100BFDDDD /* CocoNuitConfig.xml */,
 				69372B240FC0313800E6A604 /* CoconuitConfig.h */,
 				69372B250FC0313800E6A604 /* CoconuitConfig.m */,
 			);
@@ -468,6 +471,7 @@
 				B302F2090FBAFCFF00BAAF55 /* einstein.jpg in Resources */,
 				B302F20A0FBAFCFF00BAAF55 /* john.jpg in Resources */,
 				B302F2450FBAFFA800BAAF55 /* Coconut.icns in Resources */,
+				E340B7F00FC2AA8100BFDDDD /* CocoNuitConfig.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

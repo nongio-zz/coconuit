@@ -37,7 +37,8 @@
 		if([gStrokes count] == 1){
 			CNTouch* touch = [gStrokes lastObject];
 			double minHoldTimeInterval = [[GesturesParams objectForKey:@"MinHoldTimeInterval"] doubleValue];
-			if(touch.lifetime>minHoldTimeInterval && NSEqualPoints(touch.velocity,NSZeroPoint)){
+			double minMoveVelocity = [[GesturesParams objectForKey:@"MinMoveVelocity"] doubleValue];
+			if(touch.lifetime>minHoldTimeInterval && [self pointIsGreater:NSMakePoint(minMoveVelocity, minMoveVelocity) than:touch.velocity]){
 				if(state==WaitingGesture && touch.type==UpdateTouch){
 					state=EndGesture;
 					[sender performGesture:@"CNHold" withData:Nil];

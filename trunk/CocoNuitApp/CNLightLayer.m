@@ -88,6 +88,7 @@
 	{
 		NSDictionary*gesturenotice = (NSMutableDictionary*)anObject;
 		NSString* gesturename = [gesturenotice objectForKey:@"GestureName"];
+
 		if([gesturename isEqualToString:self.observedGestureName]){
 			[self switchLight];
 			[self trace:[[gesturenotice objectForKey:@"gState"] stringValue]];

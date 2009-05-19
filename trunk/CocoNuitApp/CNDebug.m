@@ -29,14 +29,22 @@
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerScale"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNPress"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNRelease"]];
-	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
 		
 	//Animations
 	CABasicAnimation *position = [CABasicAnimation animation];
 	position.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
 	[position setDuration:0.1];
-	self.actions = [NSDictionary dictionaryWithObject:position 
-													  forKey:@"position"];
+
+	CABasicAnimation *transformation = [CABasicAnimation animation];
+	transformation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+	[transformation setDuration:0.1];
+	self.actions = [NSDictionary dictionaryWithObject:transformation 
+											   forKey:@"transform"];
+		
+	
+	self.actions = [NSDictionary dictionaryWithObjectsAndKeys:position,@"position",transformation,@"transform",nil];
+		
+	
 	}
 	return self;
 }
@@ -133,13 +141,13 @@
 	}
 	if(gestureState!=EndGesture)
 	{		
-		[CATransaction begin];
-		[CATransaction setValue:(id)kCFBooleanTrue
-						 forKey:kCATransactionDisableActions];
+//		[CATransaction begin];
+//		[CATransaction setValue:(id)kCFBooleanTrue
+//						 forKey:kCATransactionDisableActions];
 			CATransform3D scale = CATransform3DIdentity;
 			scale = CATransform3DMakeScale(scaleFactor,scaleFactor, 1.0);
 			self.transform = CATransform3DConcat(self.transform, scale);	
-		[CATransaction commit];
+//		[CATransaction commit];
 	}
 }
 
@@ -161,13 +169,13 @@
 	
 	if(gestureState!=EndGesture)
 	{
-		[CATransaction begin];
-		[CATransaction setValue:(id)kCFBooleanTrue
-						 forKey:kCATransactionDisableActions];
+//		[CATransaction begin];
+//		[CATransaction setValue:(id)kCFBooleanTrue
+//						 forKey:kCATransactionDisableActions];
 		CATransform3D rotate = CATransform3DIdentity;
 		rotate = CATransform3DMakeRotation(rotationAngle, 0, 0, -sense); 
 		self.transform = CATransform3DConcat(self.transform, rotate);
-		[CATransaction commit];
+//		[CATransaction commit];
 	}else{
 		
 		NSLog(@"rotAngle: %f",angularvelocity);
