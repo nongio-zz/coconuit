@@ -29,7 +29,7 @@
 	return self;
 }
 
-// this is called by the OSCListener with the raw packet data
+///this is called by the OSCListener with the raw packet data
 -(void)dispatchRawPacket:(NSData*)someData
 {
 	// all we really care about right now are TUIO/2DCur messages

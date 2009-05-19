@@ -21,20 +21,21 @@
 #import "CNObserverProtocol.h"
 #import "CNOscMessageDispatcher.h"
 
-///Classe per la gestione di messaggi Tuio
-@interface CNTuioDispatcher : CNOscMessageDispatcher <QTObservableProtocol>{
-	NSMutableDictionary * activeBlobs;///<Lista di Blob attivi
-	NSMutableArray* observers;
+///This Class let to menage Tuio Messages \n
+///This Class implements the CNObservableProtocol. Every class who wants to observe it has to register like Observer using the method addObserver:(id)anObject. \n
+///When CNTuioDispatcher gets a Tuio FSEQ message it notifies the active Cursors state to the Observers.
+@interface CNTuioDispatcher : CNOscMessageDispatcher <CNObservableProtocol>{
+	NSMutableDictionary * activeBlobs;///<Active Cursors List
+	NSMutableArray* observers;///<Observer Objects List
 }
 
 @property (retain) NSMutableDictionary* activeBlobs;
-//@property (retain,readonly) NSArray* observers;
 
--(NSString*)keyForID:(NSInteger)num;
--(void)processSet:(NSArray*)args;///<Processa i messsaggi Set del protocollo Tuio
--(void)processAlive:(NSArray*)args;///<Processa i messsaggi Alive del protocollo Tuio
--(void)processFseq:(NSArray*)args;///<Processa i messsaggi FSec del protocollo Tuio
--(void)processSource:(NSArray*)args;///<Processa i messsaggi Source del protocollo Tuio
--(void)dispatchMessage:(BBOSCMessage*)message;///<Metodo per la gestione dei messaggi Tuio
+-(NSString*)keyForID:(NSInteger)num;///<A nice quick way to grab the identified cursors out of a dictionary
+-(void)processSet:(NSArray*)args;///<Process Tuio Set messages
+-(void)processAlive:(NSArray*)args;///<Process Tuio Set messages
+-(void)processFseq:(NSArray*)args;///<Process Tuio Set messages
+-(void)processSource:(NSArray*)args;///<Process Tuio Set messages
+-(void)dispatchMessage:(BBOSCMessage*)message;///<Read OSC messages and dispatch it
 
 @end
