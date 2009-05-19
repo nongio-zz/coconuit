@@ -77,7 +77,7 @@
 -(void)CNTap:(NSDictionary*)params{
 }
 
--(void)DoubleTap:(NSDictionary*)params{
+-(void)CNDoubleTap:(NSDictionary*)params{
 
 }
 

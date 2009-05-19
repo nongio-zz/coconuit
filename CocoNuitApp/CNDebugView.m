@@ -115,7 +115,7 @@
 	light4.position = CGPointMake(250.0,25);
 	
 	CNLightLayer*light5 = [[CNLightLayer alloc] initWithLabel:@"2tap"
-									  observedGestureName:@"CNTap"
+									  observedGestureName:@"CNDoubleTap"
 												 andColor:CGColorCreateGenericCMYK(0.72, 0.27, 0.0, 0, 1)
 											  withConsole:NO];
 	light5.position = CGPointMake(300.0,25);

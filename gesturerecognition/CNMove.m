@@ -68,9 +68,9 @@
 						*/
 						CN2dVect* vectT = [[CN2dVect alloc] initWithPoint:touch.position andPoint:last.position];
 					
-						if(touch.type==ReleaseTouch && state==UpdateGesture){
+						if(touch.type==ReleaseTouch){
 							state=EndGesture;
-							touch=Nil;
+							touch=nil;
 						}
 						
 						//NSLog(@"%f",touch.velocity.x);
@@ -113,6 +113,8 @@
 - (void)groupStrokesToOne:(NSMutableArray*)strokes andUpdateTouch:(CNTouch*)aTouch{
 	NSMutableArray* points = [[NSMutableArray alloc] init];
 	int touchType = aTouch.type;
+	int countRelease=0;
+	int countNew=0;
 	for(CNStroke* S in strokes){
 		if([S isKindOfClass:[CNTouch class]]){
 			CNTouch* t = (CNTouch*) S;
@@ -121,13 +123,29 @@
 				aTouch.strokePath = [[NSMutableArray alloc] init];
 			}
 			
+			if(t.type==NewTouch){
+				countNew++;
+			}
+			
 			if(t.type==ReleaseTouch){
-				touchType = ReleaseTouch;
+				countRelease++;
 			}
 			
 			[points addObject:[NSValue valueWithPoint:t.position]];
 		}
 	}
+	
+	if(countNew==[strokes count]){
+		touchType==NewTouch;
+	}
+	else{
+		touchType=UpdateTouch;
+	}
+	
+	if(countRelease==[strokes count]){
+		touchType = ReleaseTouch;
+	}
+
 	
 	NSPoint gCenter = getCenterPoint(points);
 	[aTouch updateWithPoint:gCenter andTouchType:touchType];

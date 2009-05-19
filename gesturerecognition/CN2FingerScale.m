@@ -42,6 +42,8 @@
 			//Controllare la velocità diversa da zero
 			CNStroke* stroke_0 = [gStrokes objectAtIndex:0];
 			CNStroke* stroke_1 = [gStrokes objectAtIndex:1];
+			CN2dVect* vect_old;
+			CN2dVect* vect;
 			
 			if(stroke_0.strokePath.count>1 && stroke_1.strokePath.count>1){
 				CNTouch* Touch0 = (CNTouch*)stroke_0;
@@ -49,76 +51,56 @@
 				
 				NSPoint stroke_0_old_position = [(CNPathElement*)[stroke_0.strokePath objectAtIndex:([stroke_0.strokePath count]-2)] position];
 				NSPoint stroke_1_old_position = [(CNPathElement*)[stroke_1.strokePath objectAtIndex:([stroke_1.strokePath count]-2)] position];
-				NSPoint mediumPoint = getMediumPoint(stroke_0_old_position,stroke_1_old_position);
-				CN2dVect* vect_0_old = [[CN2dVect alloc] initWithPoint:mediumPoint andPoint:stroke_0_old_position];
-				CN2dVect* vect_0 = [[CN2dVect alloc] initWithPoint:mediumPoint andPoint:stroke_0.position];
-				CN2dVect* vect_0_proj = getProjectionOfVector(vect_0,vect_0_old);
-				//fabs(vect_0-vect_0_proj) > soglia
-				double alfa_0 = getAngleBetweenVector(vect_0_old,vect_0);
 				
-				CN2dVect* vect_1_old = [[CN2dVect alloc] initWithPoint:mediumPoint andPoint:stroke_1_old_position];
-				CN2dVect* vect_1 = [[CN2dVect alloc] initWithPoint:mediumPoint andPoint:stroke_1.position];
-				CN2dVect* vect_1_proj = getProjectionOfVector(vect_1,vect_1_old);
-				double alfa_1 = getAngleBetweenVector(vect_1_old,vect_1);
+				NSPoint mediumPoint = getMediumPoint(stroke_0.position,stroke_1.position);
 				
-				double alfa = getAngleBetweenVector(vect_0_proj,vect_1_proj);
+				vect_old = [[CN2dVect alloc] initWithPoint:stroke_0_old_position andPoint:stroke_1_old_position];
+				vect = [[CN2dVect alloc] initWithPoint:stroke_0.position andPoint:stroke_1.position];
 				
-				double Max2FingerScaleAngle = [[GesturesParams objectForKey:@"Max2FingerScaleAngle"] doubleValue];
 				double Min2FingerScaleValue = [[GesturesParams objectForKey:@"Min2FingerScaleValue"] doubleValue];
 				
-				double minAlfa = Max2FingerScaleAngle*M_PI/180;
+
+				double scale = vect.module/vect_old.module;
+				
 				if(Touch0.type==ReleaseTouch || Touch1.type==ReleaseTouch){
 					state=EndGesture;
 				}
-				if(alfa_0<(minAlfa)&&alfa_1<(minAlfa) || state==EndGesture){
-					if(fabs(alfa)>=M_PI-0.10){//????
-						if(state==BeginGesture){
-							state=UpdateGesture;
-						}
-						if(state==WaitingGesture){
-							state=BeginGesture;
-							anchorPoint = getMediumPoint(stroke_0_old_position,stroke_1_old_position);
-						}
-						double firstLenght = ((CN2dVect*)[[CN2dVect alloc] initWithPoint:stroke_0_old_position andPoint:stroke_1_old_position]).module;
-						double secondLenght = ((CN2dVect*)[[CN2dVect alloc] initWithPoint:stroke_0.position andPoint:stroke_1.position]).module;
-						
-						//double firstLenght =  vect_0_old.module+vect_1_old.module;
-						//double secondLenght = vect_1_proj.module+vect_0_proj.module;
-						
-						//double scale_0 = vect_0_proj.module - vect_0_old.module;
-						//double scale_1 = vect_1_proj.module - vect_1_old.module;
-						
-						double scale = secondLenght/firstLenght;
-						
-						//NSLog(@"Scale del fattore %d ",maxDouble(scale_0,scale_1));//da correggere se il segno dei fatt di scala è negativo deve tornare il min
-						if(fabs(vect_0.module-vect_0_proj.module)>Min2FingerScaleValue || fabs(vect_1.module-vect_1_proj.module)>Min2FingerScaleValue || state==EndGesture){
-							
-							//[sender twoFingerScale:scale withCenter:anchorPoint andGestureState:self.state];
-							
-							NSArray* keys = [NSArray arrayWithObjects:@"scaleValue", @"center", @"gState",nil];
-							
-							NSNumber* scalePar = [NSNumber numberWithFloat:scale];
-							NSValue* centerPar = [NSValue valueWithPoint:anchorPoint];
-							NSNumber* gStatePar = [NSNumber numberWithInt:self.state];
-							
-							NSArray* objects = [NSArray arrayWithObjects:scalePar, centerPar, gStatePar, nil];
-							
-							
-							NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
-							
-							
-							[sender performGesture:@"TwoFingerScale" withData:params];
-
-						}
-					}
-					
-					if(state==EndGesture){
-						state=WaitingGesture;
-					}
-					return TRUE;
-				}
 				
+				if(state==BeginGesture){
+					state=UpdateGesture;
+				}
+					
+				if(state==WaitingGesture){
+					state=BeginGesture;
+					anchorPoint = mediumPoint;
+				}
+						
+						
+				NSLog(@"Scale del fattore %f ",scale);//da correggere se il segno dei fatt di scala è negativo deve tornare il min
+				if(scale>Min2FingerScaleValue || state==EndGesture){
+					
+					NSArray* keys = [NSArray arrayWithObjects:@"scaleValue", @"center", @"gState",nil];
+					
+					NSNumber* scalePar = [NSNumber numberWithFloat:scale];
+					NSValue* centerPar = [NSValue valueWithPoint:anchorPoint];
+					NSNumber* gStatePar = [NSNumber numberWithInt:self.state];
+					
+					NSArray* objects = [NSArray arrayWithObjects:scalePar, centerPar, gStatePar, nil];
+					
+					
+					NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+					
+					
+					[sender performGesture:@"TwoFingerScale" withData:params];
+
+				}
+					
+				if(state==EndGesture){
+					state=WaitingGesture;
+				}
+				return TRUE;
 			}
+				
 		}
 	}
 	return FALSE;

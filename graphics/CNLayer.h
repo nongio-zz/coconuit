@@ -31,7 +31,7 @@
 #import "CNMove.h"
 #import "CN2dVect.h"
 
-@interface CNLayer : CALayer <QTObservableProtocol>{
+@interface CNLayer : CALayer <CNObservableProtocol>{
 	CNEvent* myMultitouchEvent;
 	CNLayerModifier* myModifier;
 	CNGesture* GestureRecognizer;

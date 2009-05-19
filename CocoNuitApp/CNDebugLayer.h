@@ -17,6 +17,5 @@
 }
 -(void) redraw;
 -(void) setStroke:(CNStroke*)touch hover:(BOOL)ishover;
--(NSString*)keyForID:(NSInteger)num;
 @property (nonatomic,retain) NSMutableDictionary*layersForTouches;
 @end
