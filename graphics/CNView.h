@@ -29,7 +29,7 @@
 @property (retain) CALayer* rootLayer, *viewLayer;
 
 - (void)setupLayers;
-- (void)newEvent:(NSNotification *)notification;
+- (void)newCNEvent:(NSNotification *)notification;
 
 -(void)addSublayer:(CALayer*)newlayer; //aggiunge un livello a viewLayer
 -(void)addActiveSubLayer:(CALayer*)newlayer; //controlla se il livello è un CNLayer e nel caso lo aggiunge alla propria lista di layer attivi

@@ -22,8 +22,6 @@
 
 @implementation CNEventDispatcher
 
-@synthesize OscListener;
-
 -(id)init{
 	if(self = [super init]){
 		connected = FALSE;
@@ -37,44 +35,48 @@
 	return self;
 }
 
-- (void)startListeningOnPort:(int) port{
-	BBOSCListener* TempListener = [[BBOSCListener alloc] init];///Si istanzia l'OscListener
-	
-	[TempListener setDelegate:TuioMessageDispatcher];///Si imposta il delegato per la gestione dei messaggi Osc
-	
-	[TempListener startListeningOnPort:port];///Si avvia l'OscListener sulla porta specificata
 
-	self.OscListener = [TempListener retain];// keep a copy for myself
-	connected = TRUE;
+- (void)startListeningOnPort:(int) port{
+	BBOSCListener* TempListener = [[BBOSCListener alloc] init];///create the BBOSCListener
+	
+	[TempListener setDelegate:TuioMessageDispatcher];///set the TuioMessageDispatcher like delegate for the BBOSCListener instance
+	
+	[TempListener startListeningOnPort:port];///start listening 
+
+	OscListener = [TempListener retain];///keep the new OSCListener instance
+	
+	connected = TRUE;///set TRUE the connection state
 }
+
 
 -(void)notify:(id)anObject{
 	if([anObject isKindOfClass:[NSMutableDictionary class]]){
-		OldCursors = [NewCursors copy];//Se Nil forse da' errore
-		NewCursors = (NSMutableDictionary*)[anObject copy];
+		OldCursors = [NewCursors copy];///keep previous cursors state
+		NewCursors = (NSMutableDictionary*)[anObject copy];///keep new cursors state
 		
 		NSArray* OldCursorsKeys = [OldCursors allKeys];
 		NSArray* NewCursorsKeys = [NewCursors allKeys];
 		
+		//Keep a copy to update the current event in safety
 		CNEvent* eventcopy = [myEvent copy];
 		
 		for(CNTouch* touch in myEvent.strokes){
 			if(touch.type == ReleaseTouch){
-				[eventcopy removeStrokeByID:touch.strokeID];
+				[eventcopy removeStrokeByID:touch.strokeID];///remove the Touches that have been set as Release at the previous step
 			}
 		}
+		
 		myEvent = eventcopy;
 
 		for (id key in OldCursorsKeys){
 			if(![NewCursors objectForKey:key]){
 				CNTouch* TempTouch =(CNTouch*) [myEvent getStrokeByID:[key intValue]];
-				[TempTouch setRelease];
+				[TempTouch setRelease];///set as Release the Touches linked to disappeared cursors
 			}
 			else{
 				CNTouch* TempTouch = (CNTouch*) [myEvent getStrokeByID:[key intValue]];
 				//Calculate velocity from points and timestamp
-				//Farei una struttura dati punto e tempo che poi va anche caricata nel Path
-				TempTouch.type = UpdateTouch;
+				TempTouch.type = UpdateTouch;///update the Touches in the CNEvent instance
 				[TempTouch updateWithCursor:[NewCursors objectForKey:key]];
 				
 			}
@@ -83,14 +85,15 @@
 		for (id key in NewCursorsKeys){
 			if(![OldCursors objectForKey:key]){
 				CNTouch* newTouch = [[CNTouch alloc] initWithCursor:(CNTuioCursor*) [NewCursors objectForKey:key]];//la velocità a zro va messa nell'inizializzatore di tocco
-				//come il timestamp etc etc
+				///create a new Touch linked to the new cursor in the scene
 				[newTouch setVelocity:NSMakePoint(0,0)];
-				[myEvent setStroke:newTouch];
+				[myEvent setStroke:newTouch];///add the new Touch to the CNEvent instance
 			}
 		}
 		
 		if([myEvent.strokes count]>0){
-			[[NSNotificationCenter defaultCenter] postNotificationName:@"newCNEvent" object:[myEvent copy]];
+			myEvent.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];///update the CNEvent instance timestamp
+			[[NSNotificationCenter defaultCenter] postNotificationName:@"newCNEvent" object:[myEvent copy]];///notify a new CNEvent [[NSNotificationCenter defaultCenter] postNotificationName:@"newCNEvent" object:[myEvent copy]];
 		}
 	}
 }

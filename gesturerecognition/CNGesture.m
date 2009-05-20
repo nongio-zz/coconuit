@@ -31,7 +31,6 @@
 		GesturesParams = [[CNGestureFactory getGestureFactory] GesturesParams]; 
 		state = WaitingGesture;
 		GestureChilds = [[NSMutableArray alloc] init];
-		observers = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -63,44 +62,59 @@
 	return Nil;
 }
 
+///If the gesture is not recognized calls recognizeGesture on all its Childs
+///[GestureChilds makeObjectsPerformSelector:@selector(recognizeGesture:) withObject:sender];\n
 -(void)recognizeGesture:(id)sender{
 	if(![self recognize:sender]){
 		[GestureChilds makeObjectsPerformSelector:@selector(recognizeGesture:) withObject:sender];
 	}
 }
 
+///Each subClass of CNGesture has to override this method.
+///In CNGesture this method only return FALSE, because it only has to call recognizeGesture: on its childs.
 -(BOOL)recognize:(id)sender{
 	return FALSE;
 }
 
--(BOOL)pointIsGreater:(NSPoint)firstPoint than:(NSPoint)secondPoint{
-	if(fabs(firstPoint.x) >  fabs(secondPoint.x) || fabs(firstPoint.y) > fabs(secondPoint.y))
-		return YES
-		;
-	else
-		return NO;
-}
-
--(NSPoint)getNormalizedPoint:(NSPoint) p withPivot:(NSPoint) o{
-	NSPoint newPoint;
-	newPoint.x = p.x - o.x;
-	newPoint.y = p.y - o.y;
-	return newPoint;
-}
-
--(NSPoint)getHeightPointWithPoint:(NSPoint) p1 andSegmentWithStartPoint:(NSPoint) o andEndPoint:(NSPoint)p2{
-	NSPoint h;
-	NSPoint norm_p1 = [self getNormalizedPoint:p1 withPivot:o];
-	NSPoint norm_p2 = [self getNormalizedPoint:p2 withPivot:o];
-	
-	h.x = ((norm_p2.x*norm_p2.y*norm_p1.y)/(pow(norm_p2.x,2)+pow(norm_p2.y,2))+(pow(norm_p2.x,2)*norm_p1.x)/(pow(norm_p2.x,2)+pow(norm_p2.y,2)))+o.x;
-	h.y = ((pow(norm_p2.y,2)*norm_p1.y)/(pow(norm_p2.x,2)+pow(norm_p2.y,2))+(norm_p2.x*norm_p2.y*norm_p1.x)/(pow(norm_p2.x,2)+pow(norm_p2.y,2)))+o.y;
-	
-	return h;
-}
-
 -(void) groupStrokesToOne:(NSMutableArray*)strokes andUpdateTouch:(CNTouch*)aTouch{
+	NSMutableArray* points = [[NSMutableArray alloc] init];
+	int touchType = aTouch.type;
+	int countRelease=0;
+	int countNew=0;
 	
+	for(CNStroke* S in strokes){
+		if([S isKindOfClass:[CNTouch class]]){
+			CNTouch* t = (CNTouch*) S;
+			
+			if(t.type==NewTouch){
+				aTouch.strokePath = [[NSMutableArray alloc] init];
+			}
+			
+			if(t.type==NewTouch){
+				countNew++;
+			}
+			
+			if(t.type==ReleaseTouch){
+				countRelease++;
+			}
+			
+			[points addObject:[NSValue valueWithPoint:t.position]];
+		}
+	}
+	
+	if(countNew==[strokes count]){
+		touchType==NewTouch;
+	}
+	else{
+		touchType=UpdateTouch;
+	}
+	
+	if(countRelease==[strokes count]){
+		touchType = ReleaseTouch;
+	}
+	
+	NSPoint gCenter = getCenterPoint(points);
+	[aTouch updateWithPoint:gCenter andTouchType:touchType];
 }
 
 @end

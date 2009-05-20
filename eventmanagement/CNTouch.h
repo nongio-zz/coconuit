@@ -31,28 +31,30 @@ typedef enum TouchType {
 
 
 /**
- * \brief Classe Tocco, rappresenta un Tocco sulla scena. E' blob sulla scena che può essere un polpastrello ma non solo.
- * \details Istanze di questa classe vengono raccolte in quello che è un Evento Multitouch CNEvent\n
- * i tocchi possono essere di tre tipi: \n
- * - NewTouch indica un tocco appena comparso nella scena
- * - UpdateTouch indica tocco già stato rilevato che ancora presente nella scena
- * - ReleaseTouch indica un tocco appena scomparso dalla scena
+ * \brief It is a special kind of Stroke, for example a simple fingertip touch on the tabletop.
+ * \details Instances of this class are collected in a CNEvent.\n
+ * CNTouches could be of three different types:\n
+ * - NewTouch, the touch is just appeared in the scene
+ * - UpdateTouch, the touch is still in the scene, doing something
+ * - ReleaseTouch, the cursor linked to the touch is disappeared from the scene
+ *
  */
 
 @interface CNTouch : CNStroke {
-	TouchType type;///<Indica il tipo di tocco
-	NSTimeInterval timestamp;
-	CNTuioCursor* cursor;///<E' un puntatore all'elemento di basso livello che genera il Tocco (CNStroke)
+	TouchType type;///<CNTouch type
+	NSTimeInterval timestamp;///<CNTouch actual timestamp
+	CNTuioCursor* cursor;///<keep the lowlevel object linked to the CNTouch
 }
 
 @property (assign) TouchType type;
 @property (assign) NSTimeInterval timestamp;
 @property (retain) CNTuioCursor* cursor;
 
--(CNTouch*)initWithCursor:(CNTuioCursor*)aCursor;///<Permette di inizializzare il tocco con un Cursore [NewTouch]
--(void)updateWithCursor:(CNTuioCursor*)aCursor;///<Aggiorna il tocco con il cursore relativo [UpdateTouch]
--(void)setRelease;///<Rilascia il tocco che è scomparso dalla scena [CNRelease]
--(NSString*)stringValue;///<Ritorna una stringa che descrive il Tocco
--(NSPoint) CalculateVelocityOfActualPosition:(NSPoint)aPosition fromPreviousPosition:(NSPoint)pPosition withTimeInterval:(NSTimeInterval)aTime;
--(void)updateWithPoint:(NSPoint)aPoint andTouchType:(TouchType) aType;
+-(CNTouch*)init;///<create a new Touch without a specified position
+-(CNTouch*)initWithCursor:(CNTuioCursor*)aCursor;///<create a new Touch from a cursor [NewTouch]
+-(void)updateWithCursor:(CNTuioCursor*)aCursor;///<update the Touch with the linked cursor [UpdateTouch]
+-(void)setRelease;///<release the touch when the linke cursor disappears from the scene [ReleaseTouch]
+-(NSString*)stringValue;///<get a string that describes the Touch
+-(void)updateWithPoint:(NSPoint)aPoint andTouchType:(TouchType) aType;///<update the Touch with the new calculated position
+
 @end

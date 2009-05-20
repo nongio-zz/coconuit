@@ -44,19 +44,15 @@
 -(void)draw;
 -(void)performGesture:(NSString*)gName withData:(NSDictionary*)params;
 
--(void)CNPress:(NSDictionary*)params;
--(void)updateTouch:(NSDictionary*)params;
--(void)CNRelease:(NSDictionary*)params;
--(void)CNTap:(NSDictionary*)params;
+-(void)Press:(NSDictionary*)params;
+-(void)Update:(NSDictionary*)params;
+-(void)Release:(NSDictionary*)params;
+-(void)Tap:(NSDictionary*)params;
 -(void)DoubleTap:(NSDictionary*)params;
--(void)CNHold:(NSDictionary*)params;
-//-(void)Move:(CN2dVect*)vectT  withVelocity:(NSPoint)velocity andGestureState:(int)gestureState;
+-(void)Hold:(NSDictionary*)params;
 -(void)Move:(NSDictionary*)params;
-//-(void)TwoFingerScale:(double)scaleFactor withCenter:(NSPoint)center andGestureState:(int)gestureState;
 -(void)TwoFingerScale:(NSDictionary*)params;
-//-(void)TwoFingerRotate:(float)rotationAngle withSense:(int)sense andRadius:(double)radius andGestureState:(int)gestureState andCenter:(NSPoint)center;
 -(void)TwoFingerRotate:(NSDictionary*)params;
-//-(void)OneFingerRotate:(float)rotationAngle withSense:(int)sense andVelocity:(float)angularVelocity andCenter:(NSPoint)center andRadius:(double)radius andGestureState:(int)gestureState;
 -(void)OneFingerRotate:(NSDictionary*)params;
 
 -(void)updateStrokes:(CNEvent*)aEvent;

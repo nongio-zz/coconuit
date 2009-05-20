@@ -29,18 +29,23 @@
 	}
 	return self;
 }
+
 -(BOOL)recognize:(id)sender{
 	
 	if([sender isKindOfClass:[CNLayer class]]){
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
 		CNTouch* touch = [gStrokes lastObject];
-		if(touch.type==ReleaseTouch&&[gStrokes count]>0)
-		{	state = EndGesture;
-			[sender performGesture:@"CNRelease" withData:Nil];
+		if(touch.type==ReleaseTouch&&[gStrokes count]>0){///if the number of release touches in the active area is heighter than 0 
+			state = BeginGesture;
+			
+			[sender performGesture:@"Release" withData:Nil];///calls PerformReleaseGesture on the related layer [sender performGesture:@"Release" withData:Nil];
+			
+			state = EndGesture;
 			state = WaitingGesture;
 			return TRUE;
-		}else{
-			return FALSE;			
+		}
+		else{
+			return FALSE;//gesture recognized			
 		}
 	}
 	return FALSE;

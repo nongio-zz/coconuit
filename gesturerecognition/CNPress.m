@@ -31,20 +31,22 @@
 	return self;
 }
 
+
 -(BOOL)recognize:(id)sender{
 
 	if([sender isKindOfClass:[CNLayer class]]){
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
 		CNTouch* touch = [gStrokes lastObject];
 		
-		if(touch.type==NewTouch&&[gStrokes count]>0)
+		if(touch.type==NewTouch&&[gStrokes count]>0)///if the number of new touches in the active area is heighter than 0
 			{	
+				state = BeginGesture;
+				
+				[sender performGesture:@"Press" withData:Nil];///calls PerformPressGesture on the related layer [sender performGesture:@"Press" withData:Nil];
+				
 				state = EndGesture;
-				
-				[sender performGesture:@"CNPress" withData:Nil];
-				
 				state = WaitingGesture;
-				return TRUE;
+				return TRUE;//gesture recognized
 			}else{
 				return FALSE;			
 			}

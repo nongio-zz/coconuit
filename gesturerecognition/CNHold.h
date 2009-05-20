@@ -20,10 +20,16 @@
 #import <Cocoa/Cocoa.h>
 #import "CNGesture.h"
 
+/**
+ * \brief It represents a specif Gesture. It recognizes an Hold on the active area (CNLayer).
+ * \details In this case a Touch that remains in the scene for a long time without moving is recognized like an Hold Gesture.
+ *
+ */
+
 @interface CNHold : CNGesture {
-	
+	CNTouch* touch;///<keeps the touch
 }
 
-
+-(BOOL)recognize:(id)sender;///<implements the Hold GestureRecognition task
 
 @end

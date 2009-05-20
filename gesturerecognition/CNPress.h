@@ -20,8 +20,16 @@
 #import <Cocoa/Cocoa.h>
 #import "CNGesture.h"
 
+/**
+ * \brief It represents a specif Gesture. It recognizes a Press on the active area (CNLayer).
+ * \details In this case a new Touch that appears in the specific area is recognized like a Press Gesture.
+ *
+ */
+
+
 @interface CNPress : CNGesture {
 
 }
+-(BOOL)recognize:(id)sender;///<implements the Press GestureRecognition task
 
 @end

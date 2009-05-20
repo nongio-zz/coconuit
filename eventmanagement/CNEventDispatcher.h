@@ -24,23 +24,23 @@
 #import "CNObserverProtocol.h"
 
 /**
- *\brief Questa classe rappresenta il centro creazione e smistamento eventi.
- *\details Questa classe si registra come osservatore su i generatori di eventi di basso livello. Si occupa di creare eventi multitouch istanziando, 
- * oggiornando o rimuovendo gli Strokes. Quindi notifica il nuovo evento all'Interfaccia grafica per mezzo del NotificationCenter.
+ *\brief This class represents the center of creation and dispatching for CNEvent instances.
+ *\details This class register itself like observer to the TuioDispacher. It creates instances of CNEvent and notifies it with the Cocoa NSNotificationCenter.
+ * It is important to notice that the notification is synchronous with the changing of the scene.
+ *
  */
 
 @interface CNEventDispatcher : NSObject <CNObserverProtocol> {
-	bool connected;
-	BBOSCListener* OscListener;
-	CNTuioDispatcher* TuioMessageDispatcher;
-	CNEvent* myEvent;///<E' il puntatore all'evento corrente
-	NSDictionary* OldCursors;///<Mantiene lo stato dei cursori nella scena al passo precente. Utile per riconosce se un tocco è nuovo, aggiornato o rimosso
-	NSDictionary* NewCursors;///<Rappresenta lo stato attuale dei cursori nella scena.
+	bool connected;///<Keep the OSCConnection state 
+	BBOSCListener* OscListener;///<Keep the OSCListener like class attribute
+	CNTuioDispatcher* TuioMessageDispatcher;///<Keep the CNTuioMessageDispatcher like class attribute
+	CNEvent* myEvent;///<Is the current Event that will be dispatched. It is updated for each CNTuioMessageDispatcher notify.
+	NSDictionary* OldCursors;///<Stores the previous step cursors state. It is useful to know which cursors are disappeared and to get some info like cursor's velocity and acceleration.
+	NSDictionary* NewCursors;///<Represents the actual cursors state.
 }
 
-@property (retain) BBOSCListener* OscListener;
 
-- (void)startListeningOnPort:(int) port;
-//- (void)observeValueForKeyPath:(NSString*) keyPath ofObject:(id) object change:(NSDictionary*) change context:(void*) context;///<Questo metodo gestisce la notifica delle modifiche da parte degli oggetti presso i quali l'CNEventDispatcher si è registrato come osservatore.
+- (void)notify:(id)anObject;///<let start listening the BBOscListener on the specified port 
+- (void)startListeningOnPort:(int) port;///<manage the notify from the CNTuioDispatcher
 
 @end

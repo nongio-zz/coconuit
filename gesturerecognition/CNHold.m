@@ -20,6 +20,7 @@
 #import "CNHold.h"
 #import "CNGestureFactory.h"
 #import "CNLayer.h"
+#import "Math.h"
 
 @implementation CNHold
 
@@ -32,18 +33,37 @@
 }
 
 -(BOOL)recognize:(id)sender{
+	
 	if([sender isKindOfClass:[CNLayer class]]){
+		
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
-		if([gStrokes count] == 1){
-			CNTouch* touch = [gStrokes lastObject];
+		
+		if([gStrokes count]>0){
+			if([gStrokes count]>1){///if the Touchs numbers is greater than one
+				if(touch==Nil){
+					touch = [[CNTouch alloc] init];
+				}
+				[self groupStrokesToOne:gStrokes andUpdateTouch:touch];///grouping the touches to one
+			}
+			else{
+				touch = [[gStrokes lastObject] copy];///else get the only one
+				}
+		}
+		
+		if(touch){
+
 			double minHoldTimeInterval = [[GesturesParams objectForKey:@"MinHoldTimeInterval"] doubleValue];
 			double minMoveVelocity = [[GesturesParams objectForKey:@"MinMoveVelocity"] doubleValue];
-			if(touch.lifetime>minHoldTimeInterval && [self pointIsGreater:NSMakePoint(minMoveVelocity, minMoveVelocity) than:touch.velocity]){
+			
+			if(touch.lifetime>minHoldTimeInterval && pointIsGreater(NSMakePoint(minMoveVelocity, minMoveVelocity),touch.velocity)){
+				
 				if(state==WaitingGesture && touch.type==UpdateTouch){
-					state=EndGesture;
-					[sender performGesture:@"CNHold" withData:Nil];
+					state=BeginGesture;
+					state=EndGesture;//gesture ends suddenly
+					[sender performGesture:@"Hold" withData:Nil];
 					return TRUE;
 				}
+				
 				if(state==EndGesture && touch.type==ReleaseTouch){
 					state=WaitingGesture;
 					return FALSE;
@@ -54,5 +74,6 @@
 	}
 	return FALSE;
 }
-
+	
 @end
+

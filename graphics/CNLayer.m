@@ -62,26 +62,26 @@
 	}
 }
 
--(void)CNPress:(NSDictionary*)params{
+-(void)Press:(NSDictionary*)params{
 	
 }
 
--(void)updateTouch:(NSDictionary*)params{
+-(void)Update:(NSDictionary*)params{
 
 }
 
--(void)CNRelease:(NSDictionary*)params{
+-(void)Release:(NSDictionary*)params{
 	
 }
 
--(void)CNTap:(NSDictionary*)params{
+-(void)Tap:(NSDictionary*)params{
 }
 
--(void)CNDoubleTap:(NSDictionary*)params{
+-(void)DoubleTap:(NSDictionary*)params{
 
 }
 
--(void)CNHold:(NSDictionary*)params{
+-(void)Hold:(NSDictionary*)params{
 
 }
 

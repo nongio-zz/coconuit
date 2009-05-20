@@ -22,17 +22,18 @@
 
 
 /**
- * \brief Classe cursore rappresenta un Blob nella scena
- * \details Istanze di questa classe vengono raccolte nella lista di cursori activeBlobs, mantenuta aggiornata dal CNTuioDispatcher. \n
- * Ciascuno dei cursori rappresenta un Blob per mezzo dei suoi attributi.
+ * \brief This class represents a cursor in the scene
+ * \details Instances of this class have been collected in the ActiveBlobs Cursors Array, an attribute of the CNTuioDispatcher Class. The CNTuioDispatcher keeps updated ActiveBlobs.\n
+ * Each cursors represents a Blob.
+ * 
  */
 
 @interface CNTuioCursor : NSObject {
-	NSInteger cursorID;///<E' l'ID del Blob nella scena. Valore unico e non ripetibile per una sessione
-	NSPoint position;///<E' un punto 2D che corrisponde alla posizione del Blob nella scena. Gli attributi del punto sono due float X e Y rispettivamente ascissa e ordinata.
-	float xVelo;///<E' la componente orizzontale della velocità del Blob
-	float yVelo;///<E' la componente verticale della velocità del Blob
-	float accel;///<E' l'accelerazione del Blob
+	NSInteger cursorID;///<The Blob ID given by the sensible engine. This value appears only one time for each session.
+	NSPoint position;///<Bidimensional point that represents to the Blob's position. X and Y values are double. 
+	float xVelo;///<Blob's Horizontal velocity component's value
+	float yVelo;///<Blob's Vertical velocity component's value
+	float accel;///<Blobs acceleration...
 }
 
 @property (assign) NSInteger cursorID;

@@ -21,6 +21,7 @@
 #import "CNLayer.h"
 
 @implementation CNUpdate
+
 -(id)init{
 	if(self = [super init]){
 		GestureName = @"CNUpdate";
@@ -28,17 +29,24 @@
 	}
 	return self;
 }
+
 -(BOOL)recognize:(id)sender{
 	
 	if([sender isKindOfClass:[CNLayer class]]){
+		
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
 		CNTouch* touch = [gStrokes lastObject];
-		if(touch.type==UpdateTouch&&[gStrokes count]>0)
-		{   state = EndGesture;
-			[sender performGesture:@"updateTouch" withData:Nil];
+		
+		if(touch.type==UpdateTouch&&[gStrokes count]>0){///if the number of update touches in the active area is heighter than 0   
+			state = BeginGesture;
+			
+			[sender performGesture:@"Update" withData:Nil];///calls PerformUpdateGesture on the related layer [sender performGesture:@"updateTouch" withData:Nil];
+			
+			state = EndGesture;
 			state = WaitingGesture;
-			return TRUE;
-		}else{
+			return TRUE;//gesture recognized
+			}
+		else{
 			return FALSE;			
 		}
 	}

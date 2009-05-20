@@ -29,25 +29,42 @@ typedef enum GestureState {
 	EndGesture
 } GestureState;
 
+/**
+ * \brief It represents a general Gesture. Every real gesture recognition implementation has to inherit from this Class.
+ * \details This Class implements the Composite design patter. It is useful to build and modify at runtime the GestureRecognition tree.
+ * Thus it is also possible to give a specified priority to the gestures recognition.\n
+ * Each active layer has one instance of CNGesture class or subclass linked-in: it is the root of the GestureRecognition Tree.\n
+ * Each CNGesture has one or more childs which can pass the GestureRecognition Task.
+ * \par
+ * Each gesture could be in one of the below state:\n
+ * - WaitingGesture, still waiting to be recognized
+ * - BeginGesture, just recognized
+ * - UpdateGesture, already active doing something
+ * - EndGesture, terminated. Becames waiting again. 
+ * \par
+ * It is useful to distiguish the various state of the gestures because it could be necessary to do something different for each state.
+ * For example add the friction effect to the end of a Move.
+ *
+ */
+
 @interface CNGesture : NSObject{
-	NSMutableArray* GestureChilds;
-	NSMutableDictionary* GesturesParams;
-	NSString* GestureName;
-	GestureState state;//Se salvato come oggetto con il Kvc ci si può mettere ad osservare direttamente questo valore
-	NSMutableArray* observers;
+	NSMutableArray* GestureChilds;///<Keep the CNGesture childs
+	NSMutableDictionary* GesturesParams;///<Keep the specific Gestures Paramaters useful for the layerAnimation
+	NSString* GestureName;///<CNGesture name
+	GestureState state;///<CNGesture state
 }
 
 @property (retain) NSString* GestureName;
 @property (retain) NSMutableDictionary* GesturesParams;
 @property (assign) GestureState state;
 
--(BOOL)addChildGesture:(CNGesture*)aGesture;
--(void)removeChildGestureByName:(NSString*)gName;
--(CNGesture*)getChildGestureByName:(NSString*)gName;
--(void) groupStrokesToOne:(NSMutableArray*) strokes andUpdateTouch:(CNTouch*)aTouch;
+-(BOOL)addChildGesture:(CNGesture*)aGesture;///<add a CNGesture child
+-(void)removeChildGestureByName:(NSString*)gName;///<remove a CNGesture child by name
+-(CNGesture*)getChildGestureByName:(NSString*)gName;///<get a CNGesture child by name
 
+-(void) groupStrokesToOne:(NSMutableArray*) strokes andUpdateTouch:(CNTouch*)aTouch;///<grouping strokes to one if more than requested to recognize the gesture
 
--(BOOL)recognize:(id)sender;
--(void)recognizeGesture:(id)sender;
--(BOOL)pointIsGreater:(NSPoint)firstPoint than:(NSPoint)secondPoint;
+-(BOOL)recognize:(id)sender;///<implements the specific GestureRecognition task
+-(void)recognizeGesture:(id)sender;///<the View call this method to ask the gesture recognition
+
 @end

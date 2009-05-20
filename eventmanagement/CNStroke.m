@@ -27,7 +27,5 @@
 @synthesize position;
 @synthesize velocity;
 @synthesize strokePath;
-@synthesize myLayer;
-@synthesize visLayer;
 
 @end

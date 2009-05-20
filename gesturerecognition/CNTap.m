@@ -41,50 +41,55 @@
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
 		
 		if([gStrokes count]>0){
-			if([gStrokes count]>1){
+			if([gStrokes count]>1){///if the Touchs numbers is greater than one
 				if(touch==Nil){
 					self.touch = [[CNTouch alloc] init];
+					}
+				[self groupStrokesToOne:gStrokes andUpdateTouch:touch];///grouping the touches to one
 				}
-				[self groupStrokesToOne:gStrokes andUpdateTouch:touch];
-			}
 			else{
-				self.touch = [[gStrokes lastObject] copy];
-			}
-		
+				self.touch = [[gStrokes lastObject] copy];///else get the only one
+				}
+			
 		if(touch){
 			double maxSingleTapInterval = [[GesturesParams objectForKey:@"MaxSingleTapInterval"] doubleValue];
 			double maxDoubleTapInterval = [[GesturesParams objectForKey:@"MaxDoubleTapInterval"] doubleValue];
 			//NSLog(@"%f",touch.lifetime);
 			
 			if(touch.type==NewTouch && touch.timestamp-lastTapTimeStamp>maxDoubleTapInterval){
-				lastTapTimeStamp = touch.timestamp;
-			}
-			
-			if(touch.lifetime<maxDoubleTapInterval && touch.type==ReleaseTouch){
-				double x = touch.timestamp-lastTapTimeStamp;
-				NSLog(@"%f",x);
-				if(x<maxSingleTapInterval){
-					state=EndGesture;
-					nTaps=1;
-					[sender performGesture:@"CNTap" withData:nil];
-					state=WaitingGesture;
-					lastTapTimeStamp = touch.timestamp;
+				lastTapTimeStamp = touch.timestamp;///if the touch is brand new store timestamp in lastTapTimeStamp class attribute
 				}
-				else{
-					state=EndGesture;
-					nTaps=2;
-					[sender performGesture:@"CNDoubleTap" withData:nil];
-					lastTapTimeStamp=0;
+			
+			if(touch.lifetime<maxDoubleTapInterval && touch.type==ReleaseTouch){///if the touch is release and its lifetime is lesser than MaxDoubleTapInterval try to see if it is a single Tap or a double Tap 
+				double x = touch.timestamp-lastTapTimeStamp;
+				
+				//NSLog(@"%f",x);
+				if(x<maxSingleTapInterval){///if the difference between the touch timestamp and the lastTapTimeStamp is lesser than minSingleTapInterval get a single Tap 
+					state=BeginGesture;
+					state=EndGesture;//gesture ends suddenly
+					nTaps=1;///set nTaps to 1
+					[sender performGesture:@"Tap" withData:nil];///calls PerformTapGesture on the related layer [sender performGesture:@"Tap" withData:nil];
+					state=WaitingGesture;
+					lastTapTimeStamp = touch.timestamp;///save single Tap timestamp
+					}
+				else{///else get a double Tap
+					state=BeginGesture;
+					state=EndGesture;//gesture ends suddenly
+					nTaps=2;///set nTaps to 2
+					[sender performGesture:@"DoubleTap" withData:nil];///calls PerformDoubleTapGesture on the related layer [sender performGesture:@"DoubleTap" withData:nil];
+					lastTapTimeStamp=0;///set lastTapTimeStamp to 0
 					state=WaitingGesture;
 					}
-				return TRUE;
+				return TRUE;//gesture recognized
 				}
 			}
 		}
-		}
+	}
+	
 	return FALSE;
 }
 
+/*
 - (void)groupStrokesToOne:(NSMutableArray*)strokes andUpdateTouch:(CNTouch*)aTouch{
 	NSMutableArray* points = [[NSMutableArray alloc] init];
 	int touchType = aTouch.type;
@@ -103,5 +108,5 @@
 	NSPoint gCenter = getCenterPoint(points);
 	[aTouch updateWithPoint:gCenter andTouchType:touchType];
 }
-
+*/
 @end
