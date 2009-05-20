@@ -49,25 +49,25 @@
 	return self;
 }
 
--(void)CNPress:(NSDictionary*)params{
+-(void)Press:(NSDictionary*)params{
 		[self onTop];
 }
 
--(void)updateTouch:(NSDictionary*)params{
+-(void)Update:(NSDictionary*)params{
 
 }
 
--(void)CNRelease:(NSDictionary*)params{
+-(void)Release:(NSDictionary*)params{
 
 }
 
--(void)CNTap:(NSDictionary*)params{}
+-(void)Tap:(NSDictionary*)params{}
 
 -(void)DoubleTap{
 	self.transform = CATransform3DIdentity;
 }
 
--(void)CNHold{
+-(void)Hold{
 	
 }
 
