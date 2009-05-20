@@ -20,10 +20,18 @@
 #import <Cocoa/Cocoa.h>
 #import "CNGesture.h"
 
+/**
+ * \brief It represents a specif Gesture. It recognizes a Move on the active area (CNLayer).
+ * \details In this case a Touch that remains in the scene for a long time moving in some direction is recognized as a Move Gesture.
+ *
+ */
+
 @interface CNMove : CNGesture {
-	CNTouch* touch;
+	CNTouch* touch;///<keeps the touch
 }
 
 @property (assign) CNTouch* touch;
+
+-(BOOL)recognize:(id)sender;///<implements the Move GestureRecognition task
 
 @end

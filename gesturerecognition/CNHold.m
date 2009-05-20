@@ -39,7 +39,7 @@
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
 		
 		if([gStrokes count]>0){
-			if([gStrokes count]>1){///if the Touchs numbers is greater than one
+			if([gStrokes count]>1){///if the Touchs number is greater than one
 				if(touch==Nil){
 					touch = [[CNTouch alloc] init];
 				}
@@ -55,16 +55,16 @@
 			double minHoldTimeInterval = [[GesturesParams objectForKey:@"MinHoldTimeInterval"] doubleValue];
 			double minMoveVelocity = [[GesturesParams objectForKey:@"MinMoveVelocity"] doubleValue];
 			
-			if(touch.lifetime>minHoldTimeInterval && pointIsGreater(NSMakePoint(minMoveVelocity, minMoveVelocity),touch.velocity)){
+			if(touch.lifetime>minHoldTimeInterval && pointIsGreater(NSMakePoint(minMoveVelocity, minMoveVelocity),touch.velocity)){///if the touch lifetime is greater than minHoldTimeInterval and the touch velocity is lesser than a Threshold 
 				
-				if(state==WaitingGesture && touch.type==UpdateTouch){
+				if(state==WaitingGesture && touch.type==UpdateTouch){///if the touch type is update and Gesture State is Waiting get Hold
 					state=BeginGesture;
 					state=EndGesture;//gesture ends suddenly
-					[sender performGesture:@"Hold" withData:Nil];
-					return TRUE;
+					[sender performGesture:@"Hold" withData:Nil];///calling PerformHoldGesture on the related layer [sender performGesture:@"Hold" withData:nil];
+					return TRUE;//gesture recognized
 				}
 				
-				if(state==EndGesture && touch.type==ReleaseTouch){
+				if(state==EndGesture && touch.type==ReleaseTouch){///else simply set the Gesture state to Waiting
 					state=WaitingGesture;
 					return FALSE;
 				}

@@ -24,6 +24,8 @@
 	float angle;
 	float angularVelocity;
 }
+
 @property(assign) float angle;
 @property(assign) float angularVelocity;
+
 @end

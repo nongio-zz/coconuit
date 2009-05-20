@@ -21,6 +21,7 @@
 	[bitrep retain];
 	self.contents = (id)[bitrep CGImage];
 	//[self addSublayer:console];
+		
 	CNGestureFactory* theGestureFactory = [CNGestureFactory getGestureFactory];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNHold"]];
