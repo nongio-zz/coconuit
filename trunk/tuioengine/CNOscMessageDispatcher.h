@@ -20,7 +20,7 @@
 #import <Cocoa/Cocoa.h>
 #import "BBOSCMessage.h"
 
-///This Class let to manage Osc packets
+///This Class manage Osc packets
 @interface CNOscMessageDispatcher : NSObject {
 
 }

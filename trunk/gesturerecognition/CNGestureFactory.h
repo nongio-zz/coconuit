@@ -29,13 +29,21 @@
 #import "CNTap.h"
 #import "CoconuitConfig.h"
 
+/**
+ * \brief It represents the Gesture Creation Center. The View obtains gestures from this factory to link them with each layer.
+ * \details This Class implements the Factory design pattern. It is useful for the centralized management of Gesture Threshold Parameters and 
+ * to have a standard way to create a new gesture. 
+ *
+ */
+
 @interface CNGestureFactory : NSObject {
-	NSMutableDictionary* GesturesParams;
+	NSMutableDictionary* GesturesParams;///<Keep the Gesture Threshold Params read from CoconuitConfig.xml file
 }
 
 @property (retain) NSMutableDictionary* GesturesParams;
 
-+ (CNGestureFactory*)getGestureFactory;
--(id)getGestureInstance:(NSString*) GestureClassName;
++ (CNGestureFactory*)getGestureFactory;///<Singleton method to get the Gesture Factory Instance
+
+-(id)getGestureInstance:(NSString*)GestureClassName;///<create a Gesture Instance
 
 @end

@@ -265,3 +265,18 @@ static inline NSPoint getCenterPoint(NSArray* points){
 	}
 	return center;
 }
+
+static inline NSPoint getActualPositionTouchVelocity(NSPoint actualPosition, NSPoint previousPosition, NSTimeInterval timeInteval){
+	NSPoint tempVelocity;
+	tempVelocity.x = (actualPosition.x - previousPosition.x)/timeInteval;
+	tempVelocity.y = (actualPosition.y - previousPosition.y)/timeInteval;
+	return tempVelocity;
+
+}
+
+static inline BOOL pointIsGreater(NSPoint firstPoint, NSPoint secondPoint){
+	if(fabs(firstPoint.x) >  fabs(secondPoint.x) || fabs(firstPoint.y) > fabs(secondPoint.y))
+		return YES;
+	else
+		return NO;
+}

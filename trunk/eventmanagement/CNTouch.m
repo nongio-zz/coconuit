@@ -19,6 +19,7 @@
 
 #import "CNTouch.h"
 #import "CNPathElement.h"
+#import "CNMath.h"
 
 
 @implementation CNTouch
@@ -65,28 +66,22 @@
 }
 
 -(void)updateWithCursor:(CNTuioCursor*)aCursor{
-	self.cursor = aCursor;
-	self.position = [aCursor position];
-	self.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
+	self.cursor = aCursor;///keep the updated cursor
+	self.position = [aCursor position];///update touch position
+	self.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];///update touch timestamp
 	
 	CNPathElement* lastPathElement = [self.strokePath lastObject];
-	NSPoint newVelocity = [self CalculateVelocityOfActualPosition:self.position fromPreviousPosition:lastPathElement.position withTimeInterval:(self.timestamp - lastPathElement.timestamp)];
-	if([self.strokePath count] > 2)
-	{
-		CNTouch*t0 = (CNTouch*)[self.strokePath objectAtIndex:[self.strokePath count]-3];
-		CNTouch*t1 = (CNTouch*)[self.strokePath objectAtIndex:[self.strokePath count]-2];
-		newVelocity.x = (newVelocity.x+t1.velocity.x+t0.velocity.x)/3;
-		newVelocity.y = (newVelocity.y+t1.velocity.y+t0.velocity.y)/3;
-
-	}else
-	{
-		newVelocity.x = (newVelocity.x+self.velocity.x)/2;
-		newVelocity.y = (newVelocity.y+self.velocity.y)/2;
-	}
-	self.velocity = newVelocity;
+	
+	NSPoint newVelocity = getActualPositionTouchVelocity(self.position,lastPathElement.position,(self.timestamp - lastPathElement.timestamp));///calculate Touch velocity
+	newVelocity.x = (newVelocity.x+self.velocity.x)/2;
+	newVelocity.y = (newVelocity.y+self.velocity.y)/2;
+	
+	self.velocity = newVelocity;///update Touch velocity
+	
 	CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:self.position andVelocity:self.velocity andTime:self.timestamp];
-	[self.strokePath addObject:[newPathElement retain]];
-	self.lifetime += self.timestamp - lastPathElement.timestamp;
+	[self.strokePath addObject:[newPathElement retain]];///save the actual Touch state in the StrokePath
+	self.lifetime += self.timestamp - lastPathElement.timestamp;///update Touch lifetime
+	
 }
 
 - (NSString*)stringValue{
@@ -109,20 +104,13 @@
 	[TempString appendString:@","];
 	[TempString appendString:[[NSNumber numberWithFloat:self.velocity.y] stringValue]];
 	[TempString appendString:@") "];
-	//[TempString appendString:[TempFormatter stringFromDate:[[NSDate alloc] initWithTimeIntervalSinceReferenceDate:timestamp]]];
+	[TempString appendString:[TempFormatter stringFromDate:[[NSDate alloc] initWithTimeIntervalSinceReferenceDate:timestamp]]];
 	[TempString appendString:@" TimeStamp: "];
 	[TempString appendString:[[NSNumber numberWithDouble:self.timestamp] stringValue]];
 	[TempString appendString:@" Lifetime: "];
 	[TempString appendString:[[NSNumber numberWithDouble:self.lifetime] stringValue]];
 	return TempString;
 }
-
--(NSPoint) CalculateVelocityOfActualPosition:(NSPoint)aPosition fromPreviousPosition:(NSPoint)pPosition withTimeInterval:(NSTimeInterval)aTime{
-		NSPoint tempVelocity;
-		tempVelocity.x = (aPosition.x - pPosition.x)/aTime;
-		tempVelocity.y = (aPosition.y - pPosition.y)/aTime;
-		return tempVelocity;
-	}
 
 -(id)copy{
 	CNTouch* aTouch = [[CNTouch alloc] initWithCursor:cursor];
@@ -143,19 +131,10 @@
 	
 	CNPathElement* lastPathElement = [self.strokePath lastObject];
 	
-	NSPoint newVelocity = [self CalculateVelocityOfActualPosition:aPoint fromPreviousPosition:lastPathElement.position withTimeInterval:(self.timestamp - lastPathElement.timestamp)];
-	if([self.strokePath count] > 2)
-	{
-		CNTouch*t0 = (CNTouch*)[self.strokePath objectAtIndex:[self.strokePath count]-3];
-		CNTouch*t1 = (CNTouch*)[self.strokePath objectAtIndex:[self.strokePath count]-2];
-		newVelocity.x = (newVelocity.x+t1.velocity.x+t0.velocity.x)/3;
-		newVelocity.y = (newVelocity.y+t1.velocity.y+t0.velocity.y)/3;
-		
-	}else
-	{
-		newVelocity.x = (newVelocity.x+self.velocity.x)/2;
-		newVelocity.y = (newVelocity.y+self.velocity.y)/2;
-	}
+	NSPoint newVelocity = getActualPositionTouchVelocity(aPoint,lastPathElement.position,(self.timestamp - lastPathElement.timestamp));
+
+	newVelocity.x = (newVelocity.x+self.velocity.x)/2;
+	newVelocity.y = (newVelocity.y+self.velocity.y)/2;
 	self.velocity = newVelocity;
 	
 	CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:self.position andVelocity:self.velocity andTime:self.timestamp];

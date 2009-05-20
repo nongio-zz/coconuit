@@ -32,7 +32,7 @@ static CNGestureFactory* GestureFactoryInstance = nil;
 	@synchronized(self) {
         
         if (GestureFactoryInstance == nil) {
-			[[self alloc] init];     // assignment not done here
+			[[self alloc] init];// assignment not done here
         }
 	}
 	
@@ -111,6 +111,7 @@ static CNGestureFactory* GestureFactoryInstance = nil;
 
 - (id)autorelease { return self; }
 
+///This method create and return a new Gesture Instance simple passing the GestureClassName
 -(id)getGestureInstance:(NSString*)GestureClassName{
 	
 	Class GestureClass = NSClassFromString(GestureClassName);

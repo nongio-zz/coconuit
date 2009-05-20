@@ -20,14 +20,20 @@
 #import <Cocoa/Cocoa.h>
 #import "CNGesture.h"
 
+/**
+ * \brief It represents a specif Gesture. It recognizes a Tap or a double Tap on the active area (CNLayer).
+ * \details In this case a Touch that appears and dissappear suddenly is recognized like an Update Gesture.
+ *
+ */
+
 @interface CNTap : CNGesture {
-	NSTimeInterval lastTapTimeStamp;
-	NSInteger nTaps;
-	CNTouch* touch;
-	//NSTimeInterval maxSingleTapInterval;
-	//NSTimeInterval maxDoubleTapInterval;
+	NSTimeInterval lastTapTimeStamp;///<keeps the last tap timestamp
+	NSInteger nTaps;///<it counts the Taps - max 2
+	CNTouch* touch;///<keeps the touch
 }
 
 @property (retain) CNTouch* touch;
+
+-(BOOL)recognize:(id)sender;///<implements the Tap or Double Tap GestureRecognition task
 
 @end

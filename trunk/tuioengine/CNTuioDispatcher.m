@@ -129,8 +129,10 @@
 	//[self setActiveBlobs:[self activeBlobs]];
 }
 
+///When a Tuio frame ends TuioDispatcher notifies all the observers about the Cursors state.
+///[observers makeObjectsPerformSelector:@selector(notify:) withObject:activeBlobs]
 -(void)processFseq:(NSArray*)args{
-	[observers makeObjectsPerformSelector:@selector(notify:) withObject:activeBlobs];//notify the observers or send an event
+	[observers makeObjectsPerformSelector:@selector(notify:) withObject:activeBlobs];//notify the observers
 }
 
 -(void)processSource:(NSArray*)args{

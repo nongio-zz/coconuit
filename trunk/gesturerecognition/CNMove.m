@@ -110,6 +110,7 @@
 		return FALSE;
 	}
 
+/*
 - (void)groupStrokesToOne:(NSMutableArray*)strokes andUpdateTouch:(CNTouch*)aTouch{
 	NSMutableArray* points = [[NSMutableArray alloc] init];
 	int touchType = aTouch.type;
@@ -145,9 +146,9 @@
 	if(countRelease==[strokes count]){
 		touchType = ReleaseTouch;
 	}
-
 	
 	NSPoint gCenter = getCenterPoint(points);
 	[aTouch updateWithPoint:gCenter andTouchType:touchType];
 }
+ */
 @end

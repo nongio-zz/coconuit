@@ -22,21 +22,20 @@
 #import "CNTouch.h"
 
 /**
- * \brief Rappresenta un qualsiasi evento Multitouch.
- * \details Di fatto è la fotografia della scena ad un certo istante di tempo. L'evento è poi passato all'interfaccia. A Questa viene delegata
- * la responsabilità di assegnare a ciascuna area attiva i propri Strokes.
+ * \brief Represents a SnapShot of the real scene
+ * \details An instance of this class is passed by copy to the view. The view has to assign each stroke to the own right area. 
  */
 
 @interface CNEvent : NSEvent {
-	NSDate* timestamp;///<Istante di tempo identificativo dell'evento
-	NSMutableArray* strokes;///<Array che aggrega gli Strokes che costituiscono l'evento
+	NSTimeInterval timestamp;///<CNEvent timestamp
+	NSMutableArray* strokes;///<Keep the CNEvent's Strokes list
 }
 
 @property (retain) NSMutableArray* strokes;
-@property (retain) NSDate* timestamp;
+@property (assign) NSTimeInterval timestamp;
 
--(void)setStroke:(CNStroke*) aStroke;///<Permette di aggiungere dinamicamente uno stroke all'evento
--(CNStroke*)getStrokeByID:(NSInteger)strokeID;///<Permette di ottenere uno CNStroke in base all'ID
--(BOOL)removeStrokeByID:(NSInteger)aStrokeID;///<Permette di rimuovere uno CNStroke in base all'ID
--(BOOL)updateStroke:(CNStroke*)stroke;
+-(void)setStroke:(CNStroke*) aStroke;///<Add a stroke to the CNEvent
+-(CNStroke*)getStrokeByID:(NSInteger)strokeID;///<Get a Stroke by ID
+-(BOOL)removeStrokeByID:(NSInteger)aStrokeID;///<Remove a Stroke from the CNEvent by ID
+
 @end

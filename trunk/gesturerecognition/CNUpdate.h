@@ -20,8 +20,16 @@
 #import <Cocoa/Cocoa.h>
 #import "CNGesture.h"
 
+/**
+ * \brief It represents a specif Gesture. It recognizes an Update on the active area (CNLayer).
+ * \details In this case an existing Touch that change his state in the specific area is recognized like an Update Gesture.
+ *
+ */
+
 @interface CNUpdate : CNGesture {
 
 }
+
+-(BOOL)recognize:(id)sender;///<implements the Update GestureRecognition task
 
 @end

@@ -21,9 +21,9 @@
 #import "CNObserverProtocol.h"
 #import "CNOscMessageDispatcher.h"
 
-///This Class let to menage Tuio Messages \n
-///This Class implements the CNObservableProtocol. Every class who wants to observe it has to register like Observer using the method addObserver:(id)anObject. \n
-///When CNTuioDispatcher gets a Tuio FSEQ message it notifies the active Cursors state to the Observers.
+/// \brief This Class let to menage Tuio Messages
+/// \details This Class implements the CNObservableProtocol. Every class who wants to observe it has to register like Observer using the method addObserver:. \n
+/// When CNTuioDispatcher gets a Tuio FSEQ message it notifies the Observers about the active Cursors state.
 @interface CNTuioDispatcher : CNOscMessageDispatcher <CNObservableProtocol>{
 	NSMutableDictionary * activeBlobs;///<Active Cursors List
 	NSMutableArray* observers;///<Observer Objects List

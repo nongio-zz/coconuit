@@ -19,6 +19,8 @@
 
 #import "CN1FingerRotate.h"
 #import "CNLayer.h"
+#import "Math.h"
+
 @implementation CN1FingerRotate
 @synthesize angle, angularVelocity;
 
@@ -42,7 +44,7 @@
 			NSPoint minVelocityMove = NSMakePoint(v,v);//external setup
 			double MinRTbyMoveRotationAngle = [[GesturesParams objectForKey:@"MinRTbyMoveRotationAngle"] doubleValue];
 			
-			if([self pointIsGreater:touch.velocity than:minVelocityMove]){
+			if(pointIsGreater(touch.velocity,minVelocityMove)){
 
 					CALayer*globalLayer = [sender globalLayer];
 					CNTouch*last = [touch.strokePath objectAtIndex:([touch.strokePath count]-2)];

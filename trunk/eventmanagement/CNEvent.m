@@ -27,7 +27,7 @@
 
 -(id)init{
 	if(self = [super init]){
-		self.timestamp = [NSDate date];//controllare che fa [NSDate timestamp]
+		self.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];//controllare che fa [NSDate timestamp]
 		self.strokes = [[NSMutableArray alloc] init];
 	}
 	return self;
@@ -38,26 +38,14 @@
 }
 
 -(CNStroke *)getStrokeByID:(NSInteger)aStrokeID{
-	for (CNStroke* stroke in strokes){/*
-		if([[[NSNumber numberWithInt:stroke.strokeID] stringValue] isEqual: aStrokeID]){
-			return stroke;
-		}*/
+	for (CNStroke* stroke in strokes){
 		if(stroke.strokeID == aStrokeID){
 			return stroke;
 		}
 	}
 	return Nil;
 }
--(BOOL)updateStroke:(CNStroke*)stroke{
-	NSInteger StrokeID = stroke.strokeID;
-	for (CNStroke* mystroke in strokes){
-		if(mystroke.strokeID == StrokeID){
-			mystroke  = stroke;
-			return YES;
-		}
-	}
-	return NO;
-}
+
 -(BOOL)removeStrokeByID:(NSInteger)aStrokeID{
 	for (int i=0; i<strokes.count; i++){
 		CNStroke* tempStroke = (CNStroke*) [strokes objectAtIndex:i];
@@ -79,7 +67,7 @@
 		[anArray addObject:[((CNTouch*)stroke) copy]];
 	}
 		 
-		 aEvent.strokes = anArray;
+	aEvent.strokes = anArray;
 	
 	return aEvent;
 }

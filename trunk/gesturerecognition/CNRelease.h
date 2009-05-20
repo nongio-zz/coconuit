@@ -20,8 +20,16 @@
 #import <Cocoa/Cocoa.h>
 #import "CNGesture.h"
 
+/**
+ * \brief It represents a specif Gesture. It recognizes a Realease on the active area (CNLayer).
+ * \details In this case a new Touch that disappears from the specific area is recognized like a Realease Gesture.
+ *
+ */
+
 @interface CNRelease : CNGesture {
 
 }
+
+-(BOOL)recognize:(id)sender;///<implements the Release GestureRecognition task
 
 @end
