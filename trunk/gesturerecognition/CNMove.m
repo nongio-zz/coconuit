@@ -39,70 +39,57 @@
 			NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
 			
 			if([gStrokes count]>0){
-				if([gStrokes count]>1){
+				if([gStrokes count]>1){///if the Touchs number is greater than one
 					if(touch==Nil){
 						self.touch = [[CNTouch alloc] init];
 					}
-					[self groupStrokesToOne:gStrokes andUpdateTouch:touch];
+					[self groupStrokesToOne:gStrokes andUpdateTouch:touch];///grouping the touches to one
 				}
 				else{
-					self.touch = [[gStrokes lastObject] copy];
+					self.touch = [[gStrokes lastObject] copy];///else get the only one
 				}
 				
-				if(touch){
-					if([touch.strokePath count] >1){
-						CNPathElement* last = [touch.strokePath objectAtIndex:([touch.strokePath count]-2)];
-						double MinMoveVelocity = [[GesturesParams objectForKey:@"MinMoveVelocity"] doubleValue];
-						
-						//DISEGNO DEL TOCCO
-						//CALayer*global = [sender globalLayer];
-						//CNCircleLayer*circle = [global valueForKey:@"circletouch"];
-						/*if(!circle)
-						{
-							circle = [[CNCircleLayer alloc] initWithRadius:5.0];
-							[global setValue:circle forKey:@"circletouch"];
-							[global addSublayer:circle];
-						}
-						circle.position=[sender unitToReal:CGPointMake(touch.position.x,(1-touch.position.y)) ofLayer:global];
-						//FINE DISEGNO						
-						*/
-						CN2dVect* vectT = [[CN2dVect alloc] initWithPoint:touch.position andPoint:last.position];
+			if(touch){
+				if([touch.strokePath count] >1){
+					CNPathElement* last = [touch.strokePath objectAtIndex:([touch.strokePath count]-2)];
+					double MinMoveVelocity = [[GesturesParams objectForKey:@"MinMoveVelocity"] doubleValue];
 					
-						if(touch.type==ReleaseTouch){
-							state=EndGesture;
-							touch=nil;
+					CN2dVect* vectT = [[CN2dVect alloc] initWithPoint:touch.position andPoint:last.position];
+				
+					if(touch.type==ReleaseTouch){///if touch type is Release Touch set GestureState to EndGesture
+						state=EndGesture;
+						//touch=nil;
 						}
-						
-						//NSLog(@"%f",touch.velocity.x);
-						
-						if(fabs(touch.velocity.x)>MinMoveVelocity || fabs(touch.velocity.y)>MinMoveVelocity || state==EndGesture){
-								if(state==WaitingGesture){
-									state=BeginGesture;
+					
+					//NSLog(@"%f",touch.velocity.x);
+					if(fabs(touch.velocity.x)>MinMoveVelocity || fabs(touch.velocity.y)>MinMoveVelocity || state==EndGesture){///if touch velocity is greater than a minimum Threshold get Move
+							if(state==WaitingGesture){
+								state=BeginGesture;///if GestureState is WaitingGesture set it to BeginGesture
 								}
-								else{
-									if(touch.type == UpdateTouch){
-										state=UpdateGesture;
-									}
+							else{
+								if(touch.type == UpdateTouch){
+									state=UpdateGesture;///else set it to Update
 								}
-							
-						
-								NSArray* keys = [NSArray arrayWithObjects:@"translation",@"center", @"velocity", @"gState", nil];
-							    NSValue* center= [NSValue valueWithPoint:NSMakePoint(touch.position.x, touch.position.y)];
-								NSValue* velocity = [NSValue valueWithPoint:touch.velocity];
-								NSValue* gState = [NSNumber numberWithInt:self.state];
-							
-								NSArray* objects = [NSArray arrayWithObjects:vectT,center, velocity,gState, nil];
-								NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
-								
-								if(vectT.module>0 ||state==EndGesture){
-								[sender performGesture:@"Move" withData:params];
-								}
-								
-								if(state==EndGesture){
-									state=WaitingGesture;
-								}
-								return TRUE;
 							}
+						
+							NSArray* keys = [NSArray arrayWithObjects:@"translation",@"center", @"velocity", @"gState", nil];
+							NSValue* center= [NSValue valueWithPoint:NSMakePoint(touch.position.x, touch.position.y)];
+							NSValue* velocity = [NSValue valueWithPoint:touch.velocity];
+							NSValue* gState = [NSNumber numberWithInt:self.state];
+						
+							NSArray* objects = [NSArray arrayWithObjects:vectT,center, velocity,gState, nil];
+							NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+							
+							if(vectT.module>0 || state==EndGesture){///if translation is greater than 0
+								[sender performGesture:@"Move" withData:params];///calls PerformMoveGesture on the related layer [sender performGesture:@"Move" withData:params];
+																				///passing Touch Position, Velocity and GestureState
+								}
+							
+							if(state==EndGesture){///if GestureState is EndGesture set it to WaitingGesture
+								state=WaitingGesture;
+							}
+							return TRUE;
+						}
 					}
 				}
 			}
@@ -110,45 +97,4 @@
 		return FALSE;
 	}
 
-/*
-- (void)groupStrokesToOne:(NSMutableArray*)strokes andUpdateTouch:(CNTouch*)aTouch{
-	NSMutableArray* points = [[NSMutableArray alloc] init];
-	int touchType = aTouch.type;
-	int countRelease=0;
-	int countNew=0;
-	for(CNStroke* S in strokes){
-		if([S isKindOfClass:[CNTouch class]]){
-			CNTouch* t = (CNTouch*) S;
-			
-			if(t.type==NewTouch){
-				aTouch.strokePath = [[NSMutableArray alloc] init];
-			}
-			
-			if(t.type==NewTouch){
-				countNew++;
-			}
-			
-			if(t.type==ReleaseTouch){
-				countRelease++;
-			}
-			
-			[points addObject:[NSValue valueWithPoint:t.position]];
-		}
-	}
-	
-	if(countNew==[strokes count]){
-		touchType==NewTouch;
-	}
-	else{
-		touchType=UpdateTouch;
-	}
-	
-	if(countRelease==[strokes count]){
-		touchType = ReleaseTouch;
-	}
-	
-	NSPoint gCenter = getCenterPoint(points);
-	[aTouch updateWithPoint:gCenter andTouchType:touchType];
-}
- */
 @end

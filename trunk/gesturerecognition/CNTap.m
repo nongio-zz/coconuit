@@ -41,7 +41,7 @@
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
 		
 		if([gStrokes count]>0){
-			if([gStrokes count]>1){///if the Touchs numbers is greater than one
+			if([gStrokes count]>1){///if the Touchs number is greater than one
 				if(touch==Nil){
 					self.touch = [[CNTouch alloc] init];
 					}
@@ -89,24 +89,4 @@
 	return FALSE;
 }
 
-/*
-- (void)groupStrokesToOne:(NSMutableArray*)strokes andUpdateTouch:(CNTouch*)aTouch{
-	NSMutableArray* points = [[NSMutableArray alloc] init];
-	int touchType = aTouch.type;
-	for(CNStroke* S in strokes){
-		if([S isKindOfClass:[CNTouch class]]){
-			CNTouch* t = (CNTouch*) S;
-			
-			if(t.type==ReleaseTouch){
-				touchType = ReleaseTouch;
-			}
-			
-			[points addObject:[NSValue valueWithPoint:t.position]];
-			}
-		}
-	
-	NSPoint gCenter = getCenterPoint(points);
-	[aTouch updateWithPoint:gCenter andTouchType:touchType];
-}
-*/
 @end
