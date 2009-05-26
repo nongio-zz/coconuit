@@ -103,9 +103,10 @@
 
 -(void) changeAnchorPoint:(CGPoint)unitPoint 
 {
-	[CATransaction begin];
 	[CATransaction setValue:(id)kCFBooleanTrue
 					 forKey:kCATransactionDisableActions];
+	[self removeAnimationForKey:@"anchorPoint"];
+	[self removeAnimationForKey:@"position"];
 	CALayer*globalLayer = [self globalLayer];
 	CGPoint globalanchorpoint1 = [self convertPoint:[self unitToReal:self.anchorPoint ofLayer:self] toLayer:globalLayer];
 	CGPoint globalanchorpoint2 = [self convertPoint:[self unitToReal:unitPoint ofLayer:self] toLayer:globalLayer];

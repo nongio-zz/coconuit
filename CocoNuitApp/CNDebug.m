@@ -21,13 +21,12 @@
 	[bitrep retain];
 	self.contents = (id)[bitrep CGImage];
 	//[self addSublayer:console];
-		
 	CNGestureFactory* theGestureFactory = [CNGestureFactory getGestureFactory];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNHold"]];
-	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNMove"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerRotate"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerScale"]];
+	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNMove"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNPress"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNRelease"]];
 		
@@ -39,11 +38,8 @@
 	CABasicAnimation *transformation = [CABasicAnimation animation];
 	transformation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
 	[transformation setDuration:0.1];
-	self.actions = [NSDictionary dictionaryWithObject:transformation 
-											   forKey:@"transform"];
 		
-	
-	self.actions = [NSDictionary dictionaryWithObjectsAndKeys:position,@"position",transformation,@"transform",nil];
+	self.actions = [NSDictionary dictionaryWithObjectsAndKeys:position,@"position",[NSNull null],@"transform",[NSNull null],@"anchorPoint",nil];
 		
 	
 	}
@@ -108,6 +104,11 @@
 	if(gestureState!=EndGesture)
 	{
 		//viene usata l'animazione di default impostata all'inizio
+//		CABasicAnimation *position = [CABasicAnimation animationWithKeyPath:@"position"];
+//		position.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+//		position.duration = 0.1;
+//		[self addAnimation:position forKey:@"position"];
+		
 		CALayer*sl = [self globalLayer];
 		CGPoint newPoint = CGPointMake(self.position.x-(vectT.x*sl.bounds.size.width),self.position.y+(vectT.y*sl.bounds.size.height));	
 		self.position = newPoint;
@@ -116,6 +117,8 @@
 	{
 		//quando il gesto è finito c'è una animazione smorzata in fondo in base alla velocità attuale
 		[CATransaction begin];
+		[CATransaction setValue:(id)kCFBooleanTrue
+			forKey:kCATransactionDisableActions];
 		CABasicAnimation *position = [CABasicAnimation animationWithKeyPath:@"position"];
 		position.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 		position.duration = t;
