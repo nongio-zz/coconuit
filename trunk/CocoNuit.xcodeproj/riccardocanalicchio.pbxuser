@@ -13,7 +13,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_ObjectSize_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					994,
+					364,
 					20,
 					48,
 					43,
@@ -30,14 +30,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 263911011;
-			PBXWorkspaceStateSaveDate = 263911011;
-		};
-		perUserProjectItems = {
-			B302F1D80FBAFAC700BAAF55 /* PBXTextBookmark */ = B302F1D80FBAFAC700BAAF55 /* PBXTextBookmark */;
-			B302F1D90FBAFAC700BAAF55 /* PBXBookmark */ = B302F1D90FBAFAC700BAAF55 /* PBXBookmark */;
-			B302F1DA0FBAFAC700BAAF55 /* PBXTextBookmark */ = B302F1DA0FBAFAC700BAAF55 /* PBXTextBookmark */;
-			B302F1DB0FBAFAC700BAAF55 /* PBXTextBookmark */ = B302F1DB0FBAFAC700BAAF55 /* PBXTextBookmark */;
+			PBXPerProjectTemplateStateSaveDate = 264964218;
+			PBXWorkspaceStateSaveDate = 264964218;
 		};
 		sourceControlManager = B3D4AB7E0FB9CCC80070AC19 /* Source Control */;
 		userBuildSettings = {
@@ -45,40 +39,6 @@
 	};
 	8DC2EF4F0486A6940098B216 /* CocoNuit */ = {
 		activeExec = 0;
-	};
-	B302F1D80FBAFAC700BAAF55 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B3D4AB8A0FB9CD110070AC19 /* CNTouch.h */;
-		name = "CNTouch.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 480;
-		vrLoc = 0;
-	};
-	B302F1D90FBAFAC700BAAF55 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = B3D4AB910FB9CD110070AC19 /* CN2FingerScale.h */;
-	};
-	B302F1DA0FBAFAC700BAAF55 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B3D4AB8A0FB9CD110070AC19 /* CNTouch.h */;
-		name = "CNTouch.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 480;
-		vrLoc = 0;
-	};
-	B302F1DB0FBAFAC700BAAF55 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = B3D4AB910FB9CD110070AC19 /* CN2FingerScale.h */;
-		name = "CN2FingerScale.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 487;
-		vrLoc = 0;
 	};
 	B3D4AB7E0FB9CCC80070AC19 /* Source Control */ = {
 		isa = PBXSourceControlManager;
