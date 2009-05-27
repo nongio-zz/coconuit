@@ -25,19 +25,12 @@
 #import "CNView.h"
 #import "CNEventDispatcher.h"
 
-
-///Controller MVC
-
-/**
- * Questa classe implementa il Controller per l'applicazione secondo il pattern MVC. Fa da ponte tra il Modello (OscListener,CNTuioDispatcher) e la vista.
- */
-
 @interface CNAppController : NSObject {
-	BOOL connected;///< Flag che indica se il Client è connesso o meno
-	BBOSCListener* OscListener;///<Puntatore all'OscListener
-	CNTuioDispatcher* TuioMessageDispatcher;///<Puntatore al CNTuioDispatcher
-	CNEventDispatcher* myEventDispatcher;///<Puntatore all'CNEventDispatcher
-	NSNotificationCenter* myNotificationCenter;///<Puntatore al centro di notifica del Task
+	BOOL connected;
+	BBOSCListener* OscListener;
+	CNTuioDispatcher* TuioMessageDispatcher;
+	CNEventDispatcher* myEventDispatcher;
+	NSNotificationCenter* myNotificationCenter;
 //	IBOutlet NSButton* connectionButton;
 //	IBOutlet NSTextView* textView;
 	IBOutlet NSWindow * mainWindow;
@@ -49,9 +42,9 @@
 @property (retain) BBOSCListener* OscListener;
 
 -(IBAction)fullscreen:(id)sender;
--(IBAction)toggleConnection:(id)sender;///< Riceve l'evento di pressione del bottone Start/Stop nella vista
--(void)connect:(int)port;///< Mette il client in ascolto
--(void)disconnect;///< Toglie il client dall'ascolto
+-(IBAction)toggleConnection:(id)sender;
+-(void)connect:(int)port;
+-(void)disconnect;
 //-(void)observeValueForKeyPath:(NSString*) keyPath ofObject:(id) object change:(NSDictionary*) change context:(void*) context;///< Notifica aggiornamento Blobs
 -(void)fadeIn;
 -(void)fadeOut;

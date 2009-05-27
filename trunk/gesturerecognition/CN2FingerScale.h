@@ -20,8 +20,16 @@
 #import <Cocoa/Cocoa.h>
 #import "CNGesture.h"
 
+/**
+ * \brief It represents a specif Gesture. It recognizes a TwoFinger scale gesture on the active area (CNLayer).
+ * \details In this case we try to track the scale movement of two different touch that moves in the active area for a long time.
+ *
+ */
+
 @interface CN2FingerScale : CNGesture {
-	NSPoint anchorPoint;
+	NSPoint anchorPoint;///<keeps the scale center point
 }
+
+-(BOOL)recognize:(id)sender;
 
 @end

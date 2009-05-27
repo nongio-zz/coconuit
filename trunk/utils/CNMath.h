@@ -72,12 +72,16 @@ static inline double getRotationSenseBetweenVector(CN2dVect* v1, CN2dVect* v2){
 }
 
 static inline double getAngleBetweenVector(CN2dVect* v1,CN2dVect* v2){
+	if(v1.module!=0&&v2.module!=0){
+		double cosAlfa = scalarProductBetweenVector(v1,v2)/(v1.module*v2.module);
 	
-	double cosAlfa = scalarProductBetweenVector(v1,v2)/(v1.module*v2.module);
+		double alfa = acos(cosAlfa);
 	
-	double alfa = acos(cosAlfa);
-	
-	return alfa;
+		return alfa;
+	}
+	else{
+		return 0;
+	}
 }
 
 static inline CN2dVect* getProjectionOfVector(CN2dVect* v2,CN2dVect* v1){

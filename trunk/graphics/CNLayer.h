@@ -60,4 +60,5 @@
 -(void) changeAnchorPoint:(CGPoint)unitPoint;
 -(CGPoint)unitToReal:(CGPoint)apoint ofLayer:(CALayer*)layer;
 -(CGPoint)realToUnit:(CGPoint)apoint ofLayer:(CALayer*)layer;
+
 @end

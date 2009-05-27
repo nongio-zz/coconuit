@@ -57,10 +57,10 @@
 			
 			if(touch.lifetime>minHoldTimeInterval && pointIsGreater(NSMakePoint(minMoveVelocity, minMoveVelocity),touch.velocity)){///if the touch lifetime is greater than minHoldTimeInterval and the touch velocity is lesser than a Threshold 
 				
-				if(state==WaitingGesture && touch.type==UpdateTouch){///if the touch type is update and Gesture State is Waiting get Hold
+				if(state==WaitingGesture && touch.type==UpdateTouch){///if update touch type and Waiting Gesture State get Hold
 					state=BeginGesture;
 					state=EndGesture;//gesture ends suddenly
-					[sender performGesture:@"Hold" withData:Nil];///calling PerformHoldGesture on the related layer [sender performGesture:@"Hold" withData:nil];
+					[sender performGesture:@"Hold" withData:Nil];///calling perform HoldGesture on the related layer [sender performGesture:@"Hold" withData:nil];
 					return TRUE;//gesture recognized
 				}
 				

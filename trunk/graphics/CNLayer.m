@@ -102,7 +102,8 @@
 }
 
 -(void) changeAnchorPoint:(CGPoint)unitPoint 
-{
+{	
+	[self removeAllAnimations];
 	[CATransaction setValue:(id)kCFBooleanTrue
 					 forKey:kCATransactionDisableActions];
 	[self removeAnimationForKey:@"anchorPoint"];

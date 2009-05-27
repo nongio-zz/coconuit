@@ -32,8 +32,14 @@
 		
 		module = sqrt(pow(x,2)+pow(y,2));
 		
-		unitVector.x = x/module;
-		unitVector.y = y/module;
+		if(module!=0){
+			unitVector.x = x/module;
+			unitVector.y = y/module;
+		}
+		else{
+			unitVector.x =0;
+			unitVector.y =0;
+		}
 	}
 	return self;
 }
