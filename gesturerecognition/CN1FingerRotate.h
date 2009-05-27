@@ -20,12 +20,21 @@
 #import <Cocoa/Cocoa.h>
 #import "CNGesture.h"
 
+/**
+ * \brief It represents a specif Gesture. It recognizes a OneFinger rotation gesture on the active area (CNLayer).
+ * \details In this case we try to track the rotation movement of a single touch that moves in the active area for a long time.
+ * For this gesture is needed a center for the rotation. In this case the anchor point of the active area is taken like rotation center.
+ * Every CALayer has the AnchorPoint attribute.
+ */
+
 @interface CN1FingerRotate : CNGesture {
-	float angle;
-	float angularVelocity;
+	float angle;///<keeps the rotation angle
+	float angularVelocity;///<keeps the rotation angular velocity
 }
 
 @property(assign) float angle;
 @property(assign) float angularVelocity;
+
+-(BOOL)recognize:(id)sender;
 
 @end

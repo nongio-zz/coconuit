@@ -34,6 +34,6 @@
 
 @property (retain) CNTouch* touch;
 
--(BOOL)recognize:(id)sender;///<implements the Tap or Double Tap GestureRecognition task
+-(BOOL)recognize:(id)sender;///<implements Tap or Double Tap GestureRecognition task
 
 @end

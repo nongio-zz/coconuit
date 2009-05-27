@@ -56,7 +56,7 @@
 					
 					CN2dVect* vectT = [[CN2dVect alloc] initWithPoint:touch.position andPoint:last.position];
 				
-					if(touch.type==ReleaseTouch){///if touch type is Release Touch set GestureState to EndGesture
+					if(touch.type==ReleaseTouch){///if release touch set GestureState to EndGesture
 						state=EndGesture;
 						//touch=nil;
 						}
@@ -64,14 +64,15 @@
 					//NSLog(@"%f",touch.velocity.x);
 					if(fabs(touch.velocity.x)>MinMoveVelocity || fabs(touch.velocity.y)>MinMoveVelocity || state==EndGesture){///if touch velocity is greater than a minimum Threshold get Move
 							if(state==WaitingGesture){
-								state=BeginGesture;///if GestureState is WaitingGesture set it to BeginGesture
+								state=BeginGesture;///if waiting Gesture State, set state to BeginGesture
 								}
 							else{
 								if(touch.type == UpdateTouch){
-									state=UpdateGesture;///else set it to Update
+									state=UpdateGesture;///else set state to UpdateGesture
 								}
 							}
-						
+							
+							///set the useful animation params for the active area animation
 							NSArray* keys = [NSArray arrayWithObjects:@"translation",@"center", @"velocity", @"gState", nil];
 							NSValue* center= [NSValue valueWithPoint:NSMakePoint(touch.position.x, touch.position.y)];
 							NSValue* velocity = [NSValue valueWithPoint:touch.velocity];

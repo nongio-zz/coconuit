@@ -22,6 +22,8 @@
 	self.contents = (id)[bitrep CGImage];
 	//[self addSublayer:console];
 	CNGestureFactory* theGestureFactory = [CNGestureFactory getGestureFactory];
+	//[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
+	//[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNHold"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNHold"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerRotate"]];
@@ -116,17 +118,17 @@
 		else
 	{
 		//quando il gesto è finito c'è una animazione smorzata in fondo in base alla velocità attuale
-		[CATransaction begin];
+		//[CATransaction begin];
 		[CATransaction setValue:(id)kCFBooleanTrue
 			forKey:kCATransactionDisableActions];
 		CABasicAnimation *position = [CABasicAnimation animationWithKeyPath:@"position"];
 		position.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 		position.duration = t;
-		[self addAnimation:position forKey:@"position"];
+		//[self addAnimation:position forKey:@"position"];
 		//nuova posizione = p0 + 0.5 * v^2/gm
 		CGPoint newpoint = CGPointMake(sign(velocity.x)*0.5*pow(velocity.x,2)*0.001 , sign(velocity.y)*0.5*pow(velocity.y,2)*0.001);
 		self.position = CGPointMake(self.position.x+newpoint.x,self.position.y+newpoint.y);
-		[CATransaction commit];
+		//[CATransaction commit];
 	}
 }
 

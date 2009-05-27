@@ -22,6 +22,7 @@
 #import "Math.h"
 
 @implementation CN1FingerRotate
+
 @synthesize angle, angularVelocity;
 
 -(id)init
@@ -35,38 +36,39 @@
 -(BOOL)recognize:(id)sender{
 	if([sender isKindOfClass:[CNLayer class]]){
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
-		CNLayer*layer = sender;
-		if([gStrokes count] == 1){
-			CNTouch* touch = [gStrokes lastObject];
+		CNLayer* layer = sender;
+		if([gStrokes count] == 1){///By now no grouping for this gesture is supported. Is supposed that only one touch is in the active area.
 			float rotation;
 			
 			double v = [[GesturesParams objectForKey:@"MinMoveVelocity"] doubleValue];
 			NSPoint minVelocityMove = NSMakePoint(v,v);//external setup
+			
 			double MinRTbyMoveRotationAngle = [[GesturesParams objectForKey:@"MinRTbyMoveRotationAngle"] doubleValue];
 			
-			if(pointIsGreater(touch.velocity,minVelocityMove)){
+			CNTouch* touch = [gStrokes lastObject];///get the current touch
+			
+			if(pointIsGreater(touch.velocity,minVelocityMove)){///if the touch has linear velocity highter than a Threshold 
 
 					CALayer*globalLayer = [sender globalLayer];
-					CNTouch*last = [touch.strokePath objectAtIndex:([touch.strokePath count]-2)];
-					NSPoint lastGpoint = NSMakePoint(last.position.x*globalLayer.bounds.size.width, (1-last.position.y)*globalLayer.bounds.size.height);
-					NSPoint currentGpoint = NSMakePoint(touch.position.x*globalLayer.bounds.size.width, (1-touch.position.y)*globalLayer.bounds.size.height);
-					
+					CNTouch*last = [touch.strokePath objectAtIndex:([touch.strokePath count]-2)];///get previous touch position
+
 					CGPoint pivotLpoint = CGPointMake(layer.anchorPoint.x*layer.bounds.size.width,layer.anchorPoint.y*layer.bounds.size.height);
 					CGPoint pivotGpoint = [layer convertPoint:pivotLpoint toLayer:globalLayer];
+					NSPoint pivotUpoint = NSPointFromCGPoint([layer realToUnit:pivotGpoint ofLayer:globalLayer]);///get the rotation pivot - layer anchorpoint
 					
-					NSPoint pivot = NSMakePoint(pivotGpoint.x, pivotGpoint.y);
+					CN2dVect* v1 = [[CN2dVect alloc] initWithPoint:pivotUpoint andPoint:last.position];///get the vector between the pivot and last position point: v1
+					CN2dVect* v2 = [[CN2dVect alloc] initWithPoint:pivotUpoint andPoint:touch.position];///get the vector between the pivot and actual position point: v2
 					
-					CN2dVect* v1 = [[CN2dVect alloc] initWithPoint:pivot andPoint:lastGpoint];
-					CN2dVect* v2 = [[CN2dVect alloc] initWithPoint:pivot andPoint:currentGpoint];
-					
-					rotation = getAngleBetweenVector(v1,v2);
+					rotation = getAngleBetweenVector(v1,v2);///get angle between v1 and v2
 				
-					float sense = getRotationSenseBetweenVector(v1,v2);
+					float sense = getRotationSenseBetweenVector(v1,v2);///get rotation sense between v1 and v2
 					
-					if(rotation>MinRTbyMoveRotationAngle*M_PI/180){
-						float dt = touch.timestamp-last.timestamp;
+					if(rotation>MinRTbyMoveRotationAngle*M_PI/180){///if rotation value i greater than a threshold
+						
+						float dt = touch.timestamp-last.timestamp;///calc the angular velocity
 						angularVelocity = (angularVelocity+rotation/dt)/2;
-						if(state==WaitingGesture){
+						
+						if(state==WaitingGesture){///menage the gesture state
 							state=BeginGesture;
 						}
 						else{
@@ -77,30 +79,28 @@
 								state=UpdateGesture;
 							}
 						}
-						//il pivot è in coordinate globali
-						//[sender oneFingerRotate:rotation withSense:sense andVelocity:angularVelocity andCenter:pivot andRadius:v2.module andGestureState:self.state];
 						
+						if(state==EndGesture){
+							state=WaitingGesture;
+						}
+						
+						///set the useful params for the animation
 						NSArray* keys = [NSArray arrayWithObjects:@"rotation", @"sense", @"angularVelocity", @"center" ,@"radius",@"gState",nil];
 						
 						NSNumber* rotationPar = [NSNumber numberWithFloat:rotation];
 						NSNumber* sensePar = [NSNumber numberWithInt:sense];
 						NSNumber* angularVelocityParam = [NSNumber numberWithFloat:angularVelocity];
-						NSValue* pivotPar = [NSValue valueWithPoint:pivot];
+						NSValue* pivotPar = [NSValue valueWithPoint:pivotUpoint];
 						NSNumber* radiusPar = [NSNumber numberWithFloat:v2.module];
 						NSNumber* gStatePar = [NSNumber numberWithInt:self.state];
 						
 						NSArray* objects = [NSArray arrayWithObjects:rotationPar, sensePar, angularVelocityParam,pivotPar,radiusPar,gStatePar, nil];
 						
-						
 						NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
 						
+						[sender performGesture:@"OneFingerRotate" withData:params];///call perform OneFingerRotateGesture on the related layer [sender performGesture:@"OneFingerRotate" withData:params];
+																				   ///passing Rotation Angle, Rotation Sense, Rotation Angular Velocity, Pivot Point and GestureState
 						
-						
-						[sender performGesture:@"OneFingerRotate" withData:params];
-						
-						if(state==EndGesture){
-							state=WaitingGesture;
-						}
 						return TRUE;
 					}
 			}

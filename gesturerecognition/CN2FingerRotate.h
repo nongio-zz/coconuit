@@ -20,15 +20,24 @@
 #import <Cocoa/Cocoa.h>
 #import "CNGesture.h"
 
+/**
+ * \brief It represents a specif Gesture. It recognizes a TwoFinger rotation gesture on the active area (CNLayer).
+ * \details In this case we try to track the rotation movement of two different touch that moves in the active area for a long time.
+ *
+ */
 
 
 @interface CN2FingerRotate : CNGesture {
-	NSPoint anchorPoint;
-	double angle;
-	double sense;
-	double angularvelocity;
-	NSTimeInterval lastTimestamp;
+	NSPoint anchorPoint;///<keeps the rotation center - the animation anchorpoint
+	double angle;///<keeps the rotation angle
+	double sense;///<keeps the rotation center
+	double angularvelocity;///<keeps the rotation angular velocity
+	NSTimeInterval lastTimestamp;///<kepps last gesture recognition timestamp - useful for angular velocity calc
 }
+
 @property(assign) double angle;
 @property(assign) double sense;
+
+-(BOOL)recognize:(id)sender;
+
 @end

@@ -57,7 +57,7 @@
 			//NSLog(@"%f",touch.lifetime);
 			
 			if(touch.type==NewTouch && touch.timestamp-lastTapTimeStamp>maxDoubleTapInterval){
-				lastTapTimeStamp = touch.timestamp;///if the touch is brand new store timestamp in lastTapTimeStamp class attribute
+				lastTapTimeStamp = touch.timestamp;///if the touch is brand new, store timestamp in lastTapTimeStamp class attribute
 				}
 			
 			if(touch.lifetime<maxDoubleTapInterval && touch.type==ReleaseTouch){///if the touch is release and its lifetime is lesser than MaxDoubleTapInterval try to see if it is a single Tap or a double Tap 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		69372B260FC0313800E6A604 /* CoconuitConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 69372B250FC0313800E6A604 /* CoconuitConfig.m */; };
+		699846B00FCAE1F400AB9FB9 /* CNTouchGrouper.m in Sources */ = {isa = PBXBuildFile; fileRef = 699846AF0FCAE1F400AB9FB9 /* CNTouchGrouper.m */; };
+		699846B30FCAE20800AB9FB9 /* CNTouchGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 699846B20FCAE20800AB9FB9 /* CNTouchGroup.m */; };
 		69E2C0430FB9DA2900E03C64 /* BBAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0260FB9DA2900E03C64 /* BBAppController.m */; };
 		69E2C0440FB9DA2900E03C64 /* BBOSCAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0290FB9DA2900E03C64 /* BBOSCAddress.m */; };
 		69E2C0450FB9DA2900E03C64 /* BBOSCArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C02B0FB9DA2900E03C64 /* BBOSCArgument.m */; };
@@ -74,6 +76,10 @@
 		32CA4F630368D1EE00C91783 /* CocoNuitApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoNuitApp_Prefix.pch; sourceTree = "<group>"; };
 		69372B240FC0313800E6A604 /* CoconuitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoconuitConfig.h; sourceTree = "<group>"; };
 		69372B250FC0313800E6A604 /* CoconuitConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoconuitConfig.m; sourceTree = "<group>"; };
+		699846AE0FCAE1F400AB9FB9 /* CNTouchGrouper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNTouchGrouper.h; sourceTree = "<group>"; };
+		699846AF0FCAE1F400AB9FB9 /* CNTouchGrouper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNTouchGrouper.m; sourceTree = "<group>"; };
+		699846B10FCAE20800AB9FB9 /* CNTouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNTouchGroup.h; sourceTree = "<group>"; };
+		699846B20FCAE20800AB9FB9 /* CNTouchGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNTouchGroup.m; sourceTree = "<group>"; };
 		69E2C0250FB9DA2900E03C64 /* BBAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAppController.h; sourceTree = "<group>"; };
 		69E2C0260FB9DA2900E03C64 /* BBAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAppController.m; sourceTree = "<group>"; };
 		69E2C0270FB9DA2900E03C64 /* BBOSC_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOSC_Prefix.pch; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				699846AD0FCAE1BB00AB9FB9 /* touchgrouping */,
 				69372B230FC0313800E6A604 /* config */,
 				B302F2010FBAFCC000BAAF55 /* CNSetupWinController.h */,
 				B302F2020FBAFCC000BAAF55 /* CNSetupWinController.m */,
@@ -286,6 +293,17 @@
 			name = config;
 			path = ../config;
 			sourceTree = SOURCE_ROOT;
+		};
+		699846AD0FCAE1BB00AB9FB9 /* touchgrouping */ = {
+			isa = PBXGroup;
+			children = (
+				699846AE0FCAE1F400AB9FB9 /* CNTouchGrouper.h */,
+				699846AF0FCAE1F400AB9FB9 /* CNTouchGrouper.m */,
+				699846B10FCAE20800AB9FB9 /* CNTouchGroup.h */,
+				699846B20FCAE20800AB9FB9 /* CNTouchGroup.m */,
+			);
+			name = touchgrouping;
+			sourceTree = "<group>";
 		};
 		69E2C0240FB9DA2900E03C64 /* BBosc */ = {
 			isa = PBXGroup;
@@ -528,6 +546,8 @@
 				B302F1FD0FBAFBA400BAAF55 /* CNUntouchableLayer.m in Sources */,
 				B302F2030FBAFCC000BAAF55 /* CNSetupWinController.m in Sources */,
 				69372B260FC0313800E6A604 /* CoconuitConfig.m in Sources */,
+				699846B00FCAE1F400AB9FB9 /* CNTouchGrouper.m in Sources */,
+				699846B30FCAE20800AB9FB9 /* CNTouchGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

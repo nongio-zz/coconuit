@@ -20,6 +20,7 @@
 #import "CNGesture.h"
 #import "CNGestureFactory.h"
 #import "CNLayer.h"
+#import "CNTouchGrouper.h"
 
 @implementation CNGesture
 
@@ -77,7 +78,7 @@
 }
 
 -(void) groupStrokesToOne:(NSMutableArray*)strokes andUpdateTouch:(CNTouch*)aTouch{
-	NSMutableArray* points = [[NSMutableArray alloc] init];
+	//NSMutableArray* points = [[NSMutableArray alloc] init];
 	int touchType = aTouch.type;
 	int countRelease=0;
 	int countNew=0;
@@ -97,8 +98,7 @@
 			if(t.type==ReleaseTouch){
 				countRelease++;
 			}
-			
-			[points addObject:[NSValue valueWithPoint:t.position]];
+			//[points addObject:[NSValue valueWithPoint:t.position]];
 		}
 	}
 	
@@ -113,8 +113,12 @@
 		touchType = ReleaseTouch;
 	}
 	
-	NSPoint gCenter = getCenterPoint(points);
-	[aTouch updateWithPoint:gCenter andTouchType:touchType];
+	CNTouchGrouper* aGrouper = [[CNTouchGrouper alloc] initWithTouches:strokes];
+	CNTouch* rapresentativeTouch = [aGrouper getRapresentativeOfGroupAtIndex:0];
+	
+	//NSPoint gCenter = getCenterPoint(points);
+	
+	[aTouch updateWithPoint:rapresentativeTouch.position andTouchType:touchType];
 }
 
 @end
