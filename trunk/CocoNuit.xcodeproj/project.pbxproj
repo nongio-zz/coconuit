@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		693435900FCEB7EB00E41022 /* CoconuitConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 6934358E0FCEB7EB00E41022 /* CoconuitConfig.h */; };
+		693435910FCEB7EB00E41022 /* CoconuitConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6934358F0FCEB7EB00E41022 /* CoconuitConfig.m */; };
+		693435CC0FCEB88C00E41022 /* CNTouchGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 693435AE0FCEB88C00E41022 /* CNTouchGroup.h */; };
+		693435CD0FCEB88C00E41022 /* CNTouchGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 693435AF0FCEB88C00E41022 /* CNTouchGroup.m */; };
+		693435CE0FCEB88C00E41022 /* CNTouchGrouper.h in Headers */ = {isa = PBXBuildFile; fileRef = 693435B00FCEB88C00E41022 /* CNTouchGrouper.h */; };
+		693435CF0FCEB88C00E41022 /* CNTouchGrouper.m in Sources */ = {isa = PBXBuildFile; fileRef = 693435B10FCEB88C00E41022 /* CNTouchGrouper.m */; };
 		69E2C0E00FB9E2F200E03C64 /* BBAppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0C80FB9E2F200E03C64 /* BBAppController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E2C0E10FB9E2F200E03C64 /* BBAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0C90FB9E2F200E03C64 /* BBAppController.m */; };
 		69E2C0E20FB9E2F200E03C64 /* BBOSC_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 69E2C0CA0FB9E2F200E03C64 /* BBOSC_Prefix.pch */; };
@@ -90,6 +96,12 @@
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* CocoNuit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoNuit_Prefix.pch; sourceTree = "<group>"; };
+		6934358E0FCEB7EB00E41022 /* CoconuitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoconuitConfig.h; sourceTree = "<group>"; };
+		6934358F0FCEB7EB00E41022 /* CoconuitConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoconuitConfig.m; sourceTree = "<group>"; };
+		693435AE0FCEB88C00E41022 /* CNTouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNTouchGroup.h; sourceTree = "<group>"; };
+		693435AF0FCEB88C00E41022 /* CNTouchGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNTouchGroup.m; sourceTree = "<group>"; };
+		693435B00FCEB88C00E41022 /* CNTouchGrouper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNTouchGrouper.h; sourceTree = "<group>"; };
+		693435B10FCEB88C00E41022 /* CNTouchGrouper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNTouchGrouper.m; sourceTree = "<group>"; };
 		69E2C0C80FB9E2F200E03C64 /* BBAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAppController.h; sourceTree = "<group>"; };
 		69E2C0C90FB9E2F200E03C64 /* BBAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAppController.m; sourceTree = "<group>"; };
 		69E2C0CA0FB9E2F200E03C64 /* BBOSC_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOSC_Prefix.pch; sourceTree = "<group>"; };
@@ -222,6 +234,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6934358D0FCEB7EB00E41022 /* config */,
 				69E2C0C70FB9E2F200E03C64 /* BBosc */,
 				B3D4ABA30FB9CD110070AC19 /* graphics */,
 				B3D4ABC30FB9CD110070AC19 /* utils */,
@@ -256,6 +269,15 @@
 				32DBCF5E0370ADEE00C91783 /* CocoNuit_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		6934358D0FCEB7EB00E41022 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				6934358E0FCEB7EB00E41022 /* CoconuitConfig.h */,
+				6934358F0FCEB7EB00E41022 /* CoconuitConfig.m */,
+			);
+			path = config;
 			sourceTree = "<group>";
 		};
 		69E2C0C70FB9E2F200E03C64 /* BBosc */ = {
@@ -309,6 +331,10 @@
 		B3D4AB8C0FB9CD110070AC19 /* gesturerecognition */ = {
 			isa = PBXGroup;
 			children = (
+				693435AE0FCEB88C00E41022 /* CNTouchGroup.h */,
+				693435AF0FCEB88C00E41022 /* CNTouchGroup.m */,
+				693435B00FCEB88C00E41022 /* CNTouchGrouper.h */,
+				693435B10FCEB88C00E41022 /* CNTouchGrouper.m */,
 				B3D4AB8D0FB9CD110070AC19 /* CN1FingerRotate.h */,
 				B3D4AB8E0FB9CD110070AC19 /* CN1FingerRotate.m */,
 				B3D4AB8F0FB9CD110070AC19 /* CN2FingerRotate.h */,
@@ -419,6 +445,9 @@
 				69E2C0F20FB9E2F200E03C64 /* BBOSCMessage.h in Headers */,
 				69E2C0F40FB9E2F200E03C64 /* BBOSCPacket.h in Headers */,
 				69E2C0F60FB9E2F200E03C64 /* BBOSCSender.h in Headers */,
+				693435900FCEB7EB00E41022 /* CoconuitConfig.h in Headers */,
+				693435CC0FCEB88C00E41022 /* CNTouchGroup.h in Headers */,
+				693435CE0FCEB88C00E41022 /* CNTouchGrouper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +541,9 @@
 				69E2C0F30FB9E2F200E03C64 /* BBOSCMessage.m in Sources */,
 				69E2C0F50FB9E2F200E03C64 /* BBOSCPacket.m in Sources */,
 				69E2C0F70FB9E2F200E03C64 /* BBOSCSender.m in Sources */,
+				693435910FCEB7EB00E41022 /* CoconuitConfig.m in Sources */,
+				693435CD0FCEB88C00E41022 /* CNTouchGroup.m in Sources */,
+				693435CF0FCEB88C00E41022 /* CNTouchGrouper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

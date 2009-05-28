@@ -13,7 +13,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					138,
+					407,
 					20,
 					48,
 					43,
@@ -30,12 +30,43 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 264423890;
-			PBXWorkspaceStateSaveDate = 264423890;
+			PBXPerProjectTemplateStateSaveDate = 265205972;
+			PBXWorkspaceStateSaveDate = 265205972;
+		};
+		perUserProjectItems = {
+			693435EC0FCEB8FC00E41022 /* PBXTextBookmark */ = 693435EC0FCEB8FC00E41022 /* PBXTextBookmark */;
+			693435ED0FCEB8FC00E41022 /* PBXTextBookmark */ = 693435ED0FCEB8FC00E41022 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 69E2C0180FB9D71800E03C64 /* Source Control */;
 		userBuildSettings = {
 		};
+	};
+	693435AE0FCEB88C00E41022 /* CNTouchGroup.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {585, 476}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 137}";
+		};
+	};
+	693435EC0FCEB8FC00E41022 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 693435AE0FCEB88C00E41022 /* CNTouchGroup.h */;
+		name = "CNTouchGroup.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 137;
+		vrLoc = 0;
+	};
+	693435ED0FCEB8FC00E41022 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 693435AE0FCEB88C00E41022 /* CNTouchGroup.h */;
+		name = "CNTouchGroup.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 137;
+		vrLoc = 0;
 	};
 	69E2C0180FB9D71800E03C64 /* Source Control */ = {
 		isa = PBXSourceControlManager;
