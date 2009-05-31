@@ -27,8 +27,10 @@
  */
 
 @interface CNRelease : CNGesture {
-
+	CNTouch* touch;///<keeps the touch
 }
+
+@property (retain) CNTouch* touch;
 
 -(BOOL)recognize:(id)sender;///<implements the Release GestureRecognition task
 

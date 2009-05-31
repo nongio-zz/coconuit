@@ -42,7 +42,14 @@
 			{	
 				state = BeginGesture;
 				
-				[sender performGesture:@"Press" withData:Nil];///calls PerformPressGesture on the related layer [sender performGesture:@"Press" withData:Nil];
+				NSArray* keys = [NSArray arrayWithObjects:@"center", @"gState", nil];
+				NSValue* center= [NSValue valueWithPoint:NSMakePoint(touch.position.x, touch.position.y)];
+				NSValue* gState = [NSNumber numberWithInt:self.state];
+				
+				NSArray* objects = [NSArray arrayWithObjects:center, gState, nil];
+				NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+				
+				[sender performGesture:@"Press" withData:params];///calls PerformPressGesture on the related layer [sender performGesture:@"Press" withData:Nil];
 				
 				state = EndGesture;
 				state = WaitingGesture;
