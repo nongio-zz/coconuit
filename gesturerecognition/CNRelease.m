@@ -22,6 +22,9 @@
 
 
 @implementation CNRelease
+
+@synthesize touch;
+
 -(id)init{
 	if(self = [super init]){
 		GestureName = @"CNRelease";
@@ -34,20 +37,40 @@
 	
 	if([sender isKindOfClass:[CNLayer class]]){
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
-		CNTouch* touch = [gStrokes lastObject];
-		if(touch.type==ReleaseTouch&&[gStrokes count]>0){///if the number of release touches in the active area is heighter than 0 
+		
+		if([gStrokes count]>0){
+			if([gStrokes count]>1){///if the Touchs number is greater than one
+				if(touch==Nil){
+					self.touch = [[CNTouch alloc] init];
+				}
+				[self groupStrokesToOne:gStrokes andUpdateTouch:touch];///grouping the touches to one
+			}
+			else{
+				self.touch = [[gStrokes lastObject] copy];///else get the only one
+			}
+		
+		if(touch.type==ReleaseTouch){///if the number of release touches in the active area is heighter than 0 
 			state = BeginGesture;
 			
-			[sender performGesture:@"Release" withData:Nil];///calls PerformReleaseGesture on the related layer [sender performGesture:@"Release" withData:Nil];
+			NSArray* keys = [NSArray arrayWithObjects:@"center", @"gState", nil];
+			NSValue* center= [NSValue valueWithPoint:NSMakePoint(touch.position.x, touch.position.y)];
+			NSValue* gState = [NSNumber numberWithInt:self.state];
+			
+			NSArray* objects = [NSArray arrayWithObjects:center, gState, nil];
+			NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+			
+			[sender performGesture:@"Release" withData:params];///calls PerformReleaseGesture on the related layer [sender performGesture:@"Release" withData:Nil];
 			
 			state = EndGesture;
 			state = WaitingGesture;
-			return TRUE;
-		}
+			return TRUE;//gesture recognized
+			}
 		else{
-			return FALSE;//gesture recognized			
+			return FALSE;			
+			}
 		}
 	}
 	return FALSE;
 }
+	
 @end
