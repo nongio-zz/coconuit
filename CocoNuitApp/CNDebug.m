@@ -217,7 +217,7 @@
 	NSLog(@"gesture radius: %f", radius);
 	if(gestureState!=EndGesture)
 	{
-		self.transform = CATransform3DRotate(self.transform, rotationAngle, 0.0, 0.0, -sense);
+		self.transform = CATransform3DRotate(self.transform, rotationAngle, 0.0, 0.0, sense);
 	}
 		
 }
