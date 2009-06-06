@@ -68,20 +68,17 @@
 						float dt = touch.timestamp-last.timestamp;///calc the angular velocity
 						angularVelocity = (angularVelocity+rotation/dt)/2;
 						
-						if(state==WaitingGesture){///menage the gesture state
-							state=BeginGesture;
-						}
-						else{
-							if(touch.type==ReleaseTouch){
-								state = EndGesture;
-							}
-							else{
-								state=UpdateGesture;
-							}
+						///manage gesture state
+						if(touch.type==ReleaseTouch){
+							state=EndGesture;
 						}
 						
-						if(state==EndGesture){
-							state=WaitingGesture;
+						if(state==BeginGesture){
+							state=UpdateGesture;
+						}
+						
+						if(state==WaitingGesture){
+							state=BeginGesture;
 						}
 						
 						double radius = sqrt(pow(v2.x*globalLayer.bounds.size.width,2)+pow(v2.y*globalLayer.bounds.size.height,2));
@@ -102,6 +99,9 @@
 						
 						[sender performGesture:@"OneFingerRotate" withData:params];///call perform OneFingerRotateGesture on the related layer [sender performGesture:@"OneFingerRotate" withData:params];
 																				   ///passing Rotation Angle, Rotation Sense, Rotation Angular Velocity, Pivot Point and GestureState
+						if(state==EndGesture){
+							state=WaitingGesture;
+						}
 						
 						return TRUE;
 					}
