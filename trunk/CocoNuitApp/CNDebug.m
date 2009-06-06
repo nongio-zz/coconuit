@@ -15,20 +15,28 @@
 	if (self =[super init]){
 		
 	self.frame = CGRectMake(0.0, 0.0, 400, 400);
-//	[self setBackgroundColor:CGColorCreateGenericRGB( 1, 0, 0.3, 1.0)];
 	NSImage *anImage  = [NSImage imageNamed:img];
 	NSBitmapImageRep *bitrep = [NSBitmapImageRep imageRepWithData:[anImage TIFFRepresentation]];
 	[bitrep retain];
-	self.contents = (id)[bitrep CGImage];
-	//[self addSublayer:console];
+	//SCOMMENTARE PER FAR RIAPPARIRE L'IMMAGINE
+	//self.contents = (id)[bitrep CGImage];
+
+	//DISEGNO DEL CERCHIO AL POSTO DELLE FOTO
+		CNCircleLayer*c=[[CNCircleLayer alloc] initWithRadius:200.0];
+		[self addSublayer:c];
+		c.position = CGPointMake(200.0,200.0);
+		self.anchorPoint = CGPointMake(0.5,0.5);
+		self.backgroundColor = CGColorCreateGenericRGB(0.5, 0.2, 0.2, 1);
+		
+		
 	CNGestureFactory* theGestureFactory = [CNGestureFactory getGestureFactory];
 	//[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
 	//[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNHold"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNHold"]];
-	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerRotate"]];
+	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN1FingerRotate"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerScale"]];
-	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNMove"]];
+//	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNMove"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNPress"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNRelease"]];
 		
@@ -202,7 +210,16 @@
 }
 
 -(void)OneFingerRotate:(NSDictionary*)params{
-	
+	float radius = [[params objectForKey:@"radius"] floatValue];
+	float rotationAngle = [[params objectForKey:@"rotation"] floatValue];
+	int sense =  [[params objectForKey:@"sense"] intValue];
+	int gestureState = [[params objectForKey:@"gState"] intValue];
+	NSLog(@"gesture radius: %f", radius);
+	if(gestureState!=EndGesture)
+	{
+		self.transform = CATransform3DRotate(self.transform, rotationAngle, 0.0, 0.0, -sense);
+	}
+		
 }
 - (CAMediaTimingFunction *)getTimingFunction 
 { 
