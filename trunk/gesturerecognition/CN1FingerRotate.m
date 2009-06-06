@@ -52,12 +52,12 @@
 					CALayer*globalLayer = [sender globalLayer];
 					CNTouch*last = [touch.strokePath objectAtIndex:([touch.strokePath count]-2)];///get previous touch position
 
-					CGPoint pivotLpoint = CGPointMake(layer.anchorPoint.x*layer.bounds.size.width,layer.anchorPoint.y*layer.bounds.size.height);
+					CGPoint pivotLpoint = CGPointMake(layer.anchorPoint.x*layer.bounds.size.width,(1-layer.anchorPoint.y)*layer.bounds.size.height);
 					CGPoint pivotGpoint = [layer convertPoint:pivotLpoint toLayer:globalLayer];
 					NSPoint pivotUpoint = NSPointFromCGPoint([layer realToUnit:pivotGpoint ofLayer:globalLayer]);///get the rotation pivot - layer anchorpoint
 					
-					CN2dVect* v1 = [[CN2dVect alloc] initWithPoint:pivotUpoint andPoint:last.position];///get the vector between the pivot and last position point: v1
-					CN2dVect* v2 = [[CN2dVect alloc] initWithPoint:pivotUpoint andPoint:touch.position];///get the vector between the pivot and actual position point: v2
+					CN2dVect* v1 = [[CN2dVect alloc] initWithPoint:pivotUpoint andPoint:NSMakePoint(last.position.x,(1-last.position.y))];///get the vector between the pivot and last position point: v1
+					CN2dVect* v2 = [[CN2dVect alloc] initWithPoint:pivotUpoint andPoint:NSMakePoint(touch.position.x,(1-touch.position.y))];///get the vector between the pivot and actual position point: v2
 					
 					rotation = getAngleBetweenVector(v1,v2);///get angle between v1 and v2
 				
@@ -84,6 +84,8 @@
 							state=WaitingGesture;
 						}
 						
+						double radius = sqrt(pow(v2.x*globalLayer.bounds.size.width,2)+pow(v2.y*globalLayer.bounds.size.height,2));
+						
 						///set the useful params for the animation
 						NSArray* keys = [NSArray arrayWithObjects:@"rotation", @"sense", @"angularVelocity", @"center" ,@"radius",@"gState",nil];
 						
@@ -91,7 +93,7 @@
 						NSNumber* sensePar = [NSNumber numberWithInt:sense];
 						NSNumber* angularVelocityParam = [NSNumber numberWithFloat:angularVelocity];
 						NSValue* pivotPar = [NSValue valueWithPoint:pivotUpoint];
-						NSNumber* radiusPar = [NSNumber numberWithFloat:v2.module];
+						NSNumber* radiusPar = [NSNumber numberWithFloat:radius];
 						NSNumber* gStatePar = [NSNumber numberWithInt:self.state];
 						
 						NSArray* objects = [NSArray arrayWithObjects:rotationPar, sensePar, angularVelocityParam,pivotPar,radiusPar,gStatePar, nil];
