@@ -43,7 +43,7 @@
 		if([aLayer isKindOfClass:[CNLayer class]]){
 			CNLayer* aTCLayer = (CNLayer*) aLayer;
 			[aTCLayer updateStrokes:newMultitouchEvent];
-		}
+		}		
 	}
 	
 	//secondo ciclo dispatch dei nuovi strokes
@@ -56,8 +56,8 @@
 			//converto il punto dalle coordinate 0:1 a quelle reali del rootLayer
 			CGPoint point = CGPointMake(touch.position.x*rootLayer.bounds.size.width, (1-touch.position.y)*rootLayer.bounds.size.height);
 			if(touch.type==NewTouch){
-					//con il metodo hitTest di core animation si guarda a chi appartiene il nuovo tocco
-					tempLayer  = [viewLayer hitTest: point];
+					//con il metodo hitTest di core animation si guarda a chi appartiene il nuovo tocco		
+					tempLayer  = [self activeLayerHitTest: point];
 					if([tempLayer isKindOfClass:[CNLayer class]])
 					{
 						touchable = (CNLayer*) tempLayer;
@@ -108,13 +108,36 @@
 	else
 	{
 		if([newlayer.sublayers count]){
-				for(CALayer*sublayer in newlayer.sublayers)
-				{
-					[self addActiveSubLayer:sublayer];
-				}
+			for(CALayer*sublayer in newlayer.sublayers)
+			{
+				[self addActiveSubLayer:sublayer];
+			}
 		}
 			
 	}
 }
-
+-(CNLayer*)activeLayerHitTest:(CGPoint)point
+{
+	CALayer* tempLayer  = [viewLayer hitTest: point];
+	CNLayer* activeLayer = [self findActiveLayer:tempLayer];
+	return activeLayer;
+}
+-(CNLayer*) findActiveLayer:(CALayer*)alayer
+{
+	if(alayer!=nil)
+	{
+		if([alayer isKindOfClass:[CNLayer class]])
+		{
+			return ((CNLayer*)alayer);
+		}
+		else
+		{
+			return [self findActiveLayer:[alayer superlayer]];
+		}
+	}
+	else
+	{
+		return (CNLayer*)alayer;
+	}
+}
 @end
