@@ -33,4 +33,7 @@
 
 -(void)addSublayer:(CALayer*)newlayer; //aggiunge un livello a viewLayer
 -(void)addActiveSubLayer:(CALayer*)newlayer; //controlla se il livello è un CNLayer e nel caso lo aggiunge alla propria lista di layer attivi
+
+-(CNLayer*)activeLayerHitTest:(CGPoint)point;
+-(CNLayer*) findActiveLayer:(CALayer*)alayer;
 @end
