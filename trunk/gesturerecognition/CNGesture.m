@@ -48,7 +48,7 @@
 
 -(void)removeChildGestureByName:(NSString*)gName{
 	for (CNGesture* gesture in GestureChilds){
-		if([gesture.GestureName isEqual:gesture]){
+		if([gesture.GestureName isEqual:gName]){
 			[GestureChilds removeObject:gesture];
 		}
 	}
