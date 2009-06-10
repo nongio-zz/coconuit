@@ -46,8 +46,11 @@
 			double MinRTbyMoveRotationAngle = [[GesturesParams objectForKey:@"MinRTbyMoveRotationAngle"] doubleValue];
 			
 			CNTouch* touch = [gStrokes lastObject];///get the current touch
+			if(touch.type==ReleaseTouch){
+				state=EndGesture;
+			}
 			
-			if(pointIsGreater(touch.velocity,minVelocityMove)){///if the touch has linear velocity highter than a Threshold 
+			if(pointIsGreater(touch.velocity,minVelocityMove) || state==EndGesture){///if the touch has linear velocity highter than a Threshold 
 
 					CALayer*globalLayer = [sender globalLayer];
 					CNTouch*last = [touch.strokePath objectAtIndex:([touch.strokePath count]-2)];///get previous touch position
@@ -61,18 +64,14 @@
 					
 					rotation = getAngleBetweenVector(v1,v2);///get angle between v1 and v2
 				
-					float sense = getRotationSenseBetweenVector(v1,v2);///get rotation sense between v1 and v2
-					
-					if(rotation>MinRTbyMoveRotationAngle*M_PI/180){///if rotation value i greater than a threshold
+					float rotSense = getRotationSenseBetweenVector(v1,v2);///get rotation sense between v1 and v2
+					sense = rotSense!=0? rotSense:sense;
+					if(rotation>MinRTbyMoveRotationAngle*M_PI/180 || state==EndGesture){///if rotation value i greater than a threshold
 						
 						float dt = touch.timestamp-last.timestamp;///calc the angular velocity
 						angularVelocity = (angularVelocity+rotation/dt)/2;
 						
-						///manage gesture state
-						if(touch.type==ReleaseTouch){
-							state=EndGesture;
-						}
-						
+						///manage gesture state						
 						if(state==BeginGesture){
 							state=UpdateGesture;
 						}

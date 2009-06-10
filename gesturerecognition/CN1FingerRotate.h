@@ -30,6 +30,7 @@
 @interface CN1FingerRotate : CNGesture {
 	float angle;///<keeps the rotation angle
 	float angularVelocity;///<keeps the rotation angular velocity
+	float sense;
 }
 
 @property(assign) float angle;
