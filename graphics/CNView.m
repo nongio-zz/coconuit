@@ -63,6 +63,7 @@
 						touchable = (CNLayer*) tempLayer;
 						[touchable.myMultitouchEvent setStroke:[touch copy]];
 					}
+				
 			}
 		}
 	}

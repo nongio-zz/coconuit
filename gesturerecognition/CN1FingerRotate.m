@@ -38,7 +38,7 @@
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
 		CNLayer* layer = sender;
 		if([gStrokes count] == 1){///By now no grouping for this gesture is supported. Is supposed that only one touch is in the active area.
-			float rotation;
+			double rotation;
 			
 			double v = [[GesturesParams objectForKey:@"MinMoveVelocity"] doubleValue];
 			NSPoint minVelocityMove = NSMakePoint(v,v);//external setup
@@ -54,17 +54,24 @@
 
 					CALayer*globalLayer = [sender globalLayer];
 					CNTouch*last = [touch.strokePath objectAtIndex:([touch.strokePath count]-2)];///get previous touch position
-
+					//CNTouch*last = [touch.strokePath objectAtIndex:(0)];///get previous touch position
+				//NSLog(@"%f,%f", layer.bounds.size.width,layer.bounds.size.height);
 					CGPoint pivotLpoint = CGPointMake(layer.anchorPoint.x*layer.bounds.size.width,(1-layer.anchorPoint.y)*layer.bounds.size.height);
 					CGPoint pivotGpoint = [layer convertPoint:pivotLpoint toLayer:globalLayer];
 					NSPoint pivotUpoint = NSPointFromCGPoint([layer realToUnit:pivotGpoint ofLayer:globalLayer]);///get the rotation pivot - layer anchorpoint
-					
-					CN2dVect* v1 = [[CN2dVect alloc] initWithPoint:pivotUpoint andPoint:NSMakePoint(last.position.x,(1-last.position.y))];///get the vector between the pivot and last position point: v1
-					CN2dVect* v2 = [[CN2dVect alloc] initWithPoint:pivotUpoint andPoint:NSMakePoint(touch.position.x,(1-touch.position.y))];///get the vector between the pivot and actual position point: v2
-					
+					CGPoint v1point = [layer unitToReal:CGPointMake(touch.position.x,1-touch.position.y) ofLayer:globalLayer];
+					CGPoint v2point = [layer unitToReal:CGPointMake(last.position.x,1-last.position.y) ofLayer:globalLayer];				
+				
+					//NSLog(@"pivot: %f,%f",pivotUpoint.x,pivotUpoint.y);
+					//CN2dVect* v1 = [[CN2dVect alloc] initWithPoint:pivotGpoint andPoint:NSMakePoint(last.position.x,(1-last.position.y))];///get the vector between the pivot and last position point: v1
+					//CN2dVect* v2 = [[CN2dVect alloc] initWithPoint:pivotGpoint andPoint:NSMakePoint(touch.position.x,(1-touch.position.y))];///get the vector between the pivot and actual position point: v2
+					CN2dVect* v1 = [[CN2dVect alloc] initWithPoint:NSPointFromCGPoint(pivotGpoint) andPoint:NSMakePoint(v1point.x, v1point.y)];///get the vector between the pivot and last position point: v1
+					CN2dVect* v2 = [[CN2dVect alloc] initWithPoint:NSPointFromCGPoint(pivotGpoint) andPoint:NSMakePoint(v2point.x,v2point.y)];///get the vector between the pivot and actual position point: v2
+				
 					rotation = getAngleBetweenVector(v1,v2);///get angle between v1 and v2
 				
 					float rotSense = getRotationSenseBetweenVector(v1,v2);///get rotation sense between v1 and v2
+					//NSLog(@"senso x angolo: %f", rotSense*(rotation*180/M_PI));
 					sense = rotSense!=0? rotSense:sense;
 					if(rotation>MinRTbyMoveRotationAngle*M_PI/180 || state==EndGesture){///if rotation value i greater than a threshold
 						
@@ -85,7 +92,7 @@
 						///set the useful params for the animation
 						NSArray* keys = [NSArray arrayWithObjects:@"rotation", @"sense", @"angularVelocity", @"center" ,@"radius",@"gState",nil];
 						
-						NSNumber* rotationPar = [NSNumber numberWithFloat:rotation];
+						NSNumber* rotationPar = [NSNumber numberWithDouble:rotation];
 						NSNumber* sensePar = [NSNumber numberWithInt:sense];
 						NSNumber* angularVelocityParam = [NSNumber numberWithFloat:angularVelocity];
 						NSValue* pivotPar = [NSValue valueWithPoint:pivotUpoint];
@@ -96,8 +103,10 @@
 						
 						NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
 						
+						if(rotation>0){
 						[sender performGesture:@"OneFingerRotate" withData:params];///call perform OneFingerRotateGesture on the related layer [sender performGesture:@"OneFingerRotate" withData:params];
-																				   ///passing Rotation Angle, Rotation Sense, Rotation Angular Velocity, Pivot Point and GestureState
+						}
+						///passing Rotation Angle, Rotation Sense, Rotation Angular Velocity, Pivot Point and GestureState
 						if(state==EndGesture){
 							state=WaitingGesture;
 						}

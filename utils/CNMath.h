@@ -74,9 +74,17 @@ static inline double getRotationSenseBetweenVector(CN2dVect* v1, CN2dVect* v2){
 static inline double getAngleBetweenVector(CN2dVect* v1,CN2dVect* v2){
 	if(v1.module!=0&&v2.module!=0){
 		double cosAlfa = scalarProductBetweenVector(v1,v2)/(v1.module*v2.module);
-	
+	    
+		if(cosAlfa>1){
+			cosAlfa=1.0;
+		}
 		double alfa = acos(cosAlfa);
-	
+		
+		if(alfa!=0){
+		 //NSLog(@"m1= %f, m2= %f, cosAlfa= %f",v1.module,v2.module,cosAlfa);
+		 NSLog(@" angle %f", alfa*180/M_PI);
+		}
+		
 		return alfa;
 	}
 	else{
