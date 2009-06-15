@@ -87,7 +87,7 @@
 							state=BeginGesture;
 						}
 						
-						double radius = sqrt(pow(v2.x*globalLayer.bounds.size.width,2)+pow(v2.y*globalLayer.bounds.size.height,2));
+						double radius = sqrt(pow(v2.x,2)+pow(v2.y,2));
 						
 						///set the useful params for the animation
 						NSArray* keys = [NSArray arrayWithObjects:@"rotation", @"sense", @"angularVelocity", @"center" ,@"radius",@"gState",nil];
