@@ -11,6 +11,7 @@
 		693435FE0FCEB93100E41022 /* CNTouchGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 693435FB0FCEB93100E41022 /* CNTouchGroup.m */; };
 		693435FF0FCEB93100E41022 /* CNTouchGrouper.m in Sources */ = {isa = PBXBuildFile; fileRef = 693435FD0FCEB93100E41022 /* CNTouchGrouper.m */; };
 		69372B260FC0313800E6A604 /* CoconuitConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 69372B250FC0313800E6A604 /* CoconuitConfig.m */; };
+		698D1EA90FE693A900F5E2F8 /* CNWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 698D1EA80FE693A900F5E2F8 /* CNWheel.m */; };
 		69E2C0430FB9DA2900E03C64 /* BBAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0260FB9DA2900E03C64 /* BBAppController.m */; };
 		69E2C0440FB9DA2900E03C64 /* BBOSCAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C0290FB9DA2900E03C64 /* BBOSCAddress.m */; };
 		69E2C0450FB9DA2900E03C64 /* BBOSCArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2C02B0FB9DA2900E03C64 /* BBOSCArgument.m */; };
@@ -80,6 +81,8 @@
 		693435FD0FCEB93100E41022 /* CNTouchGrouper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNTouchGrouper.m; sourceTree = "<group>"; };
 		69372B240FC0313800E6A604 /* CoconuitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoconuitConfig.h; sourceTree = "<group>"; };
 		69372B250FC0313800E6A604 /* CoconuitConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoconuitConfig.m; sourceTree = "<group>"; };
+		698D1EA70FE693A900F5E2F8 /* CNWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNWheel.h; sourceTree = "<group>"; };
+		698D1EA80FE693A900F5E2F8 /* CNWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNWheel.m; sourceTree = "<group>"; };
 		69E2C0250FB9DA2900E03C64 /* BBAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAppController.h; sourceTree = "<group>"; };
 		69E2C0260FB9DA2900E03C64 /* BBAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAppController.m; sourceTree = "<group>"; };
 		69E2C0270FB9DA2900E03C64 /* BBOSC_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOSC_Prefix.pch; sourceTree = "<group>"; };
@@ -388,6 +391,8 @@
 		69E2C0850FB9DA8B00E03C64 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				698D1EA70FE693A900F5E2F8 /* CNWheel.h */,
+				698D1EA80FE693A900F5E2F8 /* CNWheel.m */,
 				B302F1FB0FBAFBA400BAAF55 /* CNUntouchableLayer.h */,
 				B302F1FC0FBAFBA400BAAF55 /* CNUntouchableLayer.m */,
 				B302F1E80FBAFB7300BAAF55 /* CNCircleLayer.h */,
@@ -540,6 +545,7 @@
 				69372B260FC0313800E6A604 /* CoconuitConfig.m in Sources */,
 				693435FE0FCEB93100E41022 /* CNTouchGroup.m in Sources */,
 				693435FF0FCEB93100E41022 /* CNTouchGrouper.m in Sources */,
+				698D1EA90FE693A900F5E2F8 /* CNWheel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
