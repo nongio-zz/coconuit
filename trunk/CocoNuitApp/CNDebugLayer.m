@@ -70,7 +70,7 @@
 		[self.myMultitouchEvent setStroke:stroke];
 		CNTouch* tempTouch = (CNTouch*) stroke;
 		CGPoint point = CGPointMake(tempTouch.position.x*[self superlayer].bounds.size.width, (1-tempTouch.position.y)*[self superlayer].bounds.size.height);
-		CNCursorLayer *circle = [[CNCursorLayer alloc] initWithRadius:25.0 hover:ishover];
+		CNCursorLayer *circle = [[CNCursorLayer alloc] initWithRadius:15.0 hover:ishover];
 		circle.position = point;
 		[self addSublayer:circle];
 //		[[self superlayer] setNeedsDisplayInRect:CGRectMake(point.x-12.5, point.y-12.5, 25, 25)];

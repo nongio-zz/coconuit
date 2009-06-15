@@ -35,10 +35,13 @@
 			CGPoint point = CGPointMake(touch.position.x*rootLayer.bounds.size.width, (1-touch.position.y)*rootLayer.bounds.size.height);
 			if(touch.type==NewTouch){
 				//con il metodo hitTest di core animation si guarda a chi appartiene il nuovo tocco
-				tempLayer  = [viewLayer hitTest: point];
+				tempLayer  = [self activeLayerHitTest:point];
 				BOOL ishover = NO;
 				if([tempLayer isKindOfClass:[CNLayer class]])
 				{
+					NSUInteger num = [activeLayers indexOfObject:tempLayer];
+					if(num == NSNotFound)
+						[activeLayers addObject:tempLayer];
 					touchable = (CNLayer*) tempLayer;
 					[touchable.myMultitouchEvent setStroke:[touch copy]];
 					ishover=YES;
@@ -91,19 +94,19 @@
 
 	//LIGHTS
 	CNLightLayer*light1 = [[CNLightLayer alloc] initWithLabel:@"press"
-									  observedGestureName:@"CNPress"
+									  observedGestureName:@"Press"
 												 andColor:CGColorCreateGenericCMYK(0.38, 0.03, 1.0, 0, 1)
 											  withConsole:NO];
 	light1.position = CGPointMake(100.0,25);
 	
 	CNLightLayer*light2 = [[CNLightLayer alloc] initWithLabel:@"update"
- 									  observedGestureName:@"updateTouch"
+ 									  observedGestureName:@"Update"
 												 andColor:CGColorCreateGenericCMYK(0.07, 0.00, 0.91, 0, 1)
 											  withConsole:NO];
 	light2.position = CGPointMake(150.0,25);
 	
 	CNLightLayer*light3 = [[CNLightLayer alloc] initWithLabel:@"release"
-  									  observedGestureName:@"CNRelease"
+  									  observedGestureName:@"Release"
 												 andColor:CGColorCreateGenericCMYK(0.03, 0.99, 0.37, 0, 1)
 												  withConsole:NO];
 	light3.position = CGPointMake(200.0,25);
@@ -121,7 +124,7 @@
 	light5.position = CGPointMake(300.0,25);
 	
 	CNLightLayer*light6 = [[CNLightLayer alloc] initWithLabel:@"hold"
-									  observedGestureName:@"CNHold"
+									  observedGestureName:@"Hold"
 												 andColor:CGColorCreateGenericCMYK(0.86, 0.73, 0.0, 0, 1)
 											  withConsole:NO];
 	light6.position = CGPointMake(350.0,25);
@@ -163,6 +166,9 @@
 	tcdbg2.position = CGPointMake(250,400);
 	[self addSublayer:tcdbg2];
 	
+	CNWheel*w=[[CNWheel alloc] init];
+	w.position=CGPointMake(200,600);
+	[self addSublayer:w];
 	
 	//OBSERVERS
 	[tcdbg addObserver:light1];

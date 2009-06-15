@@ -26,13 +26,12 @@
 		
 		
 	CNGestureFactory* theGestureFactory = [CNGestureFactory getGestureFactory];
-	//[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
-	//[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNHold"]];
+	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNHold"]];
-	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN1FingerRotate"]];
+	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerRotate"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerScale"]];
-//	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNMove"]];
+	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNMove"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNPress"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNRelease"]];
 		
@@ -45,7 +44,7 @@
 	transformation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
 	[transformation setDuration:0.1];
 		
-	self.actions = [NSDictionary dictionaryWithObjectsAndKeys:position,@"position",[NSNull null],@"transform",[NSNull null],@"anchorPoint",nil];
+	self.actions = [NSDictionary dictionaryWithObjectsAndKeys:position,@"position",transformation,@"transform",[NSNull null],@"anchorPoint",nil];
 		
 	
 	}
@@ -128,11 +127,11 @@
 		CABasicAnimation *position = [CABasicAnimation animationWithKeyPath:@"position"];
 		position.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 		position.duration = t;
-		//[self addAnimation:position forKey:@"position"];
+		[self addAnimation:position forKey:@"position"];
 		//nuova posizione = p0 + 0.5 * v^2/gm
 		CGPoint newpoint = CGPointMake(sign(velocity.x)*0.5*pow(velocity.x,2)*0.001 , sign(velocity.y)*0.5*pow(velocity.y,2)*0.001);
 		self.position = CGPointMake(self.position.x+newpoint.x,self.position.y+newpoint.y);
-		//[CATransaction commit];
+		[CATransaction commit];
 	}
 }
 
@@ -151,13 +150,11 @@
 	}
 	if(gestureState!=EndGesture)
 	{		
-//		[CATransaction begin];
-//		[CATransaction setValue:(id)kCFBooleanTrue
-//						 forKey:kCATransactionDisableActions];
+		[CATransaction begin];
 			CATransform3D scale = CATransform3DIdentity;
 			scale = CATransform3DMakeScale(scaleFactor,scaleFactor, 1.0);
 			self.transform = CATransform3DConcat(self.transform, scale);	
-//		[CATransaction commit];
+		[CATransaction commit];
 	}
 }
 
@@ -179,13 +176,11 @@
 	
 	if(gestureState!=EndGesture)
 	{
-//		[CATransaction begin];
-//		[CATransaction setValue:(id)kCFBooleanTrue
-//						 forKey:kCATransactionDisableActions];
+		[CATransaction begin];
 		CATransform3D rotate = CATransform3DIdentity;
-		rotate = CATransform3DMakeRotation(rotationAngle, 0, 0, -sense); 
+		rotate = CATransform3DMakeRotation(rotationAngle/2, 0, 0, -sense); 
 		self.transform = CATransform3DConcat(self.transform, rotate);
-//		[CATransaction commit];
+		[CATransaction commit];
 	}else{
 		
 		NSLog(@"rotAngle: %f",angularvelocity);
@@ -193,12 +188,15 @@
 		if(fabs(angularvelocity) > 0.9)
 			angularvelocity = 0.9*sign(angularvelocity);
 		
-		double t = 0.1 + fabs(angularvelocity)*0.7;
+		double t = 0.5 + fabs(angularvelocity)*0.7;
 		float rotation = (0.5*pow(angularvelocity,2)*0.7);
-		
 		[CATransaction begin];
 		[CATransaction setValue:[NSNumber numberWithFloat:t]
 						 forKey:kCATransactionAnimationDuration];
+		CABasicAnimation *transformation = [CABasicAnimation animation];
+		transformation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+		[transformation setDuration:t];
+		[self addAnimation:transformation forKey:@"transform"];
 		CATransform3D rotate = CATransform3DMakeRotation(rotation, 0, 0, -sense); 
 		self.transform = CATransform3DConcat(self.transform, rotate);
 		[CATransaction commit];
@@ -207,10 +205,11 @@
 
 -(void)OneFingerRotate:(NSDictionary*)params{
 	float radius = [[params objectForKey:@"radius"] floatValue];
-	float rotationAngle = [[params objectForKey:@"rotation"] floatValue];
+	double rotationAngle = [[params objectForKey:@"rotation"] doubleValue];
 	int sense =  [[params objectForKey:@"sense"] intValue];
 	int gestureState = [[params objectForKey:@"gState"] intValue];
-	NSLog(@"gesture radius: %f", radius);
+	NSLog(@"gesture angle: %f", rotationAngle);
+	NSLog(@"gesture sense: %d", sense);
 	if(gestureState!=EndGesture)
 	{
 		self.transform = CATransform3DRotate(self.transform, rotationAngle, 0.0, 0.0, sense);

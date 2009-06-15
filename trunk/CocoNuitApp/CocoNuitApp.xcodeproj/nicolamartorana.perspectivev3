@@ -216,10 +216,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>69D0F1E80FDAC039004F00DE</string>
+						<string>698D1E820FE692D600F5E2F8</string>
 						<key>history</key>
 						<array>
-							<string>69D0F1B50FDABE93004F00DE</string>
+							<string>69D0F1E80FDAC039004F00DE</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -256,10 +256,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>69D0F1E90FDAC039004F00DE</string>
+						<string>698D1E830FE692D600F5E2F8</string>
 						<key>history</key>
 						<array>
-							<string>69D0F1B60FDABE93004F00DE</string>
+							<string>69D0F1E90FDAC039004F00DE</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -413,7 +413,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>69D0F1E70FDAC039004F00DE</string>
+										<string>698D1E780FE692D600F5E2F8</string>
 										<key>history</key>
 										<array>
 											<string>69EEDE860FBB037900875C86</string>
@@ -474,7 +474,7 @@
 											<string>69D0F1D30FDAC039004F00DE</string>
 											<string>69D0F1D40FDAC039004F00DE</string>
 											<string>69D0F1D50FDAC039004F00DE</string>
-											<string>69D0F1D60FDAC039004F00DE</string>
+											<string>69D0F1E70FDAC039004F00DE</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -537,22 +537,6 @@
 											<string>699846F40FCAF3BF00AB9FB9</string>
 											<string>699846F50FCAF3BF00AB9FB9</string>
 											<string>699847700FCB040A00AB9FB9</string>
-											<string>69D0F1D70FDAC039004F00DE</string>
-											<string>69D0F1D80FDAC039004F00DE</string>
-											<string>69D0F1D90FDAC039004F00DE</string>
-											<string>69D0F1DA0FDAC039004F00DE</string>
-											<string>69D0F1DB0FDAC039004F00DE</string>
-											<string>69D0F1DC0FDAC039004F00DE</string>
-											<string>69D0F1DD0FDAC039004F00DE</string>
-											<string>69D0F1DE0FDAC039004F00DE</string>
-											<string>69D0F1DF0FDAC039004F00DE</string>
-											<string>69D0F1E00FDAC039004F00DE</string>
-											<string>69D0F1E10FDAC039004F00DE</string>
-											<string>69D0F1E20FDAC039004F00DE</string>
-											<string>69D0F1E30FDAC039004F00DE</string>
-											<string>69D0F1E40FDAC039004F00DE</string>
-											<string>69D0F1E50FDAC039004F00DE</string>
-											<string>69D0F1E60FDAC039004F00DE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -675,11 +659,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>69D0F1C60FDABF2C004F00DE</string>
+				<string>698D1E790FE692D600F5E2F8</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>69D0F1C70FDABF2C004F00DE</string>
+				<string>698D1E7A0FE692D600F5E2F8</string>
 				<string>69E2C0B30FB9DDF000E03C64</string>
-				<string>69D0F1C80FDABF2C004F00DE</string>
+				<string>698D1E7B0FE692D600F5E2F8</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -826,14 +810,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>69D0F1C90FDABF2C004F00DE</string>
+				<string>698D1E7C0FE692D600F5E2F8</string>
 				<string>1CCC7628064C1048000F2A68</string>
 				<string>1CCC7629064C1048000F2A68</string>
-				<string>69D0F1CA0FDABF2C004F00DE</string>
-				<string>69D0F1CB0FDABF2C004F00DE</string>
-				<string>69D0F1CC0FDABF2C004F00DE</string>
-				<string>69D0F1CD0FDABF2C004F00DE</string>
-				<string>69D0F1C10FDABF1C004F00DE</string>
+				<string>698D1E7D0FE692D600F5E2F8</string>
+				<string>698D1E7E0FE692D600F5E2F8</string>
+				<string>698D1E7F0FE692D600F5E2F8</string>
+				<string>698D1E800FE692D600F5E2F8</string>
+				<string>698D1E810FE692D600F5E2F8</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -863,9 +847,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>69D0F1EA0FDAC039004F00DE</string>
-		<string>69D0F1EB0FDAC039004F00DE</string>
-		<string>69D0F1EC0FDAC039004F00DE</string>
+		<string>698D1E840FE692D600F5E2F8</string>
+		<string>698D1E850FE692D600F5E2F8</string>
+		<string>698D1E860FE692D600F5E2F8</string>
 		<string>69D0F1780FDAAA4E004F00DE</string>
 		<string>69D0F19E0FDABBDD004F00DE</string>
 		<string>/Users/nicolamartorana/Documents/Coconuit/trunk/CocoNuitApp/CocoNuitApp.xcodeproj</string>

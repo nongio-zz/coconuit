@@ -12,6 +12,7 @@
 #import "CNLightLayer.h"
 #import "CNDebug.h"
 #import "CNDebugLayer.h"
+#import "CNWheel.h"
 
 @interface CNDebugView : CNView {
 	CNDebug*tcdbg;
