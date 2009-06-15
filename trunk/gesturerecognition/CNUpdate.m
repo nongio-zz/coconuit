@@ -24,7 +24,7 @@
 
 -(id)init{
 	if(self = [super init]){
-		GestureName = @"CNUpdate";
+		GestureName = @"Update";
 		state = WaitingGesture;
 	}
 	return self;
