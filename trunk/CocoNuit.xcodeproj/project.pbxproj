@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		693435900FCEB7EB00E41022 /* CoconuitConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 6934358E0FCEB7EB00E41022 /* CoconuitConfig.h */; };
+		693435900FCEB7EB00E41022 /* CoconuitConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 6934358E0FCEB7EB00E41022 /* CoconuitConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		693435910FCEB7EB00E41022 /* CoconuitConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6934358F0FCEB7EB00E41022 /* CoconuitConfig.m */; };
 		693435CC0FCEB88C00E41022 /* CNTouchGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 693435AE0FCEB88C00E41022 /* CNTouchGroup.h */; };
 		693435CD0FCEB88C00E41022 /* CNTouchGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 693435AF0FCEB88C00E41022 /* CNTouchGroup.m */; };

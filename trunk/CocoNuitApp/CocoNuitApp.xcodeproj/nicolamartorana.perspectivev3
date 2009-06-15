@@ -231,6 +231,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -269,15 +271,13 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>69E2C0630FB9DA6F00E03C64</string>
 								<string>1C37FABC05509CD000000102</string>
 								<string>1CC0EA4004350EF90041110B</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>15</integer>
-									<integer>9</integer>
+									<integer>3</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -311,14 +311,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>69E2C0B30FB9DDF000E03C64</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CN1FingerRotate.m</string>
+								<string>CNSetupWinController.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +324,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>69E2C0B40FB9DDF000E03C64</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CN1FingerRotate.m</string>
+										<string>CNSetupWinController.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>698D1F390FE6A5A800F5E2F8</string>
+										<string>698D1F510FE6A60600F5E2F8</string>
 										<key>history</key>
 										<array>
 											<string>69EEDE860FBB037900875C86</string>
@@ -391,7 +389,11 @@
 											<string>698D1F210FE6A05C00F5E2F8</string>
 											<string>698D1F340FE6A5A800F5E2F8</string>
 											<string>698D1F350FE6A5A800F5E2F8</string>
-											<string>698D1F360FE6A5A800F5E2F8</string>
+											<string>698D1F470FE6A60600F5E2F8</string>
+											<string>698D1F480FE6A60600F5E2F8</string>
+											<string>698D1F490FE6A60600F5E2F8</string>
+											<string>698D1F4A0FE6A60600F5E2F8</string>
+											<string>698D1F4B0FE6A60600F5E2F8</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -456,6 +458,11 @@
 											<string>699847700FCB040A00AB9FB9</string>
 											<string>698D1F370FE6A5A800F5E2F8</string>
 											<string>698D1F380FE6A5A800F5E2F8</string>
+											<string>698D1F4C0FE6A60600F5E2F8</string>
+											<string>698D1F4D0FE6A60600F5E2F8</string>
+											<string>698D1F4E0FE6A60600F5E2F8</string>
+											<string>698D1F4F0FE6A60600F5E2F8</string>
+											<string>698D1F500FE6A60600F5E2F8</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
