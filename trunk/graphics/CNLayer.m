@@ -29,21 +29,14 @@
 	}
 	return self;
 }
-
--(void)draw{
-	[myModifier drawTCLayer:self];
+-(void)addObserver:(id)anObject{
+	if([anObject conformsToProtocol:@protocol(CNObserverProtocol)]){
+		[observers addObject:anObject];
+	}
 }
 
-//restituisce l'ultimo elemento dell'albero dei livelli il rootLayer
-//cioè quel livello che non ha un superlayer
--(CALayer*)globalLayer
-{
-	CALayer*gl = self;
-	while([gl superlayer]!=nil)
-	{
-		gl = [gl superlayer];
-	}
-	return gl;
+-(void)removeObserver:(id)anObject{
+	[observers removeObject:anObject];
 }
 
 -(void)updateStrokes:(CNEvent*)aEvent
@@ -54,12 +47,25 @@
 			CNTouch* tempTouch = (CNTouch*) stroke;
 			CNStroke* aStroke = [aEvent getStrokeByID:tempTouch.strokeID];
 			if([aStroke isKindOfClass:[CNTouch class]]){
-					CNTouch* aTouch = (CNTouch *) aStroke;
-					tempTouch.type = aTouch.type;
-					[tempTouch updateWithCursor:aTouch.cursor];
+				CNTouch* aTouch = (CNTouch *) aStroke;
+				tempTouch.type = aTouch.type;
+				[tempTouch updateWithCursor:aTouch.cursor];
 			}
 		}
 	}
+}
+///This method is called when a gesture is recognized. It parse the data, call the appropriate method that manage the gesture and notify the observers.
+-(void)performGesture:(NSString*)gestureName withData:(NSDictionary*)params{
+	
+	NSString* gestureSelector = [gestureName stringByAppendingString:@":"];
+	
+	[self performSelector:NSSelectorFromString(gestureSelector) withObject:params];
+	
+	NSMutableDictionary*nameandparams = [NSMutableDictionary dictionaryWithCapacity:([params count])+1];
+	
+	[nameandparams setValue:gestureName forKey:@"GestureName"];
+	[nameandparams addEntriesFromDictionary:params];
+	[observers makeObjectsPerformSelector:@selector(notify:) withObject:nameandparams];
 }
 
 -(void)Press:(NSDictionary*)params{
@@ -100,7 +106,17 @@
 -(void)OneFingerRotate:(NSDictionary*)params{
 
 }
-
+///This method go up to the layer tree until the first. return the root layer useful for coordinate conversion.
+-(CALayer*)globalLayer
+{
+	CALayer*gl = self;
+	while([gl superlayer]!=nil)
+	{
+		gl = [gl superlayer];
+	}
+	return gl;
+}
+///Change the anchorPoint of the layer to the the new point specified in unit coordinate of the global layer.
 -(void) changeAnchorPoint:(CGPoint)unitPoint 
 {	
 	[self removeAllAnimations];
@@ -117,39 +133,20 @@
 	[CATransaction commit];
 }
 
+///Convert a point from unit coordinate to real pixel, of the receiver layer.
 -(CGPoint)unitToReal:(CGPoint)apoint ofLayer:(CALayer*)layer
 {
 	CGPoint newpoint = CGPointMake(apoint.x*layer.bounds.size.width, apoint.y*layer.bounds.size.height);
 	return newpoint;
 }
-
+///Convert a point from real pixel coordinate to unit, of the receiver layer.
 -(CGPoint)realToUnit:(CGPoint)apoint ofLayer:(CALayer*)layer
 {
 	CGPoint newpoint = CGPointMake(apoint.x/layer.bounds.size.width, apoint.y/layer.bounds.size.height);
 	return newpoint;
 }
 
--(void)performGesture:(NSString*)gestureName withData:(NSDictionary*)params{
-	
-	NSString* gestureSelector = [gestureName stringByAppendingString:@":"];
-	
-	[self performSelector:NSSelectorFromString(gestureSelector) withObject:params];
-	
-	NSMutableDictionary*nameandparams = [NSMutableDictionary dictionaryWithCapacity:([params count])+1];
-	
-	[nameandparams setValue:gestureName forKey:@"GestureName"];
-	[nameandparams addEntriesFromDictionary:params];
-	[observers makeObjectsPerformSelector:@selector(notify:) withObject:nameandparams];
+-(void)draw{
+	[myModifier drawTCLayer:self];
 }
-
--(void)addObserver:(id)anObject{
-	if([anObject conformsToProtocol:@protocol(CNObserverProtocol)]){
-		[observers addObject:anObject];
-	}
-}
-
--(void)removeObserver:(id)anObject{
-	[observers removeObject:anObject];
-}
-
 @end
