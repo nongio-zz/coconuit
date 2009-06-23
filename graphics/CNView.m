@@ -13,7 +13,6 @@
 
 @synthesize rootLayer,viewLayer;
 @synthesize activeLayers;
-
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -33,12 +32,12 @@
 -(BOOL)acceptsFirstResponder{
 	return YES;
 }
-
+///Called on each CNEvent from notfication center
 -(void)newCNEvent:(NSNotification *)notification{
 	
 	CNEvent* newMultitouchEvent = [notification object];
 	
-	//primo ciclo aggiornamento degli strokes dei layer attivi (CNLayer)
+	///First of all, for each layer already in activeLayers array, it updates the strokes.
 	for(id aLayer in activeLayers){
 		if([aLayer isKindOfClass:[CNLayer class]]){
 			CNLayer* aTCLayer = (CNLayer*) aLayer;
@@ -46,17 +45,16 @@
 		}		
 	}
 	
-	//secondo ciclo dispatch dei nuovi strokes
+	///For each new stroke, look if it fall into an active layer, make the association between the stroke and the CNLayer\n
+	///and push the layer into the activeLayers array.
 	for (id stroke in newMultitouchEvent.strokes){
-		//controllo se è un tocco
 		if([stroke isKindOfClass:[CNTouch class]]){
 			CNTouch*touch = stroke;
 			CNLayer* touchable;
 			CALayer* tempLayer;
-			//converto il punto dalle coordinate 0:1 a quelle reali del rootLayer
+			///Touch's position coordinate must be converted from unit to real pixel for the hit test
 			CGPoint point = CGPointMake(touch.position.x*rootLayer.bounds.size.width, (1-touch.position.y)*rootLayer.bounds.size.height);
 			if(touch.type==NewTouch){
-					//con il metodo hitTest di core animation si guarda a chi appartiene il nuovo tocco		
 					tempLayer  = [self activeLayerHitTest: point];
 					if([tempLayer isKindOfClass:[CNLayer class]])
 					{
@@ -67,23 +65,17 @@
 			}
 		}
 	}
-	//fine dispatch
 	
-	//terzo ciclo viene richiamto il metodo riconosci gesto sui ogni layer attivo
-	//poi si tolgono i tocchi di tipo release
+	///Then for each layer in the activeLayers array it will call the recognizeGesture method.
 	for(id layer in activeLayers){
 		if([layer isKindOfClass:[CNLayer class]]){
 			CNLayer*tl = (CNLayer*)layer;
 			[tl.GestureRecognizer recognizeGesture:tl];
-
-			//NSMutableArray* tempStrokesCopy = [tl.myMultitouchEvent.strokes mutableCopy];
-
 			CNEvent* aEvent = [tl.myMultitouchEvent copy];
 			NSMutableArray* tempStrokeCopy = aEvent.strokes;
-
+			///The last thing is to remove the touch of type ReleaseTouch from the CNLayer.
 			for(id stroke in tl.myMultitouchEvent.strokes){
 				CNTouch* aStroke = (CNTouch*) stroke;
-				//CNTouch*stroke = [tl.myMultitouchEvent.strokes objectAtIndex:i];
 				if(aStroke.type == ReleaseTouch){
 					[aEvent removeStrokeByID:aStroke.strokeID];
 				}
