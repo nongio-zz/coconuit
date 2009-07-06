@@ -32,7 +32,7 @@
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerRotate"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerScale"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNMove"]];
-	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNPress"]];
+//	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNPress"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNRelease"]];
 		
 	//Animations
@@ -69,8 +69,8 @@
 	self.transform = CATransform3DIdentity;
 }
 
--(void)Hold{
-	
+-(void)Hold:(NSDictionary*)params{
+	NSLog(@"hold");
 }
 
 -(void)Move:(NSDictionary*)params{

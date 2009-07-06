@@ -171,15 +171,15 @@
 	[self addSublayer:w];
 	
 	//OBSERVERS
-	[tcdbg addObserver:light1];
-	[tcdbg addObserver:light2];
-	[tcdbg addObserver:light3];
-	[tcdbg addObserver:light4];
-	[tcdbg addObserver:light5];
-	[tcdbg addObserver:light6];
-	[tcdbg addObserver:light7];
-	[tcdbg addObserver:light8];
-	[tcdbg addObserver:light9];
+//	[tcdbg addObserver:light1];
+//	[tcdbg addObserver:light2];
+//	[tcdbg addObserver:light3];
+//	[tcdbg addObserver:light4];
+//	[tcdbg addObserver:light5];
+//	[tcdbg addObserver:light6];
+//	[tcdbg addObserver:light7];
+//	[tcdbg addObserver:light8];
+//	[tcdbg addObserver:light9];
 }
 
 @end
