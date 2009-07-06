@@ -19,17 +19,17 @@
 
 @implementation CNLayer
 
-@synthesize myMultitouchEvent, GestureRecognizer,observers;
+@synthesize myMultitouchEvent, GestureRecognizer;
 
 -(id)init{
 	if(self=[super init]){
 		self.GestureRecognizer = [[CNGesture alloc] init];
 		self.myMultitouchEvent = [[CNEvent alloc] init];
-		observers = [[NSMutableArray alloc] init];
+//		observers = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
--(void)addObserver:(id)anObject{
+/*-(void)addObserver:(id)anObject{
 	if([anObject conformsToProtocol:@protocol(CNObserverProtocol)]){
 		[observers addObject:anObject];
 	}
@@ -38,7 +38,7 @@
 -(void)removeObserver:(id)anObject{
 	[observers removeObject:anObject];
 }
-
+*/
 -(void)updateStrokes:(CNEvent*)aEvent
 {
 	NSMutableArray* tempStrokes = myMultitouchEvent.strokes;
@@ -54,58 +54,17 @@
 		}
 	}
 }
-///This method is called when a gesture is recognized. It parse the data, call the appropriate method that manage the gesture and notify the observers.
+///This method is called when a gesture is recognized. It parse the data, call the appropriate method that manage the gesture, if present, call the appropriate method on the controller.
 -(void)performGesture:(NSString*)gestureName withData:(NSDictionary*)params{
 	
 	NSString* gestureSelector = [gestureName stringByAppendingString:@":"];
-	
-	[self performSelector:NSSelectorFromString(gestureSelector) withObject:params];
-	
-	NSMutableDictionary*nameandparams = [NSMutableDictionary dictionaryWithCapacity:([params count])+1];
-	
-	[nameandparams setValue:gestureName forKey:@"GestureName"];
-	[nameandparams addEntriesFromDictionary:params];
-	[observers makeObjectsPerformSelector:@selector(notify:) withObject:nameandparams];
+	SEL selector = NSSelectorFromString(gestureSelector);
+	if([self respondsToSelector:selector])
+	{
+		[self performSelector:NSSelectorFromString(gestureSelector) withObject:params];
+	}
 }
 
--(void)Press:(NSDictionary*)params{
-	
-}
-
--(void)Update:(NSDictionary*)params{
-
-}
-
--(void)Release:(NSDictionary*)params{
-	
-}
-
--(void)Tap:(NSDictionary*)params{
-}
-
--(void)DoubleTap:(NSDictionary*)params{
-
-}
-
--(void)Hold:(NSDictionary*)params{
-
-}
-
--(void)Move:(NSDictionary*)params{
-
-}
-
--(void)TwoFingerScale:(NSDictionary*)params{
-
-}
-
--(void)TwoFingerRotate:(NSDictionary*)params{
-
-}
-
--(void)OneFingerRotate:(NSDictionary*)params{
-
-}
 ///This method go up to the layer tree until the first. return the root layer useful for coordinate conversion.
 -(CALayer*)globalLayer
 {
