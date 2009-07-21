@@ -28,9 +28,9 @@
 
 - (id) initWithPosition:(NSPoint)aPosition andVelocity:(NSPoint)aVelocity andTime:(NSTimeInterval)aTime{
 	if(self=[super init]){
-		self.position = aPosition;
-		self.velocity = aVelocity;
-		self.timestamp = aTime;
+		position = aPosition;
+		velocity = aVelocity;
+		timestamp = aTime;
 	}
 	return self;
 }

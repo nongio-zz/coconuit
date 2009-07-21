@@ -27,10 +27,15 @@
 
 -(id)init{
 	if(self = [super init]){
-		self.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];//controllare che fa [NSDate timestamp]
-		self.strokes = [[NSMutableArray alloc] init];
+		timestamp = [[NSDate date] timeIntervalSinceReferenceDate];//controllare che fa [NSDate timestamp]
+		strokes = [[NSMutableArray alloc] init];
 	}
 	return self;
+}
+
+-(void)dealloc{
+	[strokes release];
+	[super dealloc];
 }
 
 -(void)setStroke:(CNStroke*)aStroke{
@@ -59,11 +64,11 @@
 
 -(id)copy{
 	CNEvent* aEvent = [[CNEvent alloc] init];
-	aEvent.timestamp = self.timestamp;
+	aEvent.timestamp = timestamp;
 	
 	NSMutableArray* anArray = [[NSMutableArray alloc] init];
 	
-	for(id stroke in self.strokes){
+	for(id stroke in strokes){
 		[anArray addObject:[((CNTouch*)stroke) copy]];
 	}
 		 

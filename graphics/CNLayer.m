@@ -23,12 +23,8 @@
 
 -(id)init{
 	if(self=[super init]){
-		CNGesture*aGesture = [[CNGesture alloc] init];
-		CNEvent*aEvent = [[CNEvent alloc] init];
-		self.GestureRecognizer = aGesture;
-		self.myMultitouchEvent = aEvent;
-		[aGesture release];
-		[aEvent release];
+		GestureRecognizer = [[CNGesture alloc] init];
+		myMultitouchEvent = [[CNEvent alloc] init];
 	}
 	return self;
 }
@@ -87,11 +83,11 @@
 	[self removeAnimationForKey:@"anchorPoint"];
 	[self removeAnimationForKey:@"position"];
 	CALayer*globalLayer = [self globalLayer];
-	CGPoint globalanchorpoint1 = [self convertPoint:[self unitToReal:self.anchorPoint ofLayer:self] toLayer:globalLayer];
+	CGPoint globalanchorpoint1 = [self convertPoint:[self unitToReal:super.anchorPoint ofLayer:self] toLayer:globalLayer];
 	CGPoint globalanchorpoint2 = [self convertPoint:[self unitToReal:unitPoint ofLayer:self] toLayer:globalLayer];
-	self.anchorPoint = unitPoint;
+	super.anchorPoint = unitPoint;
 	CGPoint delta = CGPointMake(globalanchorpoint1.x-globalanchorpoint2.x,globalanchorpoint1.y-globalanchorpoint2.y);
-	self.position = CGPointMake(self.position.x-delta.x,self.position.y-delta.y);
+	[super setPosition:CGPointMake(super.position.x-delta.x,super.position.y-delta.y)];
 	[CATransaction commit];
 }
 

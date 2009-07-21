@@ -73,9 +73,9 @@
 				double alfa_1 = getAngleBetweenVector(vect_1_old,vect_1);///get the angle and rot sense between V1p and V1a: alfa1
 				double rotSense_alfa_1 = getRotationSenseBetweenVector(vect_1_old,vect_1);
 				
-				self.sense = rotSense_alfa_1!=0? rotSense_alfa_1:self.sense;
+				sense = rotSense_alfa_1!=0? rotSense_alfa_1:sense;
 				double alfa = maxDouble(alfa_0,alfa_1);///get the max between alfa0 and alfa1 as rotation angle: alfa
-				self.angle = alfa;
+				angle = alfa;
 				
 				double Min2FingerRotationAngle = [[GesturesParams objectForKey:@"Min2FingerRotationAngle"] doubleValue];
 				
@@ -98,7 +98,7 @@
 						double time = curretTimeStamp - lastTimestamp;
 						lastTimestamp = curretTimeStamp;
 						angularvelocity;
-						double deltaangle = fabs(self.angle-alfa);
+						double deltaangle = fabs(angle-alfa);
 						
 						if(time>0 && deltaangle>0)
 							angularvelocity= (angularvelocity+(deltaangle/time))/2;
@@ -108,11 +108,11 @@
 						///set the useful params for the animation
 						NSArray* keys = [NSArray arrayWithObjects:@"angle", @"sense", @"angularVelocity", @"center" ,@"radius",@"gState",nil];
 						NSNumber* anglePar = [NSNumber numberWithFloat:alfa];
-						NSNumber* sensePar = [NSNumber numberWithInt:self.sense];
+						NSNumber* sensePar = [NSNumber numberWithInt:sense];
 						NSNumber* angVelocity = [NSNumber numberWithFloat:angularvelocity];
 						NSValue* centerPar = [NSValue valueWithPoint:anchorPoint];
 						NSNumber* radiusPar = [NSNumber numberWithFloat:vect_1.module];
-						NSNumber* gStatePar = [NSNumber numberWithInt:self.state];
+						NSNumber* gStatePar = [NSNumber numberWithInt:state];
 						
 						NSArray* objects = [NSArray arrayWithObjects:anglePar, sensePar,angVelocity, centerPar, radiusPar, gStatePar, nil];
 						NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];

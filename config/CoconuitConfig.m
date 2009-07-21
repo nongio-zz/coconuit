@@ -15,7 +15,7 @@
 	if(self=[super init]){
 		err = nil;
 		NSString * baseurl = [[NSBundle mainBundle] resourcePath];
-		baseurl = [baseurl substringToIndex:[baseurl length]-33];
+		baseurl = [baseurl substringToIndex:[baseurl length]-34];
 		ConfigFile=[NSString stringWithFormat:@"%@CocoNuitConfig.xml", baseurl];
 		NSLog(@"%@",ConfigFile);
 		ConfigFileUrl = [NSURL fileURLWithPath:ConfigFile];

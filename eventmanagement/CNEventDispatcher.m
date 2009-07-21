@@ -35,6 +35,15 @@
 	return self;
 }
 
+-(void)dealloc{
+	[myEvent release];
+	[OldCursors release];
+	[NewCursors release];
+	[OscListener release];
+	[TuioMessageDispatcher release];
+	[super dealloc];
+}
+
 
 - (void)startListeningOnPort:(int) port{
 	BBOSCListener* TempListener = [[BBOSCListener alloc] init];///create the BBOSCListener
