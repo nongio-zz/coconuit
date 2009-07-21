@@ -120,5 +120,9 @@
 	
 	[aTouch updateWithPoint:gCenter andTouchType:touchType];
 }
-
+-(void)dealloc
+{
+	[GestureChilds release];
+	[super dealloc];
+}
 @end
