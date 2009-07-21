@@ -32,7 +32,7 @@
 			CNLayer* touchable;
 			CALayer* tempLayer;
 			//converto il punto dalle coordinate 0:1 a quelle reali del rootLayer
-			CGPoint point = CGPointMake(touch.position.x*rootLayer.bounds.size.width, (1-touch.position.y)*rootLayer.bounds.size.height);
+			CGPoint point = CGPointMake(touch.position.x*self.frame.size.width, (1-touch.position.y)*self.frame.size.height);
 			if(touch.type==NewTouch){
 				//con il metodo hitTest di core animation si guarda a chi appartiene il nuovo tocco
 				tempLayer  = [self activeLayerHitTest:point];
@@ -80,8 +80,8 @@
 {	
 	circlesfortouches = [[CNDebugLayer alloc] init];
 	//CIRCLES
-	[rootLayer addSublayer:circlesfortouches];
-	[self addActiveSubLayer:circlesfortouches];
+	[self.layer addSublayer:circlesfortouches];
+//	[self addActiveSubLayer:circlesfortouches];
 	
 	
 	//STATUS BAR
@@ -90,7 +90,7 @@
 	statusbar.frame = CGRectMake(0, 0, self.frame.size.width, 50);
 	statusbar.anchorPoint = CGPointMake(0.0,1.0);
 	statusbar.position = CGPointMake(0,self.frame.size.height);
-	[viewLayer setValue:statusbar forKey:@"status"];
+	[self.layer setValue:statusbar forKey:@"status"];
 
 	//LIGHTS
 	CNLightLayer*light1 = [[CNLightLayer alloc] initWithLabel:@"press"
@@ -156,19 +156,19 @@
 
 	
 	//ADD LAYERS
-	[self addSublayer:statusbar];
+	[self.layer addSublayer:statusbar];
 	
 	tcdbg = [[CNDebug alloc] initWithImage:@"john.jpg"];
 	tcdbg.position = CGPointMake(700,350);
-	[self addSublayer:tcdbg];
+	[self.layer addSublayer:tcdbg];
 	
 	CNDebug*tcdbg2 = [[CNDebug alloc] initWithImage:@"einstein.jpg"];
 	tcdbg2.position = CGPointMake(250,400);
-	[self addSublayer:tcdbg2];
+	[self.layer addSublayer:tcdbg2];
 	
 	CNWheel*w=[[CNWheel alloc] init];
 	w.position=CGPointMake(200,600);
-	[self addSublayer:w];
+	[self.layer addSublayer:w];
 	
 	//OBSERVERS
 //	[tcdbg addObserver:light1];
