@@ -37,21 +37,14 @@
 
 @interface CNView : NSView {
 	NSMutableArray* activeLayers;///<Keep a list of the active layers that contain strokes
-	CALayer *rootLayer;///<root of the layer tree
-	CALayer *viewLayer;///<layer that contain active layers.
-
 }
 
 @property (retain) NSMutableArray* activeLayers;
-@property (retain) CALayer* rootLayer, *viewLayer;
 
 - (void)setupLayers;///<Called automatically after initializzation, provide a first setup of the layers.
 -(CNLayer*)activeLayerHitTest:(CGPoint)point;///<Hit test for the active layers inside the viewLayer.
 -(CNLayer*) findActiveLayer:(CALayer*)alayer;///<Starting from the CALayer passed as parameter, go up through the layer three. Return the first CNLayer finded if exist else return nil.
 
 - (void)newCNEvent:(NSNotification *)notification;///<Callback function called from notification center. Dispatch the strokes and call recognize gesture on each active layer.
-
--(void)addSublayer:(CALayer*)newlayer;
--(void)addActiveSubLayer:(CALayer*)newlayer;
 
 @end

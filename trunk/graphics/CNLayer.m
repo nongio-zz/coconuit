@@ -23,9 +23,12 @@
 
 -(id)init{
 	if(self=[super init]){
-		self.GestureRecognizer = [[CNGesture alloc] init];
-		self.myMultitouchEvent = [[CNEvent alloc] init];
-//		observers = [[NSMutableArray alloc] init];
+		CNGesture*aGesture = [[CNGesture alloc] init];
+		CNEvent*aEvent = [[CNEvent alloc] init];
+		self.GestureRecognizer = aGesture;
+		self.myMultitouchEvent = aEvent;
+		[aGesture release];
+		[aEvent release];
 	}
 	return self;
 }
@@ -107,5 +110,16 @@
 
 -(void)draw{
 	[myModifier drawTCLayer:self];
+}
+-(void)removeFromSuperlayer
+{
+	[super removeFromSuperlayer];
+}
+-(void)dealloc
+{
+	NSLog(@"CNLayer dealloc");
+	[GestureRecognizer release];
+	[myMultitouchEvent release];
+	[super dealloc];
 }
 @end

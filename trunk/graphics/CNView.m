@@ -22,20 +22,17 @@
 
 @implementation CNView
 
-@synthesize rootLayer,viewLayer;
 @synthesize activeLayers;
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-		activeLayers = [NSMutableArray new];
-		[[self window] makeFirstResponder:self];	
-		rootLayer = [[CALayer alloc] init];
-		[rootLayer setBackgroundColor:CGColorCreateGenericRGB(0.3, 0.3, 0.3, 1.0)];
+		activeLayers = [[NSMutableArray alloc] init];
+		[[self window] makeFirstResponder:self];
+		CALayer *rootLayer = [CALayer layer];
+		rootLayer.frame = NSRectToCGRect(self.frame);
 		[self setLayer:rootLayer];
 		[self setWantsLayer:YES];
-		viewLayer = [CALayer layer];
-		[rootLayer addSublayer:viewLayer];
-	    [self setupLayers];
+		[self setupLayers];
     }
     return self;
 }
@@ -64,7 +61,7 @@
 			CNLayer* touchable;
 			CALayer* tempLayer;
 			///Touch's position coordinate must be converted from unit to real pixel for the hit test
-			CGPoint point = CGPointMake(touch.position.x*rootLayer.bounds.size.width, (1-touch.position.y)*rootLayer.bounds.size.height);
+			CGPoint point = CGPointMake(touch.position.x*1024, (1-touch.position.y)*768);
 			if(touch.type==NewTouch){
 					tempLayer  = [self activeLayerHitTest: point];
 					if([tempLayer isKindOfClass:[CNLayer class]])
@@ -99,31 +96,17 @@
 
 -(void)setupLayers{}
 
--(void)addSublayer:(CALayer*)newlayer
-{
-	[self addActiveSubLayer:newlayer];
-	[viewLayer addSublayer:newlayer];
-}
-
--(void)addActiveSubLayer:(CALayer*)newlayer
-{
-	if([newlayer isKindOfClass:[CNLayer class]])
-		[activeLayers addObject:(id)newlayer];
-	else
-	{
-		if([newlayer.sublayers count]){
-			for(CALayer*sublayer in newlayer.sublayers)
-			{
-				[self addActiveSubLayer:sublayer];
-			}
-		}
-			
-	}
-}
 -(CNLayer*)activeLayerHitTest:(CGPoint)point
 {
-	CALayer* tempLayer  = [viewLayer hitTest: point];
-	CNLayer* activeLayer = [self findActiveLayer:tempLayer];
+	CNLayer* activeLayer=nil;
+	NSView*view = [self hitTest:NSPointFromCGPoint(point)];
+
+	if(view.layer)
+	{
+		point = NSPointToCGPoint([view convertPoint:NSPointFromCGPoint(point) fromView:self]);
+		id tempLayer  = [view.layer hitTest: point];
+		activeLayer = [self findActiveLayer:tempLayer];
+	}
 	return activeLayer;
 }
 -(CNLayer*) findActiveLayer:(CALayer*)alayer
