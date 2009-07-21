@@ -86,7 +86,7 @@
 					///set the useful params for the animation
 					NSNumber* scalePar = [NSNumber numberWithFloat:scale];
 					NSValue* centerPar = [NSValue valueWithPoint:anchorPoint];
-					NSNumber* gStatePar = [NSNumber numberWithInt:self.state];
+					NSNumber* gStatePar = [NSNumber numberWithInt:state];
 					
 					NSArray* objects = [NSArray arrayWithObjects:scalePar, centerPar, gStatePar, nil];
 					NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];

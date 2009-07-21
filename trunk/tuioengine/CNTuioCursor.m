@@ -51,17 +51,17 @@
 		if (![setString isEqualToString:@"set"]) return nil;
 		
 		// ok great, if we got here then we will presume that everything is in order
-		self.cursorID = [[args objectAtIndex:1] intValue];
+		cursorID = [[args objectAtIndex:1] intValue];
 		
 		NSPoint pos;
 		pos.x = [[args objectAtIndex:2] floatValue];
 		pos.y = [[args objectAtIndex:3] floatValue];
-		self.position = pos;
+		position = pos;
 		
-		self.xVelo = [[args objectAtIndex:4] floatValue];
-		self.yVelo = [[args objectAtIndex:5] floatValue];
+		xVelo = [[args objectAtIndex:4] floatValue];
+		yVelo = [[args objectAtIndex:5] floatValue];
 		
-		self.accel = [[args objectAtIndex:6] floatValue];
+		accel = [[args objectAtIndex:6] floatValue];
 	}
 	return self;
 }

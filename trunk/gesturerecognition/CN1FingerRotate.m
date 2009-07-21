@@ -97,7 +97,7 @@
 						NSNumber* angularVelocityParam = [NSNumber numberWithFloat:angularVelocity];
 						NSValue* pivotPar = [NSValue valueWithPoint:pivotUpoint];
 						NSNumber* radiusPar = [NSNumber numberWithFloat:radius];
-						NSNumber* gStatePar = [NSNumber numberWithInt:self.state];
+						NSNumber* gStatePar = [NSNumber numberWithInt:state];
 						
 						NSArray* objects = [NSArray arrayWithObjects:rotationPar, sensePar, angularVelocityParam,pivotPar,radiusPar,gStatePar, nil];
 						

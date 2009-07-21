@@ -30,14 +30,14 @@
 
 -(CNTouch*)init{
 	if(self = [super init]){
-		self.strokeID = 666;
-		self.type = NewTouch;
-		self.cursor = nil;
-		self.position = NSMakePoint(0,0);
-		self.velocity = NSMakePoint(0,0);
-		self.lifetime = 0;
-		self.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
-		self.strokePath = [[NSMutableArray alloc] init];
+		strokeID = 666;
+		type = NewTouch;
+		cursor = nil;
+		position = NSMakePoint(0,0);
+		velocity = NSMakePoint(0,0);
+		lifetime = 0;
+		timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
+		strokePath = [[NSMutableArray alloc] init];
 		
 	}
 	return self;
@@ -46,16 +46,16 @@
 -(CNTouch*)initWithCursor:(CNTuioCursor*)aCursor{
 	
 	if(self = [super init]){
-		self.strokeID = [aCursor cursorID];
-		self.type = NewTouch;
-		self.cursor = [aCursor retain];
-		self.position = [aCursor position];
-		self.velocity = NSMakePoint(0,0);
-		self.lifetime = 0;
-		self.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
-		self.strokePath = [[NSMutableArray alloc] init];
-		CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:self.position andVelocity:self.velocity andTime:self.timestamp];
-		[self.strokePath addObject:[newPathElement retain]];
+		strokeID = [aCursor cursorID];
+		type = NewTouch;
+		cursor = [aCursor retain];
+		position = [aCursor position];
+		velocity = NSMakePoint(0,0);
+		lifetime = 0;
+		timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
+		strokePath = [[NSMutableArray alloc] init];
+		CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:position andVelocity:velocity andTime:timestamp];
+		[strokePath addObject:[newPathElement retain]];
 	}
 	
 	return self;
@@ -66,21 +66,21 @@
 }
 
 -(void)updateWithCursor:(CNTuioCursor*)aCursor{
-	self.cursor = aCursor;///keep the updated cursor
-	self.position = [aCursor position];///update touch position
-	self.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];///update touch timestamp
+	cursor = aCursor;///keep the updated cursor
+	position = [aCursor position];///update touch position
+	timestamp = [[NSDate date] timeIntervalSinceReferenceDate];///update touch timestamp
 	
-	CNPathElement* lastPathElement = [self.strokePath lastObject];
+	CNPathElement* lastPathElement = [strokePath lastObject];
 	
-	NSPoint newVelocity = getActualPositionTouchVelocity(self.position,lastPathElement.position,(self.timestamp - lastPathElement.timestamp));///calculate Touch velocity
-	newVelocity.x = (newVelocity.x+self.velocity.x)/2;
-	newVelocity.y = (newVelocity.y+self.velocity.y)/2;
+	NSPoint newVelocity = getActualPositionTouchVelocity(position,lastPathElement.position,(timestamp - lastPathElement.timestamp));///calculate Touch velocity
+	newVelocity.x = (newVelocity.x+velocity.x)/2;
+	newVelocity.y = (newVelocity.y+velocity.y)/2;
 	
-	self.velocity = newVelocity;///update Touch velocity
+	velocity = newVelocity;///update Touch velocity
 	
-	CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:self.position andVelocity:self.velocity andTime:self.timestamp];
-	[self.strokePath addObject:[newPathElement retain]];///save the actual Touch state in the StrokePath
-	self.lifetime += self.timestamp - lastPathElement.timestamp;///update Touch lifetime
+	CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:position andVelocity:velocity andTime:timestamp];
+	[strokePath addObject:[newPathElement retain]];///save the actual Touch state in the StrokePath
+	lifetime += timestamp - lastPathElement.timestamp;///update Touch lifetime
 	
 }
 
@@ -91,24 +91,24 @@
 	[TempFormatter setTimeStyle:NSDateFormatterMediumStyle];//Da vedere Date - TimeInterval
 
 	[TempString appendString:@"ID: "];
-	[TempString appendString:[[NSNumber numberWithInt:self.strokeID] stringValue]];
+	[TempString appendString:[[NSNumber numberWithInt:strokeID] stringValue]];
 	[TempString appendString:@" type: "];
-	[TempString appendString:[[NSNumber numberWithDouble:self.type] stringValue]];	
+	[TempString appendString:[[NSNumber numberWithDouble:type] stringValue]];	
 	[TempString appendString:@" position:("];
-	[TempString appendString:[[NSNumber numberWithFloat:self.position.x] stringValue]];
+	[TempString appendString:[[NSNumber numberWithFloat:position.x] stringValue]];
 	[TempString appendString:@","];
-	[TempString appendString:[[NSNumber numberWithFloat:self.position.y] stringValue]];
+	[TempString appendString:[[NSNumber numberWithFloat:position.y] stringValue]];
 	[TempString appendString:@") "];
 	[TempString appendString:@" velocity:("];
-	[TempString appendString:[[NSNumber numberWithFloat:self.velocity.x] stringValue]];
+	[TempString appendString:[[NSNumber numberWithFloat:velocity.x] stringValue]];
 	[TempString appendString:@","];
-	[TempString appendString:[[NSNumber numberWithFloat:self.velocity.y] stringValue]];
+	[TempString appendString:[[NSNumber numberWithFloat:velocity.y] stringValue]];
 	[TempString appendString:@") "];
 	[TempString appendString:[TempFormatter stringFromDate:[[NSDate alloc] initWithTimeIntervalSinceReferenceDate:timestamp]]];
 	[TempString appendString:@" TimeStamp: "];
-	[TempString appendString:[[NSNumber numberWithDouble:self.timestamp] stringValue]];
+	[TempString appendString:[[NSNumber numberWithDouble:timestamp] stringValue]];
 	[TempString appendString:@" Lifetime: "];
-	[TempString appendString:[[NSNumber numberWithDouble:self.lifetime] stringValue]];
+	[TempString appendString:[[NSNumber numberWithDouble:lifetime] stringValue]];
 	return TempString;
 }
 
@@ -125,21 +125,21 @@
 }
 
 -(void)updateWithPoint:(NSPoint)aPoint andTouchType:(TouchType)aType{
-	self.position = aPoint;
-	self.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
-	self.type = aType;
+	position = aPoint;
+	timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
+	type = aType;
 	
-	CNPathElement* lastPathElement = [self.strokePath lastObject];
+	CNPathElement* lastPathElement = [strokePath lastObject];
 	
-	NSPoint newVelocity = getActualPositionTouchVelocity(aPoint,lastPathElement.position,(self.timestamp - lastPathElement.timestamp));
+	NSPoint newVelocity = getActualPositionTouchVelocity(aPoint,lastPathElement.position,(timestamp - lastPathElement.timestamp));
 
-	newVelocity.x = (newVelocity.x+self.velocity.x)/2;
-	newVelocity.y = (newVelocity.y+self.velocity.y)/2;
-	self.velocity = newVelocity;
+	newVelocity.x = (newVelocity.x+velocity.x)/2;
+	newVelocity.y = (newVelocity.y+velocity.y)/2;
+	velocity = newVelocity;
 	
-	CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:self.position andVelocity:self.velocity andTime:self.timestamp];
-	[self.strokePath addObject:[newPathElement retain]];
-	self.lifetime += self.timestamp - lastPathElement.timestamp;
+	CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:position andVelocity:velocity andTime:timestamp];
+	[strokePath addObject:[newPathElement retain]];
+	lifetime +=timestamp - lastPathElement.timestamp;
 }
 
 @end

@@ -44,7 +44,7 @@
 				
 				NSArray* keys = [NSArray arrayWithObjects:@"center", @"gState", nil];
 				NSValue* center= [NSValue valueWithPoint:NSMakePoint(touch.position.x, touch.position.y)];
-				NSValue* gState = [NSNumber numberWithInt:self.state];
+				NSValue* gState = [NSNumber numberWithInt:state];
 				
 				NSArray* objects = [NSArray arrayWithObjects:center, gState, nil];
 				NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];

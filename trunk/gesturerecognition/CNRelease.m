@@ -41,12 +41,12 @@
 		if([gStrokes count]>0){
 			if([gStrokes count]>1){///if the Touchs number is greater than one
 				if(touch==Nil){
-					self.touch = [[CNTouch alloc] init];
+					touch = [[CNTouch alloc] init];
 				}
 				[self groupStrokesToOne:gStrokes andUpdateTouch:touch];///grouping the touches to one
 			}
 			else{
-				self.touch = [[gStrokes lastObject] copy];///else get the only one
+				touch = [[gStrokes lastObject] copy];///else get the only one
 			}
 		
 		if(touch.type==ReleaseTouch){///if the number of release touches in the active area is heighter than 0 
@@ -54,7 +54,7 @@
 			
 			NSArray* keys = [NSArray arrayWithObjects:@"center", @"gState", nil];
 			NSValue* center= [NSValue valueWithPoint:NSMakePoint(touch.position.x, touch.position.y)];
-			NSValue* gState = [NSNumber numberWithInt:self.state];
+			NSValue* gState = [NSNumber numberWithInt:state];
 			
 			NSArray* objects = [NSArray arrayWithObjects:center, gState, nil];
 			NSDictionary* params = [NSDictionary dictionaryWithObjects:objects forKeys:keys];

@@ -29,7 +29,7 @@
 		activeLayers = [[NSMutableArray alloc] init];
 		[[self window] makeFirstResponder:self];
 		CALayer *rootLayer = [CALayer layer];
-		rootLayer.frame = NSRectToCGRect(self.frame);
+		rootLayer.frame = NSRectToCGRect(super.frame);
 		[self setLayer:rootLayer];
 		[self setWantsLayer:YES];
 		[self setupLayers];

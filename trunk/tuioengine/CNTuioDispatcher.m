@@ -142,6 +142,7 @@
 - (void) dealloc
 {
 	[activeBlobs release];
+	[observers release];
 	[super dealloc];
 }
 

@@ -27,7 +27,7 @@
 		
 	CNGestureFactory* theGestureFactory = [CNGestureFactory getGestureFactory];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
-	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
+	//[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNTap"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CNHold"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerRotate"]];
 	[self.GestureRecognizer addChildGesture: [theGestureFactory getGestureInstance:@"CN2FingerScale"]];
