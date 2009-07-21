@@ -15,7 +15,17 @@
 -(void)newCNEvent:(NSNotification *)notification{
 	
 	CNEvent* newMultitouchEvent = [notification object];
-	
+	for (int i = 0; i<[newMultitouchEvent.strokes count]; i++){
+		CNStroke*s = [newMultitouchEvent.strokes objectAtIndex:i];
+		if([s isKindOfClass:[CNTouch class]])
+		{
+			CNTouch *t = (CNTouch*)s;
+			if(t.position.x==0.0 && t.position.y==0.0 && t.type!=ReleaseTouch)
+			{
+				[newMultitouchEvent.strokes removeObject:s];
+			}
+		}
+	}
 	//primo ciclo aggiornamento degli strokes dei layer attivi (CNLayer)
 	for(id aLayer in activeLayers){
 		if([aLayer isKindOfClass:[CNLayer class]]){
@@ -54,35 +64,35 @@
 	
 	//terzo ciclo viene richiamto il metodo riconosci gesto sui ogni layer attivo
 	//poi si tolgono i tocchi di tipo release
-	for(id layer in activeLayers){
+	int lenght = [activeLayers count];
+	for(int i =0;i<lenght;i++){
+		id layer = [activeLayers objectAtIndex:i];
 		if([layer isKindOfClass:[CNLayer class]]){
 			CNLayer*tl = (CNLayer*)layer;
 			[tl.GestureRecognizer recognizeGesture:tl];
-			
-			//NSMutableArray* tempStrokesCopy = [tl.myMultitouchEvent.strokes mutableCopy];
 			
 			CNEvent* aEvent = [tl.myMultitouchEvent copy];
 			NSMutableArray* tempStrokeCopy = aEvent.strokes;
 			
 			for(id stroke in tl.myMultitouchEvent.strokes){
 				CNTouch* aStroke = (CNTouch*) stroke;
-				//CNTouch*stroke = [tl.myMultitouchEvent.strokes objectAtIndex:i];
 				if(aStroke.type == ReleaseTouch){
 					[aEvent removeStrokeByID:aStroke.strokeID];
 				}
 			}
 			tl.myMultitouchEvent.strokes = tempStrokeCopy;
+			if([tl.myMultitouchEvent.strokes count]==0 && ![tl isKindOfClass:[CNDebugLayer class]])
+				[activeLayers removeObject:tl];
 		}
-	}	
+	}
 }
 
 -(void)setupLayers
 {	
 	circlesfortouches = [[CNDebugLayer alloc] init];
 	//CIRCLES
-	[self.layer addSublayer:circlesfortouches];
-//	[self addActiveSubLayer:circlesfortouches];
 	
+	[activeLayers addObject:circlesfortouches];
 	
 	//STATUS BAR
 	CNStatusbarLayer*statusbar = [CNStatusbarLayer layer];
@@ -156,6 +166,7 @@
 
 	
 	//ADD LAYERS
+	self.layer.backgroundColor = CGColorCreateGenericRGB(0.2, 0.2, 0.2, 1);
 	[self.layer addSublayer:statusbar];
 	
 	tcdbg = [[CNDebug alloc] initWithImage:@"john.jpg"];
@@ -163,23 +174,14 @@
 	[self.layer addSublayer:tcdbg];
 	
 	CNDebug*tcdbg2 = [[CNDebug alloc] initWithImage:@"einstein.jpg"];
-	tcdbg2.position = CGPointMake(250,400);
+	tcdbg2.position = CGPointMake(250,270);
 	[self.layer addSublayer:tcdbg2];
 	
 	CNWheel*w=[[CNWheel alloc] init];
 	w.position=CGPointMake(200,600);
 	[self.layer addSublayer:w];
 	
-	//OBSERVERS
-//	[tcdbg addObserver:light1];
-//	[tcdbg addObserver:light2];
-//	[tcdbg addObserver:light3];
-//	[tcdbg addObserver:light4];
-//	[tcdbg addObserver:light5];
-//	[tcdbg addObserver:light6];
-//	[tcdbg addObserver:light7];
-//	[tcdbg addObserver:light8];
-//	[tcdbg addObserver:light9];
+	[self.layer addSublayer:circlesfortouches];
 }
 
 @end
