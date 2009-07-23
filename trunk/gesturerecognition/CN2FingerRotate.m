@@ -38,7 +38,6 @@
 -(BOOL)recognize:(id)sender{
 	if([sender isKindOfClass:[CNLayer class]]){
 		NSMutableArray* gStrokes = [[sender myMultitouchEvent] strokes];
-		
 		if([gStrokes count] == 2){///By now no grouping for this gesture is supported. Is supposed that only two different touch are in the active area.
 			
 			//Controllare la velocità diversa da zero
@@ -121,11 +120,16 @@
 																				   ///passing Rotation Angle, Rotation Sense, Rotation Angular Velocity, Medium Point, Velocity and GestureState
 					}
 				}
+				[vect_0_old release];
+				[vect_0 release];
+				[vect_1_old release];
+				[vect_1 release];
 				if(state==EndGesture){
 					state=WaitingGesture;
 				}
 				return TRUE;
 			}
+		
 		}
 	}
 	return FALSE;

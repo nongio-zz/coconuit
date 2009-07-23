@@ -62,7 +62,7 @@
 	if (err != nil) {
 		NSLog([err localizedDescription]);
 	}
-	
+	[completeParamPath release];
 	return ParamValue;
 }
 

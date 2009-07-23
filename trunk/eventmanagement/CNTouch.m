@@ -55,18 +55,25 @@
 		timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
 		strokePath = [[NSMutableArray alloc] init];
 		CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:position andVelocity:velocity andTime:timestamp];
-		[strokePath addObject:[newPathElement retain]];
+		[strokePath addObject:newPathElement];
+		[newPathElement release];
 	}
 	
 	return self;
 }
-
+-(void)dealloc
+{
+	NSLog(@"dealloc cntouch");
+	[cursor release];
+	[super dealloc];
+}
 -(void)setRelease{
 	[self setType:ReleaseTouch];
 }
 
 -(void)updateWithCursor:(CNTuioCursor*)aCursor{
-	cursor = aCursor;///keep the updated cursor
+	[cursor release];
+	cursor = [aCursor retain];///keep the updated cursor
 	position = [aCursor position];///update touch position
 	timestamp = [[NSDate date] timeIntervalSinceReferenceDate];///update touch timestamp
 	
@@ -79,7 +86,8 @@
 	velocity = newVelocity;///update Touch velocity
 	
 	CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:position andVelocity:velocity andTime:timestamp];
-	[strokePath addObject:[newPathElement retain]];///save the actual Touch state in the StrokePath
+	[strokePath addObject:newPathElement];///save the actual Touch state in the StrokePath
+	[newPathElement release];
 	lifetime += timestamp - lastPathElement.timestamp;///update Touch lifetime
 	
 }
@@ -107,7 +115,7 @@
 	[TempString appendString:[TempFormatter stringFromDate:[[NSDate alloc] initWithTimeIntervalSinceReferenceDate:timestamp]]];
 	[TempString appendString:@" TimeStamp: "];
 	[TempString appendString:[[NSNumber numberWithDouble:timestamp] stringValue]];
-	[TempString appendString:@" Lifetime: "];
+	[TempString appendString:@"Lifetime: "];
 	[TempString appendString:[[NSNumber numberWithDouble:lifetime] stringValue]];
 	return TempString;
 }
@@ -119,7 +127,9 @@
 		aTouch.timestamp = timestamp;
 		aTouch.lifetime = lifetime;
 		aTouch.velocity = velocity;
-		aTouch.strokePath = [strokePath mutableCopy];
+		NSMutableArray*copyPath=[strokePath mutableCopy];
+		aTouch.strokePath = copyPath;
+		[copyPath release];
 	}
 	return aTouch;
 }
@@ -138,7 +148,8 @@
 	velocity = newVelocity;
 	
 	CNPathElement* newPathElement = [[CNPathElement alloc] initWithPosition:position andVelocity:velocity andTime:timestamp];
-	[strokePath addObject:[newPathElement retain]];
+	[strokePath addObject:newPathElement];
+	[newPathElement release];
 	lifetime +=timestamp - lastPathElement.timestamp;
 }
 

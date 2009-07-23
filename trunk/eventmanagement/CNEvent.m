@@ -39,7 +39,7 @@
 }
 
 -(void)setStroke:(CNStroke*)aStroke{
-	[strokes addObject:[aStroke retain]];
+	[strokes addObject:aStroke];
 }
 
 -(CNStroke *)getStrokeByID:(NSInteger)aStrokeID{
@@ -69,11 +69,12 @@
 	NSMutableArray* anArray = [[NSMutableArray alloc] init];
 	
 	for(id stroke in strokes){
-		[anArray addObject:[((CNTouch*)stroke) copy]];
+		CNTouch*copytouch = [((CNTouch*)stroke) copy];
+		[anArray addObject:copytouch];
+		[copytouch release];
 	}
-		 
-	aEvent.strokes = anArray;
-	
+	[aEvent setStrokes: anArray];
+	[anArray release];
 	return aEvent;
 }
 

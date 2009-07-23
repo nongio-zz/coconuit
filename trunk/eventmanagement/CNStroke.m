@@ -27,5 +27,10 @@
 @synthesize position;
 @synthesize velocity;
 @synthesize strokePath;
-
+-(void)dealloc
+{
+	NSLog(@"dealloc cnstroke");
+	[strokePath release];
+	[super dealloc];
+}
 @end

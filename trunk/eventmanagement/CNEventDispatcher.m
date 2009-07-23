@@ -60,8 +60,11 @@
 
 -(void)notify:(id)anObject{
 	if([anObject isKindOfClass:[NSMutableDictionary class]]){
+		[OldCursors release];
+
 		OldCursors = [NewCursors copy];///keep previous cursors state
-		NewCursors = (NSMutableDictionary*)[anObject copy];///keep new cursors state
+		[NewCursors release];
+		NewCursors = (NSMutableDictionary*)[anObject mutableCopy];///keep new cursors state
 		
 		NSArray* OldCursorsKeys = [OldCursors allKeys];
 		NSArray* NewCursorsKeys = [NewCursors allKeys];
@@ -74,7 +77,7 @@
 				[eventcopy removeStrokeByID:touch.strokeID];///remove the Touches that have been set as Release at the previous step
 			}
 		}
-		
+		[myEvent release];
 		myEvent = eventcopy;
 
 		for (id key in OldCursorsKeys){
@@ -87,22 +90,23 @@
 				//Calculate velocity from points and timestamp
 				TempTouch.type = UpdateTouch;///update the Touches in the CNEvent instance
 				[TempTouch updateWithCursor:[NewCursors objectForKey:key]];
-				
 			}
 		}
-		
 		for (id key in NewCursorsKeys){
 			if(![OldCursors objectForKey:key]){
-				CNTouch* newTouch = [[CNTouch alloc] initWithCursor:(CNTuioCursor*) [NewCursors objectForKey:key]];//la velocità a zro va messa nell'inizializzatore di tocco
+				CNTuioCursor*acursor = (CNTuioCursor*) [NewCursors objectForKey:key];
+				CNTouch* newTouch = [[CNTouch alloc] initWithCursor:acursor];//la velocità a zro va messa nell'inizializzatore di tocco
 				///create a new Touch linked to the new cursor in the scene
 				[newTouch setVelocity:NSMakePoint(0,0)];
 				[myEvent setStroke:newTouch];///add the new Touch to the CNEvent instance
+				[newTouch release];
 			}
 		}
-		
 		if([myEvent.strokes count]>0){
 			myEvent.timestamp = [[NSDate date] timeIntervalSinceReferenceDate];///update the CNEvent instance timestamp
-			[[NSNotificationCenter defaultCenter] postNotificationName:@"newCNEvent" object:[myEvent copy]];///notify a new CNEvent [[NSNotificationCenter defaultCenter] postNotificationName:@"newCNEvent" object:[myEvent copy]];
+			CNEvent*notificationEvent = [myEvent copy];
+			[[NSNotificationCenter defaultCenter] postNotificationName:@"newCNEvent" object:notificationEvent];///notify a new CNEvent [[NSNotificationCenter defaultCenter] postNotificationName:@"newCNEvent" object:[myEvent copy]];
+			[notificationEvent release];
 		}
 	}
 }

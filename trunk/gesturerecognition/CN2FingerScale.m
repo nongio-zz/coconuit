@@ -93,13 +93,13 @@
 					
 					[sender performGesture:@"TwoFingerScale" withData:params];///call perform TwoFingerRotateGesture on the related layer [sender performGesture:@"TwoFingerScale" withData:params];
 																			  ///passing Scale Value, Scale Center and GestureState
-
 				}
 				
 				if(state==EndGesture){
 					state=WaitingGesture;
 				}
-					
+				[vect_old release];
+				[vect release];
 				return TRUE;
 			}
 				

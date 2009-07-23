@@ -46,6 +46,7 @@
 				[self groupStrokesToOne:gStrokes andUpdateTouch:touch];///grouping the touches to one
 			}
 			else{
+				[touch release];
 				touch = [[gStrokes lastObject] copy];///else get the only one
 				}
 		}

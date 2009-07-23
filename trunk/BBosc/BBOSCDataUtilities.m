@@ -156,7 +156,9 @@
 {
 	NSString * argValue = [[NSString alloc] initWithData:someData encoding:NSASCIIStringEncoding];
 	// strip off any trailing \0's
-	return [argValue stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\0"]];	
+	NSString*returnstring = [argValue stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\0"]];
+	[argValue release];
+	return returnstring;	
 }
 
 // rebuild the float value from the ieee 754 4 byte chunk
