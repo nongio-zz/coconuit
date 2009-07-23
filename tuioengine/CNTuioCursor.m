@@ -60,9 +60,13 @@
 		
 		xVelo = [[args objectAtIndex:4] floatValue];
 		yVelo = [[args objectAtIndex:5] floatValue];
-		
 		accel = [[args objectAtIndex:6] floatValue];
 	}
 	return self;
+}
+-(void)dealloc
+{
+	NSLog(@"dealloc cursor");
+	[super dealloc];
 }
 @end

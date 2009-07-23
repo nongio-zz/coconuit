@@ -46,6 +46,7 @@
 					[self groupStrokesToOne:gStrokes andUpdateTouch:touch];///grouping the touches to one
 				}
 				else{
+					[touch release];
 					touch = [[gStrokes lastObject] copy];///else get the only one
 				}
 				
@@ -89,8 +90,10 @@
 							if(state==EndGesture){///if GestureState is EndGesture set it to WaitingGesture
 								state=WaitingGesture;
 							}
+							[vectT release];
 							return TRUE;
 						}
+						[vectT release];
 					}
 				}
 			}

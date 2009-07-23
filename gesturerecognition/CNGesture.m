@@ -88,7 +88,9 @@
 			CNTouch* t = (CNTouch*) S;
 			
 			if(t.type==NewTouch){
-				aTouch.strokePath = [[NSMutableArray alloc] init];
+				NSMutableArray*newStrokePath = [[NSMutableArray alloc] init];
+				aTouch.strokePath = newStrokePath;
+				[newStrokePath release];
 			}
 			
 			if(t.type==NewTouch){
@@ -119,6 +121,7 @@
 	NSPoint gCenter = getCenterPoint(points);
 	
 	[aTouch updateWithPoint:gCenter andTouchType:touchType];
+	[points release];
 }
 -(void)dealloc
 {

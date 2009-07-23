@@ -60,9 +60,7 @@
 	
 	// a bit of manual hackery. this could be nicer
 	if ([command isEqualToString:@"fseq"]) {
-		
 		[self processFseq:[message attachedObjects]];
-		
 		return;
 	}
 	
@@ -94,8 +92,8 @@
 	// make a enw cursor from the arg array
 	CNTuioCursor * cursor = [[CNTuioCursor alloc] initWithArgs:args];
 	// put it into the active blob collection
-	
 	[activeBlobs setObject:cursor forKey:[self keyForID:[cursor cursorID]]];
+	[cursor release];
 }
 
 -(void)processAlive:(NSArray*)args{
@@ -113,12 +111,10 @@
 		//NSLog(@"Alive ID=%@",key);
 		// grab the cursor out of the active list and add it to the storage
 		CNTuioCursor* cursor = (CNTuioCursor*) [activeBlobs objectForKey:key];
-		
 
 		if(cursor!=nil){
 			[blobStorage setObject:cursor forKey:key];
 		}
-			
 	}
 	
 	// any blobs left in the storage get obliterated here
@@ -126,7 +122,7 @@
 	
 	// move all the still breathing blobs back into storage
 	[activeBlobs addEntriesFromDictionary:blobStorage];
-	//[self setActiveBlobs:[self activeBlobs]];
+
 }
 
 ///When a Tuio frame ends TuioDispatcher notifies all the observers about the Cursors state.
