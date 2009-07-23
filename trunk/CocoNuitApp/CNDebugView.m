@@ -53,10 +53,14 @@
 					if(num == NSNotFound)
 						[activeLayers addObject:tempLayer];
 					touchable = (CNLayer*) tempLayer;
-					[touchable.myMultitouchEvent setStroke:[touch copy]];
+					CNTouch*copytouch = [touch copy];
+					[touchable.myMultitouchEvent setStroke:copytouch];
+					[copytouch release];
 					ishover=YES;
 				}
-				[circlesfortouches setStroke:[touch copy] hover:ishover];
+				CNTouch*touchCopyForAurea = [touch copy];
+				[circlesfortouches setStroke:touchCopyForAurea hover:ishover];
+				[touchCopyForAurea release];
 			}
 		}
 	}
@@ -73,7 +77,6 @@
 			
 			CNEvent* aEvent = [tl.myMultitouchEvent copy];
 			NSMutableArray* tempStrokeCopy = aEvent.strokes;
-			
 			for(id stroke in tl.myMultitouchEvent.strokes){
 				CNTouch* aStroke = (CNTouch*) stroke;
 				if(aStroke.type == ReleaseTouch){
@@ -81,6 +84,7 @@
 				}
 			}
 			tl.myMultitouchEvent.strokes = tempStrokeCopy;
+			[aEvent release];
 			if([tl.myMultitouchEvent.strokes count]==0 && ![tl isKindOfClass:[CNDebugLayer class]])
 				[activeLayers removeObject:tl];
 		}

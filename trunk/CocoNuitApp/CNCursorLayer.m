@@ -21,6 +21,12 @@
 	return self;
 }
 
+-(void) dealloc
+{
+	[type release];
+	[super dealloc];
+}
+
 - (void)drawInContext:(CGContextRef)context
 {
 	if(self.hover)

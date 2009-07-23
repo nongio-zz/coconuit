@@ -47,9 +47,6 @@
 									 forKey:kCATransactionDisableActions];
 					CGPoint point = CGPointMake(tempTouch.position.x*[self superlayer].bounds.size.width, (1-tempTouch.position.y)*[self superlayer].bounds.size.height);
 					circle.position = point;
-					[qc setValue:[NSNumber numberWithFloat:tempTouch.position.x] forInputKey:@"X"];
-					[qc setValue:[NSNumber numberWithFloat:(1-tempTouch.position.y)] forInputKey:@"Y"];
-					[[self superlayer] setNeedsDisplayInRect:CGRectMake(point.x-12.5, point.y-12.5, 25, 25)];
 					[CATransaction commit];						
 					break;
 				case ReleaseTouch:
@@ -73,7 +70,6 @@
 		CNCursorLayer *circle = [[CNCursorLayer alloc] initWithRadius:15.0 hover:ishover];
 		circle.position = point;
 		[self addSublayer:circle];
-//		[[self superlayer] setNeedsDisplayInRect:CGRectMake(point.x-12.5, point.y-12.5, 25, 25)];
 		[layersForTouches setObject:circle forKey:[NSNumber numberWithInt: tempTouch.strokeID]];
 	}
 }
